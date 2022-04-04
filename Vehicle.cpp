@@ -166,13 +166,13 @@ void CVehicle::SetState(int state)
 		vy = 0.04;
 		is_firing = false;
 		break;
-	case MAIN_CHARACTER_STATE_OPEN_CABIN:
+	/*case MAIN_CHARACTER_STATE_OPEN_CABIN:
 		isStateOpenCabin = true;
 		break;
 	case MAIN_CHARACTER_STATE_CLOSE_CABIN:
 		isStateOpenCabin = false;
 		isCabinOpened = false;
-		break;
+		break;*/
 	default:
 		is_firing = false;
 		break;

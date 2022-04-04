@@ -72,7 +72,8 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 
 //#define OBJECT_TYPE_WHEEL_RIGHT	6
 
-#define OBJECT_TYPE_VEHICLE	7
+//#define OBJECT_TYPE_VEHICLE	7
+#define OBJECT_TYPE_BODY	7
 
 #define OBJECT_TYPE_HUMAN	11
 
@@ -424,44 +425,9 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		}
 		break;
 	}
-	/*case OBJECT_TYPE_WHEEL_LEFT:
+	case OBJECT_TYPE_BODY:
 	{
-		obj = new CWheelObject();
-		float _x, _y;
-		obj->SetAnimationSet(animation_sets->Get(ani_set_id));
-		obj->SetID(object_id);
-		if (player != NULL)
-		{
-
-			DebugOut(L"[INFO] Player object has been Created Already!\n");
-			player->AddComponentObject(obj);
-			player->GetPosition(_x, _y);
-			obj->SetPosition(_x, _y);
-			return;
-		}
-		break;
-	}
-	case OBJECT_TYPE_WHEEL_RIGHT:
-	{
-		obj = new CWheelObject();
-		CWheelObject* obj_right_wheel = (CWheelObject*)obj;
-		obj_right_wheel->SetIsRightWheel();
-		float _x, _y;
-		obj->SetID(object_id);
-		obj->SetAnimationSet(animation_sets->Get(ani_set_id));
-		if (player != NULL)
-		{
-			DebugOut(L"[INFO] Player object has been Created Already!\n");
-			player->AddComponentObject(obj);
-			player->GetPosition(_x, _y);
-			obj->SetPosition(_x, _y);
-		}
-		return;
-		break;
-	}*/
-	case OBJECT_TYPE_VEHICLE:
-	{
-		obj = new CVehicle();
+		obj = new CBody();
 		float _x, _y;
 		obj->SetID(object_id);
 		obj->SetAnimationSet(animation_sets->Get(ani_set_id));
@@ -499,7 +465,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 					float old_x_player =CGame::GetInstance()->GetParamXPlayer();
 					float old_y_player = CGame::GetInstance()->GetParamYPlayer();
 					player->Is_Human = true;
-					player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
+					//player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
 					player->SetPosition(old_x_player, old_y_player);
 					{
 						if (player_human)
@@ -1218,11 +1184,11 @@ void CPlayScenceKeyHandler::OnKeyDown(int KeyCode)
 	case DIK_M:
 		if (!player->Is_Human)
 		{
-			player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
+			//player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
 			player_human->SetPosition(player_x, player_y);
 		}
-		else if(player->Is_Human && player_human->CanChangeBeingPLayer)
-			player->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
+		//else if(player->Is_Human && player_human->CanChangeBeingPLayer)
+			//player->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
 		break;
 	}
 }
@@ -1242,10 +1208,10 @@ void CPlayScenceKeyHandler::KeyState(BYTE* states)
 	if (CGame::GetInstance()->GetCurrentScenceID()== SCENCE_ID_OVERWORLD_END) return;
 	if (game->IsKeyDown(DIK_UP))
 	{
-		/*if (!player->Is_Human)
+		if (!player->Is_Human)
 			player->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
 		else
-			player_human->SetState(MAIN_CHARACTER_STATE_UP_BARREL);*/
+			player_human->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
 	}
 	else if (game->IsKeyDown(DIK_DOWN))
 	{

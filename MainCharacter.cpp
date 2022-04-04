@@ -37,6 +37,7 @@
 #define ORB_ROUNDING_DISTANCE_X 120
 #define ORB_ROUNDING_DISTANCE_Y 110
 #include "Sound.h"
+
 CMainCharacter::CMainCharacter(float x, float y) : CGameObject()
 {
 	isEnable = true;
@@ -802,14 +803,14 @@ void CMainCharacter::Render()
 				{
 					componentObjects[i]->SetUntouchable(untouchable);
 					componentObjects[i]->Render();	
-					if (dynamic_cast<CVehicle*>(componentObjects[i]))
+					/*if (dynamic_cast<CVehicle*>(componentObjects[i]))
 					{
 						//Chuyển sang trạng thái là Human
 						if (dynamic_cast<CVehicle*>(componentObjects[i])->GetIsCabinOpened())
 							Is_Human = true;
 						else
 							Is_Human = false;
-					}
+					}*/
 				}
 				//RenderBoundingBox();
 			}
@@ -862,7 +863,7 @@ void CMainCharacter::SetState(int state)
 		break;
 	case MAIN_CHARACTER_STATE_NONE_COLLISION:
 		break;
-	case MAIN_CHARACTER_STATE_OPEN_CABIN:
+	/*case MAIN_CHARACTER_STATE_OPEN_CABIN:
 		for (int i = 0; i < componentObjects.size(); i++)
 		{
 			if (dynamic_cast<CVehicle*>(componentObjects[i]))
@@ -875,7 +876,7 @@ void CMainCharacter::SetState(int state)
 			if (dynamic_cast<CVehicle*>(componentObjects[i]))
 				dynamic_cast<CVehicle*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
 		}
-		break;
+		break;*/
 	case MAIN_CHARACTER_STATE_HUMAN:
 		break;
 	default:
@@ -895,13 +896,13 @@ void CMainCharacter::SetState(int state)
 		{
 			{
 				isStartFire = true;
-				if (dynamic_cast<CVehicle*>(componentObjects[i]))
+				if (dynamic_cast<CBody*>(componentObjects[i]))
 				{
 					float x_vehicle_object, y_vehicle_object;
 					//Lấy vị trí x, y của đối tượng nòng sóng
-					dynamic_cast<CVehicle*>(componentObjects[i])->GetPosition(x_vehicle_object, y_vehicle_object);
+					dynamic_cast<CBody*>(componentObjects[i])->GetPosition(x_vehicle_object, y_vehicle_object);
 					//Nếu nòng sóng đang giơ lên
-					if (dynamic_cast<CVehicle*>(componentObjects[i])->GetIsBarrelUp() == true)
+					if (dynamic_cast<CBody*>(componentObjects[i])->GetIsBarrelUp() == true)
 					{
 						CWeapon* weapon = new CWeapon(x + MAIN_CHARACTER_BBOX_WIDTH / 2, y + 10, nx, state, true);// Khởi tạo weapon theo x,y của barrel
 						list_weapon.push_back(weapon);
@@ -970,8 +971,8 @@ void CMainCharacter::Reset()
 	Is_Human = false;
 	for (int i = 0; i < componentObjects.size(); i++)
 	{
-		if (dynamic_cast<CVehicle*>(componentObjects[i]))
-			dynamic_cast<CVehicle*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
+		//if (dynamic_cast<CVehicle*>(componentObjects[i]))
+			//dynamic_cast<CVehicle*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
 	}
 }
 

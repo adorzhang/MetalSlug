@@ -3,9 +3,11 @@
 #include "./MainCharacter.h"
 
 #define LEG_ANI_IDLE		0
-#define LEG_ANI_RUN		2
-#define LEG_ANI_JUMP			3
-#define LEG_ANI_WALK			1
+#define LEG_ANI_LIE			1
+#define LEG_ANI_WALK		2
+#define LEG_ANI_RUN			3
+#define LEG_ANI_JUMP		4
+#define LEG_ANI_SWIM		5
 #define WHEEL_EFFECT_TIME 1000
 #define WHEEL_BBOX_WIDTH 8
 #define LEG_BBOX_WIDTH 22

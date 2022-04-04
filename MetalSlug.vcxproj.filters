@@ -40,7 +40,6 @@
     <ClCompile Include="Koopas.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MenuScence.cpp" />
     <ClCompile Include="PlayScence.cpp" />
     <ClCompile Include="Portal.cpp" />
@@ -133,6 +132,9 @@
     <ClCompile Include="Legs.cpp">
       <Filter>MainCharacterObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
@@ -151,7 +153,6 @@
     <ClInclude Include="Koopas.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Mario.h" />
     <ClInclude Include="MenuScence.h" />
     <ClInclude Include="PlayScence.h" />
     <ClInclude Include="Portal.h" />
@@ -245,6 +246,9 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Legs.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
       <Filter>MainCharacterObjects</Filter>
     </ClInclude>
   </ItemGroup>

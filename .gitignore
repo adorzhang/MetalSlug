@@ -26,6 +26,7 @@
 *.a
 *.lib
 .vs
+Debug
 
 # Executables
 *.exe

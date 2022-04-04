@@ -150,6 +150,7 @@
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="BarrelObject.cpp" />
+    <ClCompile Include="Body.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossScence.cpp" />
     <ClCompile Include="Brick.cpp" />
@@ -180,7 +181,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MenuScence.cpp" />
     <ClCompile Include="Mine.cpp" />
     <ClCompile Include="Orb.cpp" />
@@ -208,6 +208,7 @@
     <ClInclude Include="Animations.h" />
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="BarrelObject.h" />
+    <ClInclude Include="Body.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossScence.h" />
     <ClInclude Include="Brick.h" />
@@ -240,7 +241,6 @@
     <ClInclude Include="Legs.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Mario.h" />
     <ClInclude Include="MenuScence.h" />
     <ClInclude Include="Mine.h" />
     <ClInclude Include="Orb.h" />

@@ -9,7 +9,7 @@
 #include "Brick.h"
 #include "Lava.h"
 #include "Stair.h"
-#include "Mario.h"
+
 #include "Goomba.h"
 #include "Koopas.h"
 #include "EnemyObject1.h"
@@ -35,7 +35,8 @@
 #include "Legs.h"
 #include "CabinObject.h"
 #include "Human.h"
-#include "Vehicle.h"
+//#include "Vehicle.h"
+#include "Body.h"
 
 #include "TiledMap.h"
 #include "Grid.h"
