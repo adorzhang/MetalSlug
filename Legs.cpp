@@ -154,7 +154,7 @@ void CLegs::Render()
 void CLegs::SetState(int state)
 {
 	CGameObject::SetState(state);
-	/*switch (state)
+	switch (state)
 	{
 	case MAIN_CHARACTER_STATE_UP_BARREL:
 		is_start_push_effect = true;
@@ -165,7 +165,7 @@ void CLegs::SetState(int state)
 		is_being_up = false;
 		is_end_push_effect = false;
 		break;
-	}*/
+	}
 }
 
 void CLegs::GetBoundingBox(float& left, float& top, float& right, float& bottom)

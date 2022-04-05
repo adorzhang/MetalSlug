@@ -60,7 +60,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 	// Calculate dx, dy 
 	CGameObject::Update(dt);
-	if (x <= 0&&vx<0)
+	if (x <= 0 && vx < 0)
 		dx = 0;
 	// reset untouchable timer if untouchable time has passed
 
@@ -206,7 +206,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 							//skull->SetState(SKULL_STATE_MOVE_UP);
 							skull->SetState(SKULL_STATE_MOVE_RIGHT_ATTACK);
 							skull->SetIsAttack(true);
-							
+
 						}
 
 					}
@@ -431,7 +431,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 							power++;
 						if (e->ny < 0)
 						{
-							y -=  2*vy * dt;
+							y -= 2 * vy * dt;
 						}
 						else
 							x += dx;
@@ -737,7 +737,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 					else
 					{
 						Sound::getInstance()->PlayNew(SOUND_ID_EATING_ITEM);
-						if(power<8)
+						if (power < 8)
 							power++;
 						if (e->ny != 0)
 						{
@@ -751,7 +751,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			}
 		}
 	}
-	
+
 	//Update list of weapon objects
 	if (list_weapon.size() > 0)
 	{
@@ -785,7 +785,7 @@ void CMainCharacter::Render()
 			animation_set->at(MAIN_CHARACTER_ANI_EXPLOSION)->Render(x, y + 25, alpha);
 			if (animation_set->at(MAIN_CHARACTER_ANI_EXPLOSION)->isFinish)
 				SetState(MAIN_CHARACTER_STATE_DIE);
-		}		
+		}
 		else
 		{
 			{
@@ -802,25 +802,19 @@ void CMainCharacter::Render()
 				for (int i = 0; i < componentObjects.size(); i++)
 				{
 					componentObjects[i]->SetUntouchable(untouchable);
-					componentObjects[i]->Render();	
-					/*if (dynamic_cast<CVehicle*>(componentObjects[i]))
-					{
-						//Chuyển sang trạng thái là Human
-						if (dynamic_cast<CVehicle*>(componentObjects[i])->GetIsCabinOpened())
-							Is_Human = true;
-						else
-							Is_Human = false;
-					}*/
+					componentObjects[i]->Render();
+
 				}
 				//RenderBoundingBox();
 			}
 		}
-		
+
 	}
 }
 
 void CMainCharacter::SetState(int state)
 {
+
 	CGameObject::SetState(state);
 
 	switch (state)
@@ -860,23 +854,14 @@ void CMainCharacter::SetState(int state)
 		break;
 	case MAIN_CHARACTER_STATE_BARREL_FIRE:
 		vy = 0;
+		/*for (int i = 0; i < componentObjects.size(); i++)
+		{
+			if (dynamic_cast<CBody*>(componentObjects[i]))
+				dynamic_cast<CBody*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_BARREL_FIRE);
+		}*/
 		break;
 	case MAIN_CHARACTER_STATE_NONE_COLLISION:
 		break;
-	/*case MAIN_CHARACTER_STATE_OPEN_CABIN:
-		for (int i = 0; i < componentObjects.size(); i++)
-		{
-			if (dynamic_cast<CVehicle*>(componentObjects[i]))
-				dynamic_cast<CVehicle*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
-		}
-		break;
-	case MAIN_CHARACTER_STATE_CLOSE_CABIN:
-		for (int i = 0; i < componentObjects.size(); i++)
-		{
-			if (dynamic_cast<CVehicle*>(componentObjects[i]))
-				dynamic_cast<CVehicle*>(componentObjects[i])->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
-		}
-		break;*/
 	case MAIN_CHARACTER_STATE_HUMAN:
 		break;
 	default:
@@ -898,20 +883,26 @@ void CMainCharacter::SetState(int state)
 				isStartFire = true;
 				if (dynamic_cast<CBody*>(componentObjects[i]))
 				{
-					float x_vehicle_object, y_vehicle_object;
+					float x_body_object, y_body_object;
 					//Lấy vị trí x, y của đối tượng nòng sóng
-					dynamic_cast<CBody*>(componentObjects[i])->GetPosition(x_vehicle_object, y_vehicle_object);
+					dynamic_cast<CBody*>(componentObjects[i])->GetPosition(x_body_object, y_body_object);
 					//Nếu nòng sóng đang giơ lên
-					if (dynamic_cast<CBody*>(componentObjects[i])->GetIsBarrelUp() == true)
+					if (dynamic_cast<CBody*>(componentObjects[i])->GetIsBodyUp() == true)
 					{
 						CWeapon* weapon = new CWeapon(x + MAIN_CHARACTER_BBOX_WIDTH / 2, y + 10, nx, state, true);// Khởi tạo weapon theo x,y của barrel
 						list_weapon.push_back(weapon);
+						//dynamic_cast<CBody*>(componentObjects[i])->animation_set
+						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_UP)->SetCurrentFrame(-1);
+						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_UP)->isRepeat = false;
 					}
 					else
 					{
 						CWeapon* weapon = new CWeapon(x, y, nx, state, false);// Khởi tạo weapon theo x,y của barrel
 						list_weapon.push_back(weapon);
+						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->SetCurrentFrame(-1);
+						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->isRepeat = false;
 					}
+					
 				}
 			}
 		}

@@ -971,22 +971,6 @@ void CPlayScene::Update(DWORD dt)
 void CPlayScene::Render()
 {
 	{
-		//Vẽ tiled map của scene hiện tại
-		//CTiledMapSets::GetInstance()->Get(id)->Render();
-		//Tạo hiệu ứng vẽ tiled map của scene tiếp theo nếu thỏa điều kiện
-		/*if (id_next_map != -1 && CTiledMapSets::GetInstance()->Get(id_next_map) && CGame::GetInstance()->GetRenderingNextMap())
-		{
-			CMap* map = CTiledMapSets::GetInstance()->Get(id);
-			int widthMap, heightMap;
-			map->GetMapWidth(widthMap);
-			map->GetMapHeight(heightMap);
-
-			map = CTiledMapSets::GetInstance()->Get(id_next_map);
-			int widthNextMap, heightNextMap;
-			map->GetMapWidth(widthNextMap);
-			map->GetMapHeight(heightNextMap);
-			CTiledMapSets::GetInstance()->Get(id_next_map)->Render(widthMap, heightMap <= heightNextMap ? 0 : heightMap - heightNextMap);
-		}*/
 
 		LPDIRECT3DTEXTURE9 maptextures = CTextures::GetInstance()->Get(67);
 		//background
@@ -994,19 +978,6 @@ void CPlayScene::Render()
 		//forceground
 		CGame::GetInstance()->Draw(-5, 185, maptextures, 0, 1196, 5169, 1418); //TODO: cal position
 
-		/*else if (isRenderPreMap && id_pre_map != -1 && CTiledMapSets::GetInstance()->Get(id_pre_map))
-		{
-			CMap* map = CTiledMapSets::GetInstance()->Get(id);
-			int widthMap, heightMap;
-			map->GetMapWidth(widthMap);
-			map->GetMapHeight(heightMap);
-
-			map = CTiledMapSets::GetInstance()->Get(id_pre_map);
-			int widthPreMap, heightPreMap;
-			map->GetMapWidth(widthPreMap);
-			map->GetMapHeight(heightPreMap);
-			CTiledMapSets::GetInstance()->Get(id_pre_map)->Render(-widthPreMap, heightMap - heightPreMap);
-		}*/
 		//Vẽ tất cả các object hiện tại nếu thỏa điều kiện
 		if (player->GetState() != MAIN_CHARACTER_STATE_NONE_COLLISION)
 		{
@@ -1194,7 +1165,24 @@ void CPlayScenceKeyHandler::OnKeyDown(int KeyCode)
 }
 void CPlayScenceKeyHandler::OnKeyUp(int KeyCode)
 {
-
+	switch (KeyCode)
+	{
+	case DIK_SPACE:
+	
+		break;
+	case DIK_A:
+	
+		break;
+	case DIK_Z:
+		
+		break;
+	case DIK_X:
+		
+		break;
+	case DIK_M:
+		
+		break;
+	}
 }
 
 void CPlayScenceKeyHandler::KeyState(BYTE* states)

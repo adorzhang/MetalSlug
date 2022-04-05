@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 #include "./GameObject.h"
 #include "./MainCharacter.h"
+
 #define BODY_ANI_IDLE	0
 #define BODY_ANI_LIE	1
 #define BODY_ANI_SWIM	2
@@ -10,25 +11,24 @@
 #define BODY_ANI_SHOOT_STRAIGHT	6
 #define BODY_ANI_KNIFE_HIT	7
 #define BODY_UP_DOWN_EFFECT_TIME 100
+
 class CBody : public CGameObject
 {
 	int level;
+	int ani;
 	DWORD up_effect_start;
 	DWORD up_down_effect_time;
-	//bool is_being_up_effect_cabin;
 
-	float start_x;			// initial position of CABIN at scene
+
+	float start_x;	// initial position of CABIN at scene
 	float start_y;
 
-	bool is_barrel_up;
-	//int vehicle_nx;
-
-	bool isBarrelStraight;
+	bool isBodyUp;// sung huong doc
+	bool isBodyStraight; // sung huong ngang
 
 	float y_delta;
-	bool is_firing;
-	//bool isCabinOpened;
-	//bool isStateOpenCabin;
+	bool isFiring; // dang bắn
+
 public:
 
 	CBody(float x = 0.0f, float y = 0.0f);
@@ -43,7 +43,7 @@ public:
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 
-	bool GetIsBarrelUp() { return is_barrel_up; }
-	bool GetIsBarrelStraight() { return isBarrelStraight; }
-	//bool GetIsCabinOpened() { return isCabinOpened; }
+	bool GetIsBodyUp() { return isBodyUp; }
+	bool GetIsBodyStraight() { return isBodyStraight; }
+
 };

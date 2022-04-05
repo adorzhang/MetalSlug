@@ -10,8 +10,6 @@
 
 CBody::CBody(float x, float y) : CGameObject()
 {
-
-	//vehicle_nx = nx;
 	SetState(MAIN_CHARACTER_STATE_IDLE);
 
 	start_x = x;
@@ -20,6 +18,7 @@ CBody::CBody(float x, float y) : CGameObject()
 	this->x = x;
 	this->y = y;
 	y_delta = 0;
+	ani = BODY_ANI_IDLE;
 }
 
 void CBody::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
@@ -29,42 +28,13 @@ void CBody::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	this->dt = dt;
 	x = player_x;
 	y = player_y;
-	/*if (is_barrel_up && !isBarrelStraight && !is_firing)
+	if (isBodyUp && !isBodyStraight && !isFiring)
 		y_delta = 15;
-	else if (isBarrelStraight)
+	else if (isBodyStraight)
 		y_delta = y_delta;
 	else
 		y_delta = 0;
-	//Hiệu ứng cabin lên xuống khi di chuyển
-	if (vx != 0)
-	{
-		up_down_effect_time += dt;
-		if (!is_being_up_effect_cabin)
-		{
-			if (up_down_effect_time <= BODY_UP_DOWN_EFFECT_TIME)
-			{
-				y_delta += 0.02 * dt;
-			}
-			else
-			{
-				is_being_up_effect_cabin = true;
-				up_down_effect_time = 0;
-			}
-		}
-		else
-		{
-			if (up_down_effect_time <= BODY_UP_DOWN_EFFECT_TIME)
-			{
-				y_delta -= 0.02 * dt;
-			}
-			else
-			{
-				is_being_up_effect_cabin = false;
-				up_down_effect_time = 0;
-			}
-		}
 
-	}*/
 }
 
 void CBody::Render()
@@ -74,75 +44,97 @@ void CBody::Render()
 	if (untouchable)
 		alpha = 128;
 	bool flip = false;
-	int ani = -1;
+	//int ani = -1;
 	if (nx > 0)
 	{
 		flip = false;
 	}
 	else
 		flip = true;
-	/*if (isStateOpenCabin)
-	{
-		ani = VEHICLE_ANI_MO_CABIN;
-		animation_set->at(ani)->Render(x, y + 10, flip, alpha);
-		if (animation_set->at(ani)->isFinish)
-		{
-			animation_set->at(ani)->isFinish = false;
-			isCabinOpened = true;
-		}
-	}*/
-	//else
-	//{
-		//isCabinOpened = false;
-		ani = BODY_ANI_IDLE;
-		switch (state)
-		{
-		case MAIN_CHARACTER_STATE_STRAIGHT_BARREL:
-		case MAIN_CHARACTER_STATE_UP_BARREL:
-		{
-			ani = BODY_ANI_STARE;
-			animation_set->at(ani)->isRepeat = false;
-			is_barrel_up = true;//flag to determine suitable animation
-			if (animation_set->at(ani)->isFinish)
-				isBarrelStraight = true;
-			else
-			{
-				isBarrelStraight = false;
-			}
-			if (nx > 0)
-				animation_set->at(ani)->Render(x - 4, y + y_delta, flip, alpha);
-			else
-				animation_set->at(ani)->Render(x + 8, y + y_delta, flip, alpha);
-		}
-		break;
-		default:
-		{
-			//animation_set->at(VEHICLE_ANI_NONG_SUNG)->isFinish = false;
-			ani = BODY_ANI_IDLE;
-			animation_set->at(BODY_ANI_IDLE)->SetCurrentFrame(-1);
-			animation_set->at(BODY_ANI_IDLE)->isRepeat = true;
-			is_barrel_up = false;
-			isBarrelStraight = false;
-			/*if (vehicle_nx != nx)
-			{
-				int _ani = VEHICLE_ANI_XOAY;
-				animation_set->at(_ani)->Render(x, y + 2, flip, alpha);
-				if (animation_set->at(_ani)->isFinish)
-				{
-					animation_set->at(ani)->Render(x, y + 2, flip, alpha);
-					vehicle_nx = nx;
-					animation_set->at(_ani)->isFinish = false;
-				}
-			}*/
-			//else
-			//{
-				animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
 
-			//}
-		}
+	//
+	switch (state)
+	{
+	case MAIN_CHARACTER_STATE_STRAIGHT_BARREL:
 		break;
+	case MAIN_CHARACTER_STATE_UP_BARREL:
+	{
+		ani = BODY_ANI_STARE;
+		animation_set->at(ani)->isRepeat = false;
+		isBodyUp = true;//flag to determine suitable animation
+		if (animation_set->at(ani)->isFinish) {
+			isBodyStraight = true;
+			ani = BODY_ANI_IDLE;
 		}
-	//}
+		else
+		{
+			isBodyStraight = false;
+		}
+		if (nx > 0)
+			animation_set->at(ani)->Render(x -4, y + y_delta - 10, flip, alpha);
+		else
+			animation_set->at(ani)->Render(x - 4, y + y_delta - 10, flip, alpha);
+	}
+	break;
+	case MAIN_CHARACTER_STATE_BARREL_FIRE:
+	{
+		//if (isBodyStraight) {
+		ani = BODY_ANI_SHOOT_STRAIGHT;
+		//animation_set->at(ani)->isFinish = false;
+		animation_set->at(ani)->SetCurrentFrame(-1);
+		animation_set->at(ani)->isRepeat = false;
+
+		if (animation_set->at(ani)->isFinish) {
+			//isFiring = false;
+			ani = BODY_ANI_IDLE;
+		}
+		//}
+
+		if (nx > 0)
+			animation_set->at(ani)->Render(x, y + y_delta , flip, alpha);
+		else
+			animation_set->at(ani)->Render(x-200, y + y_delta, flip, alpha);
+	}
+	break;
+	default:
+	{
+		if (animation_set->at(ani)->isFinish ) {
+			ani = BODY_ANI_IDLE;
+			animation_set->at(BODY_ANI_STARE)->isFinish = false;
+			animation_set->at(BODY_ANI_STARE)->SetCurrentFrame(-1);
+			animation_set->at(BODY_ANI_STARE)->isRepeat = false;
+
+			animation_set->at(BODY_ANI_SHOOT_UP)->isFinish = false;
+			animation_set->at(BODY_ANI_SHOOT_UP)->SetCurrentFrame(-1);
+			animation_set->at(BODY_ANI_SHOOT_UP)->isRepeat = false;
+
+			animation_set->at(BODY_ANI_SHOOT_DOWN)->isFinish = false;
+			animation_set->at(BODY_ANI_SHOOT_DOWN)->SetCurrentFrame(-1);
+			animation_set->at(BODY_ANI_SHOOT_DOWN)->isRepeat = false;
+
+			animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->isFinish = false;
+			animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->SetCurrentFrame(-1);
+			animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->isRepeat = false;
+
+			animation_set->at(BODY_ANI_KNIFE_HIT)->isFinish = false;
+			animation_set->at(BODY_ANI_KNIFE_HIT)->SetCurrentFrame(-1);
+			animation_set->at(BODY_ANI_KNIFE_HIT)->isRepeat = false;
+		}
+		else {
+			//ani = BODY_ANI_IDLE;
+			//animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+		}
+		
+		
+
+		isBodyUp = false;
+		isBodyStraight = false;
+		animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+
+	}
+	break;
+	}
+
 }
 
 void CBody::SetState(int state)
@@ -153,28 +145,23 @@ void CBody::SetState(int state)
 	case MAIN_CHARACTER_STATE_IDLE:
 	case MAIN_CHARACTER_STATE_RUN_LEFT:
 	case MAIN_CHARACTER_STATE_RUN_RIGHT:
-		is_barrel_up = false;
-		isBarrelStraight = false;
-		is_firing = false;
+		isBodyUp = false;
+		isBodyStraight = false;
+		isFiring = false;
 		break;
 	case MAIN_CHARACTER_STATE_BARREL_FIRE:
-		is_firing = true;
+		isFiring = true;
+
+
 		break;
 	case MAIN_CHARACTER_STATE_STRAIGHT_BARREL:
 	case MAIN_CHARACTER_STATE_UP_BARREL:
-		is_barrel_up = true;
-		vy = 0.04;
-		is_firing = false;
+		isBodyUp = true;
+		vy = 0.08;
+		isFiring = false;
 		break;
-		/*case MAIN_CHARACTER_STATE_OPEN_CABIN:
-			isStateOpenCabin = true;
-			break;
-		case MAIN_CHARACTER_STATE_CLOSE_CABIN:
-			isStateOpenCabin = false;
-			isCabinOpened = false;
-			break;*/
 	default:
-		is_firing = false;
+		isFiring = false;
 		break;
 	}
 }
