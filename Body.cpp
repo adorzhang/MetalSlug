@@ -28,12 +28,11 @@ void CBody::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	this->dt = dt;
 	x = player_x;
 	y = player_y;
-	if (isBodyUp && !isBodyStraight && !isFiring)
+	if (isBodyUp )
 		y_delta = 15;
-	else if (isBodyStraight)
-		y_delta = y_delta;
 	else
 		y_delta = 0;
+	
 
 }
 
@@ -63,37 +62,31 @@ void CBody::Render()
 		animation_set->at(ani)->isRepeat = false;
 		isBodyUp = true;//flag to determine suitable animation
 		if (animation_set->at(ani)->isFinish) {
-			isBodyStraight = true;
-			ani = BODY_ANI_IDLE;
+			//ani = BODY_ANI_IDLE;
 		}
-		else
-		{
-			isBodyStraight = false;
-		}
+		
 		if (nx > 0)
-			animation_set->at(ani)->Render(x -4, y + y_delta - 10, flip, alpha);
+			animation_set->at(ani)->Render(x + 5, y + y_delta - 10, flip, alpha);
 		else
 			animation_set->at(ani)->Render(x - 4, y + y_delta - 10, flip, alpha);
 	}
 	break;
 	case MAIN_CHARACTER_STATE_BARREL_FIRE:
 	{
-		//if (isBodyStraight) {
-		ani = BODY_ANI_SHOOT_STRAIGHT;
+		if (isBodyUp) {
+			ani = BODY_ANI_SHOOT_UP;
+		}
+		else {
+			ani = BODY_ANI_SHOOT_STRAIGHT;
+		}
 		//animation_set->at(ani)->isFinish = false;
 		animation_set->at(ani)->SetCurrentFrame(-1);
 		animation_set->at(ani)->isRepeat = false;
 
-		if (animation_set->at(ani)->isFinish) {
-			//isFiring = false;
-			ani = BODY_ANI_IDLE;
-		}
-		//}
-
 		if (nx > 0)
 			animation_set->at(ani)->Render(x, y + y_delta , flip, alpha);
 		else
-			animation_set->at(ani)->Render(x-200, y + y_delta, flip, alpha);
+			animation_set->at(ani)->Render(x, y + y_delta, flip, alpha);
 	}
 	break;
 	default:
@@ -120,13 +113,7 @@ void CBody::Render()
 			animation_set->at(BODY_ANI_KNIFE_HIT)->SetCurrentFrame(-1);
 			animation_set->at(BODY_ANI_KNIFE_HIT)->isRepeat = false;
 		}
-		else {
-			//ani = BODY_ANI_IDLE;
-			//animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
-		}
 		
-		
-
 		isBodyUp = false;
 		isBodyStraight = false;
 		animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
@@ -143,6 +130,9 @@ void CBody::SetState(int state)
 	switch (state)
 	{
 	case MAIN_CHARACTER_STATE_IDLE:
+		isBodyStraight = true;
+		isBodyUp = false;
+		break;
 	case MAIN_CHARACTER_STATE_RUN_LEFT:
 	case MAIN_CHARACTER_STATE_RUN_RIGHT:
 		isBodyUp = false;
@@ -151,12 +141,14 @@ void CBody::SetState(int state)
 		break;
 	case MAIN_CHARACTER_STATE_BARREL_FIRE:
 		isFiring = true;
-
-
 		break;
 	case MAIN_CHARACTER_STATE_STRAIGHT_BARREL:
+		isBodyStraight = true;
+		isBodyUp = false;
+		break;
 	case MAIN_CHARACTER_STATE_UP_BARREL:
 		isBodyUp = true;
+		isBodyStraight = false;
 		vy = 0.08;
 		isFiring = false;
 		break;

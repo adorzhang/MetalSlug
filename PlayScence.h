@@ -49,7 +49,7 @@ class CPlayScene : public CScene
 protected:
 	//CMario *player;	
 	CMainCharacter* player;// A play scene has to have player, right? 
-	CHuman* player_human;
+	//CHuman* player_human;
 	float cx,cy;
 	float cam_y;
 	vector<LPGAMEOBJECT> objects;
@@ -88,10 +88,8 @@ public:
 	virtual void Render();
 	virtual void Unload();
 
-	//CMario * GetPlayer() { return player; } 
-	CMainCharacter* GetPlayer() { return player; }
-	CHuman* GetHumanPlayer() { return player_human; }
 
+	CMainCharacter* GetPlayer() { return player; }
 	//friend class CPlayScenceKeyHandler;
 
 	virtual CMap* GetMap();

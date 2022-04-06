@@ -203,27 +203,10 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		player->SetPosition(x, y);
 		player->SetAnimationSet(animation_sets->Get(ani_set_id));
 		if (type_scence == OVER_WORLD)
-			player->Is_Human=true;
+			player->Is_Human = true;
 		DebugOut(L"[INFO] Player object created!\n");
 		return;
 		break;
-	case OBJECT_TYPE_HUMAN:
-	{
-		player_human = new CHuman(x, y);
-		player_human->SetPosition(x, y);
-		//obj->SetID(object_id);
-		player_human->SetAnimationSet(animation_sets->Get(ani_set_id));
-		if (type_scence == OVER_WORLD)
-			player_human->SetLevel(HUMAN_LEVEL_BIG);
-		if (player != NULL)
-		{
-			DebugOut(L"[INFO] Player object has been Created Already!\n");
-			//player->AddComponentObject(obj);
-			player_human->SetPlayerObject(player);
-		}
-		return;
-		break;
-	}
 	case OBJECT_TYPE_WORM:
 	{
 		int item = 0;
@@ -462,26 +445,15 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 			{
 				if (player != NULL)
 				{
-					float old_x_player =CGame::GetInstance()->GetParamXPlayer();
+					float old_x_player = CGame::GetInstance()->GetParamXPlayer();
 					float old_y_player = CGame::GetInstance()->GetParamYPlayer();
 					player->Is_Human = true;
 					//player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
 					player->SetPosition(old_x_player, old_y_player);
-					{
-						if (player_human)
-						{
-							if (player_human->GetLevel() == HUMAN_LEVEL_SMALL)
-							{
-								if (CGame::GetInstance()->GetNextPortalId() == object_id)
-								{
-									player_human->SetPosition((x - HUMAN_SMALL_BBOX_WIDTH) - 2, y);
-								}
-							}
-						}
-					}
+
 				}
 			}
-			
+
 		}
 	}
 	break;
@@ -501,18 +473,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 				{
 					player->SetPosition((x - MAIN_CHARACTER_BBOX_WIDTH) - 2, y);
 				}
-				{
-					if (player_human)
-					{
-						if (player_human->GetLevel() == HUMAN_LEVEL_BIG)
-						{
-							if (CGame::GetInstance()->GetNextPortalId() == object_id)
-							{
-								player_human->SetPosition((x - HUMAN_BIG_BBOX_WIDTH) - 2, y);
-							}
-						}
-					}
-				}
+
 			}
 		}
 		else if (CGame::GetInstance()->GetIsNextMap())
@@ -522,20 +483,6 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 				if (CGame::GetInstance()->GetNextPortalId() == object_id)
 				{
 					player->SetPosition(x + (r - x) + 2, y);
-				}
-				//for (int i = 0; i < player->GetComponentObjects().size(); i++)
-				{
-					//LPGAMEOBJECT object = player->GetComponentObjects()[i];
-					if (player_human)
-					{
-						if (player_human->GetLevel() == HUMAN_LEVEL_BIG)
-						{
-							if (CGame::GetInstance()->GetNextPortalId() == object_id)
-							{
-								player_human->SetPosition(x + (r - x) + 2, y);
-							}
-						}
-					}
 				}
 			}
 		}
@@ -547,20 +494,6 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 				{
 					player->SetPosition(x, y + MAIN_CHARACTER_BBOX_HEIGHT + 12);
 				}
-				//for (int i = 0; i < player->GetComponentObjects().size(); i++)
-				{
-					//LPGAMEOBJECT object = player->GetComponentObjects()[i];
-					if (player_human)
-					{
-						if (player_human->GetLevel() == HUMAN_LEVEL_BIG)
-						{
-							if (CGame::GetInstance()->GetNextPortalId() == object_id)
-							{
-								player_human->SetPosition(x, y + HUMAN_BIG_BBOX_HEIGHT + 12);
-							}
-						}
-					}
-				}
 			}
 		}
 		else if (CGame::GetInstance()->GetIsDownMap())
@@ -569,21 +502,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 			{
 				if (CGame::GetInstance()->GetNextPortalId() == object_id)
 				{
-					player->SetPosition(x, y -(y-b)-6);
-				}
-				//for (int i = 0; i < player->GetComponentObjects().size(); i++)
-				{
-				//	LPGAMEOBJECT object = player->GetComponentObjects()[i];
-					if (player_human)
-					{
-						if (player_human->GetLevel() == HUMAN_LEVEL_BIG)
-						{
-							if (CGame::GetInstance()->GetNextPortalId() == object_id)
-							{
-								player_human->SetPosition(x, y - (y - b) - 6);
-							}
-						}
-					}
+					player->SetPosition(x, y - (y - b) - 6);
 				}
 			}
 		}
@@ -750,13 +669,13 @@ void CPlayScene::Update(DWORD dt)
 
 	// get objects from grid
 	CGame* game = CGame::GetInstance();
-	if (!isMenuScenceDisplayed&&id == START_SCENCE_ID)
+	if (!isMenuScenceDisplayed && id == START_SCENCE_ID)
 	{
 		isMenuScenceDisplayed = true;
 		CMenuScence* menu_scence = dynamic_cast<CMenuScence*>(CGame::GetInstance()->GetScene(MENU_SCENCE_ID));
 		if (menu_scence)
 			menu_scence->SetScenceId(id);
-		game->SwitchScene(MENU_SCENCE_ID,2,8);
+		game->SwitchScene(MENU_SCENCE_ID, 2, 8);
 	}
 	else
 	{
@@ -775,8 +694,7 @@ void CPlayScene::Update(DWORD dt)
 		else
 		{
 			player->Update(dt, &coObjects);
-			if(player_human)
-				player_human->Update(dt, &coObjects);
+
 		}
 		// skip the rest if scene was already unloaded (Mario::Update might trigger PlayScene::Unload)
 
@@ -909,12 +827,8 @@ void CPlayScene::Update(DWORD dt)
 		float cx = 0, cy = 0;
 		if (player)
 		{
-			if (player->Is_Human)
-			{
-				player_human->GetPosition(cx, cy);
-			}
-			else
-				player->GetPosition(cx, cy);
+			player->GetPosition(cx, cy);
+
 			if (cx <= (float)game->GetScreenWidth() / 2)
 			{
 				cx = 0;
@@ -939,12 +853,8 @@ void CPlayScene::Update(DWORD dt)
 			float player_x, player_y;
 			player_x = 0;
 			player_y = 0;
-			if (player->Is_Human)
-			{
-				player_human->GetPosition(player_x, player_y);
-			}
-			else
-				player->GetPosition(player_x, player_y);
+
+			player->GetPosition(player_x, player_y);
 
 			//float height = (player_y - cy);
 
@@ -954,7 +864,7 @@ void CPlayScene::Update(DWORD dt)
 
 				cy += height;
 			}*/
-			if (player_y > (float)game->GetScreenHeight()/2 && player_y < heightMap - (float)(game->GetScreenHeight() / 2)-1&&id!=1&&id!=5&&id!=3&&id!=22&&id!=23)
+			if (player_y > (float)game->GetScreenHeight() / 2 && player_y < heightMap - (float)(game->GetScreenHeight() / 2) - 1 && id != 1 && id != 5 && id != 3 && id != 22 && id != 23)
 			{
 				cam_y = player_y + (float)game->GetScreenHeight() / 2;
 			}
@@ -981,21 +891,14 @@ void CPlayScene::Render()
 		//Vẽ tất cả các object hiện tại nếu thỏa điều kiện
 		if (player->GetState() != MAIN_CHARACTER_STATE_NONE_COLLISION)
 		{
-			for (auto object:map_objects)
+			for (auto object : map_objects)
 				object.second->Render();
 			//Vẽ player object
-			if (type_scence == OVER_WORLD)
+			if (type_scence != OVER_WORLD)
 			{
-				if (player_human)
-					player_human->Render();
+				player->Render();
 			}
-			else
-			{
-				if (player)
-					player->Render();
-				if (player_human)
-					player_human->Render();
-			}
+
 			if (player->GetPower() < 0 && player->GetState() == MAIN_CHARACTER_STATE_DIE)
 			{
 				int lives = player->GetAlive();
@@ -1045,37 +948,37 @@ void CPlayScene::GetNextMap()
 		//
 		switch (section)
 		{
-			case SCENE_SECTION_MAP:
+		case SCENE_SECTION_MAP:
+		{
+			vector<string> tokens = split(line);
+			if (tokens.size() < 1) return; // skip invalid lines - an map must have at least path
+			wstring path = ToWSTR(tokens[0]);
+			tiledMap = new CTiledMap();
+			tiledMap->LoadMap(path.c_str());
+			break;
+		}
+		case SCENE_SECTION_SPRITES:
+		{
+			vector<string> tokens = split(line);
+
+			if (tokens.size() < 6) return; // skip invalid lines
+
+			int ID = atoi(tokens[0].c_str());
+			int l = atoi(tokens[1].c_str());
+			int t = atoi(tokens[2].c_str());
+			int r = atoi(tokens[3].c_str());
+			int b = atoi(tokens[4].c_str());
+			int texID = atoi(tokens[5].c_str());
+
+			LPDIRECT3DTEXTURE9 tex = CTextures::GetInstance()->Get(texID);
+			if (tex == NULL)
 			{
-				vector<string> tokens = split(line);
-				if (tokens.size() < 1) return; // skip invalid lines - an map must have at least path
-				wstring path = ToWSTR(tokens[0]);
-				tiledMap = new CTiledMap();
-				tiledMap->LoadMap(path.c_str());
-				break;
+				DebugOut(L"[ERROR] Texture ID %d not found!\n", texID);
+				return;
 			}
-			case SCENE_SECTION_SPRITES:
-			{
-				vector<string> tokens = split(line);
-
-				if (tokens.size() < 6) return; // skip invalid lines
-
-				int ID = atoi(tokens[0].c_str());
-				int l = atoi(tokens[1].c_str());
-				int t = atoi(tokens[2].c_str());
-				int r = atoi(tokens[3].c_str());
-				int b = atoi(tokens[4].c_str());
-				int texID = atoi(tokens[5].c_str());
-
-				LPDIRECT3DTEXTURE9 tex = CTextures::GetInstance()->Get(texID);
-				if (tex == NULL)
-				{
-					DebugOut(L"[ERROR] Texture ID %d not found!\n", texID);
-					return;
-				}
-				sprites_next_map->Add(ID, l, t, r, b, tex);
-				break;
-			}
+			sprites_next_map->Add(ID, l, t, r, b, tex);
+			break;
+		}
 		}
 	}
 
@@ -1095,7 +998,7 @@ void CPlayScene::Unload()
 	objects.clear();
 	map_objects.clear();
 	player = NULL;
-	player_human = NULL;
+	//player_human = NULL;
 	isRenderNextMap = false;
 	isRenderPreMap = false;
 	initNextMap = true;
@@ -1109,57 +1012,37 @@ void CPlayScene::ReLoad()
 	Sound::getInstance()->StopAll();
 	if (player)
 	{
-		CMenuScence* menu_scence=dynamic_cast<CMenuScence*>(CGame::GetInstance()->GetScene(MENU_SCENCE_ID));
+		CMenuScence* menu_scence = dynamic_cast<CMenuScence*>(CGame::GetInstance()->GetScene(MENU_SCENCE_ID));
 		if (menu_scence)
 			menu_scence->SetScenceId(id);
 		//if(player->GetAlive()>=0)
-			CGame::GetInstance()->SwitchScene(MENU_SCENCE_ID, player->GetAlive(), 8);
-	//	else
-			//CGame::GetInstance()->SwitchScene(MENU_SCENCE_ID, 2, 8);
+		CGame::GetInstance()->SwitchScene(MENU_SCENCE_ID, player->GetAlive(), 8);
+		//	else
+				//CGame::GetInstance()->SwitchScene(MENU_SCENCE_ID, 2, 8);
 	}
 }
 void CPlayScenceKeyHandler::OnKeyDown(int KeyCode)
 {
 	//DebugOut(L"[INFO] KeyDown: %d\n", KeyCode);
 	CMainCharacter* player = ((CPlayScene*)scence)->GetPlayer();
-	CHuman* player_human = ((CPlayScene*)scence)->GetHumanPlayer();
 	float player_x, player_y;
 	player->GetPosition(player_x, player_y);
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_JUMP);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_JUMP);
+		player->SetState(MAIN_CHARACTER_STATE_JUMP);
 		break;
 	case DIK_A:
 		player->Reset();
 		break;
 	case DIK_Z:
-		if (!player->Is_Human)
-		{
-			player->SetState(MAIN_CHARACTER_STATE_BARREL_FIRE);
-			Sound::getInstance()->PlayNew(SOUND_ID_BULLET_FIRE);
-		}
-		else
-		{
-			player_human->SetState(MAIN_CHARACTER_STATE_BARREL_FIRE);
-			Sound::getInstance()->PlayNew(SOUND_ID_BULLET_FIRE);
-		}
+		player->SetState(MAIN_CHARACTER_STATE_BARREL_FIRE);
+		Sound::getInstance()->PlayNew(SOUND_ID_BULLET_FIRE);
 		break;
 	case DIK_X:
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_FIRE_ROCKET);
-		break;
+		player->SetState(MAIN_CHARACTER_STATE_FIRE_ROCKET);
 	case DIK_M:
-		if (!player->Is_Human)
-		{
-			//player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
-			player_human->SetPosition(player_x, player_y);
-		}
-		//else if(player->Is_Human && player_human->CanChangeBeingPLayer)
-			//player->SetState(MAIN_CHARACTER_STATE_CLOSE_CABIN);
+
 		break;
 	}
 }
@@ -1168,19 +1051,19 @@ void CPlayScenceKeyHandler::OnKeyUp(int KeyCode)
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
-	
+
 		break;
 	case DIK_A:
-	
+
 		break;
 	case DIK_Z:
-		
+
 		break;
 	case DIK_X:
-		
+
 		break;
 	case DIK_M:
-		
+
 		break;
 	}
 }
@@ -1189,46 +1072,30 @@ void CPlayScenceKeyHandler::KeyState(BYTE* states)
 {
 	CGame* game = CGame::GetInstance();
 	CMainCharacter* player = ((CPlayScene*)scence)->GetPlayer();
-	CHuman* player_human = ((CPlayScene*)scence)->GetHumanPlayer();
 	//// disable control key when Mario die 
 	if (player->GetState() == MAIN_CHARACTER_STATE_DIE) return;
 	if (player->GetState() == MAIN_CHARACTER_STATE_NONE_COLLISION) return;
-	if (CGame::GetInstance()->GetCurrentScenceID()== SCENCE_ID_OVERWORLD_END) return;
+	if (CGame::GetInstance()->GetCurrentScenceID() == SCENCE_ID_OVERWORLD_END) return;
 	if (game->IsKeyDown(DIK_UP))
 	{
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
+		player->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
 	}
 	else if (game->IsKeyDown(DIK_DOWN))
 	{
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_DOWN_BARREL);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_DOWN_BARREL);
+		player->SetState(MAIN_CHARACTER_STATE_DOWN_BARREL);
 	}
 	else if (game->IsKeyDown(DIK_RIGHT))
 	{
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_RUN_RIGHT);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_RUN_RIGHT);
+		player->SetState(MAIN_CHARACTER_STATE_RUN_RIGHT);
 	}
-		
+
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_RUN_LEFT);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_RUN_LEFT);
+		player->SetState(MAIN_CHARACTER_STATE_RUN_LEFT);
 	}
 	else
 	{
-		if (!player->Is_Human)
-			player->SetState(MAIN_CHARACTER_STATE_IDLE);
-		else
-			player_human->SetState(MAIN_CHARACTER_STATE_IDLE);
+		player->SetState(MAIN_CHARACTER_STATE_IDLE);
 	}
 }
 

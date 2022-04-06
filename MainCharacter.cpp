@@ -889,18 +889,18 @@ void CMainCharacter::SetState(int state)
 					//Nếu nòng sóng đang giơ lên
 					if (dynamic_cast<CBody*>(componentObjects[i])->GetIsBodyUp() == true)
 					{
-						CWeapon* weapon = new CWeapon(x + MAIN_CHARACTER_BBOX_WIDTH / 2, y + 10, nx, state, true);// Khởi tạo weapon theo x,y của barrel
+						CWeapon* weapon;
+						if(nx > 0)
+							weapon = new CWeapon(x + MAIN_CHARACTER_BBOX_WIDTH / 2 + 10, y + 10, nx, state, true);// Khởi tạo weapon theo x,y của barrel
+						else
+							weapon = new CWeapon(x + MAIN_CHARACTER_BBOX_WIDTH / 2 - 10, y + 10, nx, state, true);// Khởi tạo weapon theo x,y của barrel
+
 						list_weapon.push_back(weapon);
-						//dynamic_cast<CBody*>(componentObjects[i])->animation_set
-						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_UP)->SetCurrentFrame(-1);
-						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_UP)->isRepeat = false;
 					}
 					else
 					{
-						CWeapon* weapon = new CWeapon(x, y, nx, state, false);// Khởi tạo weapon theo x,y của barrel
+						CWeapon* weapon = new CWeapon(x + 20, y-5, nx, state, false);// Khởi tạo weapon theo x,y của barrel
 						list_weapon.push_back(weapon);
-						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->SetCurrentFrame(-1);
-						//dynamic_cast<CBody*>(componentObjects[i])->animation_set->at(BODY_ANI_SHOOT_STRAIGHT)->isRepeat = false;
 					}
 					
 				}
