@@ -1,2 +1,0 @@
-# MetalSlug
-MetalSlug
