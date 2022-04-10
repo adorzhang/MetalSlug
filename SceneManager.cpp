@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 #include "Utils.h"
 #include "PlayScene.h"
-#include "AnimationManager.h"
+#include "Animation.h"
 
 void CSceneManager::_ParseSection_SETTINGS(std::string line)
 {
@@ -71,15 +71,15 @@ void CSceneManager::SwitchScene(int scene_id)
 
 	auto game = CGame::GetInstance();
 
-	game->GetComponent<CTextures>()->Clear();
-	game->GetComponent<CSprites>()->Clear();
-	game->GetComponent<CAnimations>()->Clear();
+	game->GetSystem<CTextures>()->Clear();
+	game->GetSystem<CSprites>()->Clear();
+	game->GetSystem<CAnimation>()->Clear();
 
 	last_scene = current_scene;
 	current_scene = scene_id;
 	auto s = (CPlayScene*)scenes[scene_id];
 
-	game->GetComponent<CInputHandler>()->SetKeyHandler(s->GetKeyEventHandler());
+	game->GetSystem<CInputHandler>()->SetKeyHandler(s->GetKeyEventHandler());
 	s->Load();
 
 	for (auto portal : s->GetPortalList())
@@ -92,7 +92,7 @@ void CSceneManager::SwitchScene(int scene_id)
 		}
 	}
 
-	auto mainCam = game->GetComponent<CCamera>();
+	auto mainCam = game->GetSystem<CCamera>();
 	if (s->IsTopDownView() == true)
 	{
 		mainCam->SetState(CameraState::FreePlaying_TopDown);
@@ -112,9 +112,9 @@ void CSceneManager::SwitchSection(int scene_id, Vector2 translation)
 	last_scene = current_scene;
 	current_scene = scene_id;
 	auto s = (CPlayScene*)scenes[scene_id];
-	game->GetComponent<CInputHandler>()->SetKeyHandler(s->GetKeyEventHandler());
+	game->GetSystem<CInputHandler>()->SetKeyHandler(s->GetKeyEventHandler());
 
-	s->SetState(PlaySceneState::Switching);
+	s->SetState(PlayState::Switching);
 	s->Load();
 	s->PreSwitchingSection((CPlayScene*)scenes[last_scene], translation);
 

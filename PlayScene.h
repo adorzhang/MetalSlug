@@ -16,7 +16,7 @@ const int CELL_SIZE = 128;
 class CGameObject;
 class CQuadtree;
 
-enum class State
+enum class PlayState
 {
 	FreePlaying,
 	Switching,
@@ -25,7 +25,7 @@ enum class State
 class CPlayScene : public CScene
 {
 protected:
-	State state;
+	PlayState state;
 
 	CGameObject* player;
 	std::unordered_map<int, CGameObject*> portals;
@@ -67,7 +67,7 @@ public:
 	virtual void Unload();
 	virtual void Clean();
 
-	void SetState(PlaySceneState _state) { this->state = _state; }
+	void SetState(PlayState _state) { this->state = _state; }
 	bool IsTopDownView() { return this->isTopDownView; }
 	LPMAPSPRITE GetMapBackground() { return this->background; }
 	CGameObject* GetPlayer() { return player; }

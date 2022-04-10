@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;rapidjson\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -80,6 +80,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);rapidjson\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -119,11 +120,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -147,12 +148,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Animate.cpp" />
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="PistolBullet.cpp" />
-    <ClCompile Include="BreakableBrick.cpp" />
-    <ClCompile Include="Brick.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider2D.cpp" />
@@ -178,22 +177,19 @@
     <ClCompile Include="Power.cpp" />
     <ClCompile Include="Quadtree.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="ComponentManager.cpp" />
+    <ClCompile Include="SystemManager.cpp" />
     <ClCompile Include="SlugNoid.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="Textures.cpp" />
-    <ClCompile Include="Thorn.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animate.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="PistolBullet.h" />
-    <ClInclude Include="BreakableBrick.h" />
-    <ClInclude Include="Brick.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider2D.h" />
@@ -219,13 +215,12 @@
     <ClInclude Include="Quadtree.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="ComponentManager.h" />
+    <ClInclude Include="System.h" />
+    <ClInclude Include="SystemManager.h" />
     <ClInclude Include="SlugNoid.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="Textures.h" />
-    <ClInclude Include="Thorn.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

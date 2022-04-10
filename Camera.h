@@ -1,11 +1,11 @@
 #pragma once
-#include "Component.h"
+#include "System.h"
 #include "Transform.h"
 #include "GameObject.h"
 
 class CGameObject;
 
-enum class State
+enum class CameraState
 {
 	FreePlaying_Scrolling,
 	FreePlaying_TopDown,
@@ -18,7 +18,7 @@ enum class State
 	Switching_StopBottom,
 };
 
-class CCamera : public CComponent
+class CCamera : public CSystem
 {
 protected:
 	const DWORD switchingDuration = 2500;
@@ -29,7 +29,7 @@ protected:
 	Vector2 bbSize;
 	CGameObject* target;
 
-	State state;
+	CameraState state;
 	bool isLeftToRight;
 	Vector2 velocitySwitching;
 	float boundary_blocking;
@@ -47,7 +47,7 @@ public:
 	void GetBoundary(Rect boundary) { this->boundary = boundary; }
 	CGameObject* GetTarget() { return this->target; }
 	void SetTarget(CGameObject* target) { this->target = target; }
-	void SetState(State state) { this->state = state; }
+	void SetState(CameraState state) { this->state = state; }
 
 	void PreUpdateSwitchingScrollingSection(Vector2 destination, Vector2 translation);
 	void PreUpdateSwitchingTopdownSection(Vector2 destination, Vector2 translation);

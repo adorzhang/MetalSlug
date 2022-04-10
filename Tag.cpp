@@ -6,7 +6,7 @@ bool CTagUtils::PlayerCTag(CTag tag)
 		tag == CTag::Mariner || tag == CTag::Player;
 }
 
-bool CTagUtils::EnemyCTag(CTag CTag)
+bool CTagUtils::EnemyCTag(CTag tag)
 {
-	return CTag == CTag::Enemy || CTag == CTag::BossZ88;
+	return tag == CTag::Enemy || tag == CTag::BossZ88;
 }

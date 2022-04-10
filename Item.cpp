@@ -12,7 +12,7 @@ CItem::CItem()
 	collider->SetDynamic(true);
 	colliders.push_back(collider);
 
-	CTag = CTag::Item;
+	tag = CTag::Item;
 
 	timeSpawn = GetTickCount();
 	flickeringDuration = (aliveDuration - preWarningDuration) / flickeringTimes;
@@ -52,6 +52,6 @@ void CItem::OnTriggerEnter(CCollider2D* selfCollider, CCollisionEvent* collision
 		SetDestroyed();
 		SetEnable(false);
 
-		CGame::GetInstance()->GetComponent<CSound>()->PlayWaveFile("PickItemUp");
+		CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("PickItemUp");
 	}
 }

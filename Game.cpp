@@ -1,7 +1,7 @@
 #include <fstream>
 
 #include "Game.h"
-#include "Animations.h"
+#include "AnimationManager.h"
 #include "Utils.h"
 #include "InputHandler.h"
 #include "SceneManager.h"
@@ -76,7 +76,7 @@ void CGame::InitDirectX(HWND hWnd)
 void CGame::Draw(Vector2 position, int nx, int layer_index,
 	LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, float angle, D3DCOLOR color)
 {
-	Vector2 camPos = GetComponent<CCamera>()->GetPosition();
+	Vector2 camPos = GetSystem<CCamera>()->GetPosition();
 	Vector3 p = Vector3(0, 0, 0);
 
 	RECT r;
@@ -145,7 +145,7 @@ LPDIRECT3DTEXTURE9 CGame::LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentC
 
 void CGame::Update(DWORD dt)
 {
-	GetComponent<CScenes>()->GetCurrentScene()->Update(dt);
+	GetSystem<CSceneManager>()->GetCurrentScene()->Update(dt);
 }
 
 void CGame::Render()
@@ -157,7 +157,7 @@ void CGame::Render()
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT);
 
-		GetComponent<CScenes>()->GetCurrentScene()->Render();
+		GetSystem<CSceneManager>()->GetCurrentScene()->Render();
 
 		spriteHandler->End();
 		d3ddv->EndScene();
@@ -169,7 +169,7 @@ void CGame::Render()
 
 void CGame::Clean()
 {
-	GetComponent<CSceneManager>()->GetCurrentScene()->Clean();
+	GetSystem<CSceneManager>()->GetCurrentScene()->Clean();
 }
 
 void CGame::Init(HWND hWnd)
@@ -178,18 +178,18 @@ void CGame::Init(HWND hWnd)
 
 	CGame* game = CGame::GetInstance();
 
-	game->AddComponent(new CTextures);
-	game->AddComponent(new CSprites);
-	game->AddComponent(new CAnimation);
-	game->AddComponent(new CInputHandler);
-	game->GetComponent<CInputHandler>()->SetHandleWindow(hWnd);
-	game->GetComponent<CInputHandler>()->Initialize();
-	game->AddComponent(new CCamera);
-	game->AddComponent(new CSceneManager);
-	game->GetComponent<CSceneManager>()->Load(L"database\\blaster-master.txt");
+	game->AddSystem(new CTextures);
+	game->AddSystem(new CSprites);
+	game->AddSystem(new CAnimationManager);
+	game->AddSystem(new CInputHandler);
+	game->GetSystem<CInputHandler>()->SetHandleWindow(hWnd);
+	game->GetSystem<CInputHandler>()->Initialize();
+	game->AddSystem(new CCamera);
+	game->AddSystem(new CSceneManager);
+	game->GetSystem<CSceneManager>()->Load(L"database\\blaster-master.txt");
 
-	game->AddComponent(new CSound(hWnd));
-	game->GetComponent<CSound>()->Initialize(hWnd);
+	game->AddSystem(new CSound(hWnd));
+	game->GetSystem<CSound>()->Initialize(hWnd);
 }
 
 void CGame::Run()
@@ -219,7 +219,7 @@ void CGame::Run()
 		{
 			frameStart = now;
 
-			CGame::GetInstance()->GetComponent<CInputHandler>()->ProcessKeyboard();
+			CGame::GetInstance()->GetSystem<CInputHandler>()->ProcessKeyboard();
 
 			Update(deltaTime);
 			Render();

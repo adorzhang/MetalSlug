@@ -57,19 +57,19 @@ void CCamera::PreUpdateSwitchingScrollingSection(Vector2 destination, Vector2 tr
 
 	if (destination.y < position.y)
 	{
-		state = State::Switching_BlockBottom;
+		state = CameraState::Switching_BlockBottom;
 		velocitySwitching.y = -bbSize.y / switchingDuration * 3;
 		boundary_blocking = destination.y - bbSize.y;
 	}
 	else if (destination.y > position.y)
 	{
-		state = State::Switching_BlockTop;
+		state = CameraState::Switching_BlockTop;
 		velocitySwitching.y = bbSize.y / switchingDuration * 3;
 		boundary_blocking = destination.y;
 	}
 	else
 	{
-		state = State::Switching_NoneBlock;
+		state = CameraState::Switching_NoneBlock;
 		velocitySwitching.y = 0;
 	}
 
@@ -97,12 +97,12 @@ void CCamera::PreUpdateSwitchingTopdownSection(Vector2 destination, Vector2 tran
 
 	if (destination.y < position.y)
 	{
-		state = State::Switching_StopBottom;
+		state = CameraState::Switching_StopBottom;
 		velocitySwitching.y = -bbSize.y / switchingDuration;
 	}
 	else if (destination.y > position.y)
 	{
-		state = State::Switching_StopTop;
+		state = CameraState::Switching_StopTop;
 		velocitySwitching.y = bbSize.y / switchingDuration;
 	}
 }
@@ -111,17 +111,17 @@ void CCamera::Update()
 {
 	switch (state)
 	{
-	case State::FreePlaying_Scrolling:
-	case State::FreePlaying_TopDown:
+	case CameraState::FreePlaying_Scrolling:
+	case CameraState::FreePlaying_TopDown:
 		UpdateFreePlaying();
 		break;
-	case State::Switching_BlockTop:
-	case State::Switching_BlockBottom:
-	case State::Switching_NoneBlock:
+	case CameraState::Switching_BlockTop:
+	case CameraState::Switching_BlockBottom:
+	case CameraState::Switching_NoneBlock:
 		UpdateSwitchingScrollingSection();
 		break;
-	case State::Switching_StopTop:
-	case State::Switching_StopBottom:
+	case CameraState::Switching_StopTop:
+	case CameraState::Switching_StopBottom:
 		UpdateSwitchingTopdownSection();
 		break;
 	default:
@@ -137,7 +137,7 @@ void CCamera::UpdateFreePlaying()
 
 	Vector2 vpPlayer = WorldToScreenPoint(posTarget);
 
-	if (position == VectorInfinity() || state == State::FreePlaying_TopDown)
+	if (position == VectorInfinity() || state == CameraState::FreePlaying_TopDown)
 	{
 		position.x = (int)(posTarget.x - bbSize.x / 2);
 		position.y = (int)(posTarget.y + bbSize.y / 2);
@@ -172,13 +172,13 @@ void CCamera::UpdateSwitchingScrollingSection()
 {
 	position += velocitySwitching * CGame::GetDeltaTime();
 
-	auto currentScene = (CPlayScene*)CGame::GetInstance()->GetComponent<CScenes>()->GetCurrentScene();
+	auto currentScene = (CPlayScene*)CGame::GetInstance()->GetSystem<CSceneManager>()->GetCurrentScene();
 
-	if (state == State::Switching_BlockTop)
+	if (state == CameraState::Switching_BlockTop)
 	{
 		if (position.y >= boundary_blocking) position.y = boundary_blocking;
 	}
-	else if (state == State::Switching_BlockBottom)
+	else if (state == CameraState::Switching_BlockBottom)
 	{
 		if (position.y - bbSize.y <= boundary_blocking) position.y = boundary_blocking + bbSize.y;
 	}
@@ -188,7 +188,7 @@ void CCamera::UpdateSwitchingScrollingSection()
 		if (position.x >= boundary_stopping)
 		{
 			position.x = boundary_stopping;
-			state = State::FreePlaying_Scrolling;
+			state = CameraState::FreePlaying_Scrolling;
 			currentScene->AfterSwitchingSection();
 		}
 	}
@@ -197,7 +197,7 @@ void CCamera::UpdateSwitchingScrollingSection()
 		if (position.x <= boundary_stopping)
 		{
 			position.x = boundary_stopping;
-			state = State::FreePlaying_Scrolling;
+			state = CameraState::FreePlaying_Scrolling;
 			currentScene->AfterSwitchingSection();
 		}
 	}
@@ -207,23 +207,23 @@ void CCamera::UpdateSwitchingTopdownSection()
 {
 	position += velocitySwitching * CGame::GetDeltaTime();
 
-	auto currentScene = (CPlayScene*)CGame::GetInstance()->GetComponent<CScenes>()->GetCurrentScene();
+	auto currentScene = (CPlayScene*)CGame::GetInstance()->GetSystem<CSceneManager>()->GetCurrentScene();
 
-	if (state == State::Switching_StopTop)
+	if (state == CameraState::Switching_StopTop)
 	{
 		if (position.y >= boundary_stopping)
 		{
 			position.y = boundary_stopping;
-			state = State::FreePlaying_TopDown;
+			state = CameraState::FreePlaying_TopDown;
 			currentScene->AfterSwitchingSection();
 		}
 	}
-	else if (state == State::Switching_StopBottom)
+	else if (state == CameraState::Switching_StopBottom)
 	{
 		if (position.y <= boundary_stopping)
 		{
 			position.y = boundary_stopping;
-			state = State::FreePlaying_TopDown;
+			state = CameraState::FreePlaying_TopDown;
 			currentScene->AfterSwitchingSection();
 		}
 	}

@@ -1,12 +1,12 @@
 #pragma once
-#include "Component.h"
+#include "System.h"
 #include "KeyEventHandler.h"
 #include <vector>
 
 #define DIRECTINPUT_VERSION 0x0800
 #define KEYBOARD_BUFFER_SIZE 1024
 
-class CInputHandler : public CComponent
+class CInputHandler : public CSystem
 {
 public:
 	void SetHandleWindow(HWND hWnd) { this->hWnd = hWnd; }

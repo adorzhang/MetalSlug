@@ -3,7 +3,7 @@
 
 #include "Game.h"
 
-class CTextures : public CComponent
+class CTextures : public CSystem
 {
 	std::unordered_map<std::string, LPDIRECT3DTEXTURE9> textures;
 

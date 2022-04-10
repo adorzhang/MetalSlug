@@ -1,13 +1,31 @@
 #pragma once
-#include "Animate.h"
+#include "Frame.h"
 
-class CAnimation : public CComponent
+class CAnimation
 {
-	std::unordered_map<std::string, LPANIMATION> animations;
+	std::vector<LPFRAME> frames;
+
+	int defaultFrame;
+	int currentFrame;
+	DWORD lastFrameTime;
+
+	bool isLooped = true;
+	bool isPaused = false;
+	bool isReversed = false;
+	bool isFinished = false;
 
 public:
-	void Add(std::string id, LPANIMATION anim);
-	LPANIMATION Get(std::string id);
-	LPANIMATION Clone(std::string id);
-	void Clear();
+	CAnimation();
+	CAnimation(const CAnimation& anim);
+	void Add(std::string id, DWORD time);
+	void Render(Vector2 position, int nx, int layer_index, float angle = 0.0f, D3DCOLOR color = D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	int GetCurrentFrame() { return this->currentFrame; }
+	void SetIsLooped(bool value) { this->isLooped = value; }
+	void SetIsPaused(bool value) { this->isPaused = value; }
+	void SetIsReversed(bool value) { this->isReversed = value; }
+	bool IsFinished() { return this->isFinished; }
+	void SetIsFinished(bool value) { this->isFinished = value; }
 };
+
+typedef CAnimation* LPANIMATION;

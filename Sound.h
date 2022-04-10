@@ -2,10 +2,10 @@
 #include <dsound.h>
 #include <unordered_map>
 
-#include "Component.h"
+#include "System.h"
 #include "Utils.h"
 
-class CSound : public CComponent
+class CSound : public CSystem
 {
 private:
 	struct WaveHeaderType

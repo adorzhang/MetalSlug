@@ -4,7 +4,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
-#include "ComponentManager.h"
+#include "SystemManager.h"
 #include "Transform.h"
 #include "KeyEventHandler.h"
 
@@ -15,7 +15,7 @@
 class CSprite;
 typedef CSprite* LPSPRITE;
 
-class CGame : public CComponentManager
+class CGame : public CSystemManager
 {
 	static CGame* instance;
 	static DWORD deltaTime;						// The interval in seconds from the last frame to the current one

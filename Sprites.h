@@ -20,7 +20,7 @@ public:
 
 typedef CSprite* LPSPRITE;
 
-class CSprites : public CComponent
+class CSprites : public CSystem
 {
 	std::unordered_map<std::string, LPSPRITE> sprites;
 

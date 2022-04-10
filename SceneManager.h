@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "System.h"
 #include "Scene.h"
 #include "Transform.h"
 #include <unordered_map>
@@ -10,7 +10,7 @@
 #define GAME_FILE_SECTION_SETTINGS 1
 #define GAME_FILE_SECTION_SCENES 2
 
-class CSceneManager : public CComponent
+class CSceneManager : public CSystem
 {
 protected:
 	std::unordered_map<int, LPSCENE> scenes;
