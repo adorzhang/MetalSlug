@@ -18,7 +18,6 @@
 
 
 #include "Brick.h"
-#include "Thorn.h"
 #include "BreakableBrick.h"
 
 #include "HealthBar.h"
@@ -266,7 +265,7 @@ void CPlayScene::_ParseSection_MAP(std::string line)
 
 				auto object_name = object["name"].GetString();
 
-				if (strcmp(object_name, "rossi") == 0) obj = new MarcoRossi;
+				if (strcmp(object_name, "rossi") == 0) obj = new CMarcoRossi;
 				else if (strcmp(object_name, "mariner") == 0)
 				{
 					if (player != nullptr)
@@ -274,7 +273,7 @@ void CPlayScene::_ParseSection_MAP(std::string line)
 						DebugOut(L"[ERROR] SOPHIA object was created before!\n");
 						continue;
 					}
-					obj = new SlugMariner;
+					obj = new CSlugMariner;
 					SetPlayer(obj);
 
 					DebugOut(L"[INFO] SOPHIA created!\n");
@@ -286,7 +285,7 @@ void CPlayScene::_ParseSection_MAP(std::string line)
 						DebugOut(L"[ERROR] BIG JASON object was created before!\n");
 						continue;
 					}
-					obj = new SlugNoid;
+					obj = new CSlugNoid;
 					SetPlayer(obj);
 
 					DebugOut(L"[INFO] BIG JASON object created!\n");
