@@ -12,8 +12,9 @@
 #include "AKBullet.h"
 #include "Enemy.h"
 #include "Sound.h"
+#include "Brick.h"
 
-void MarcoRossi::InitAnimations()
+void CMarcoRossi::InitAnimations()
 {
 	auto animation_manager = CGame::GetInstance()->GetSystem<CAnimationManager>();
 	AddAnimation("Idle", animation_manager->Get("ani-rossi-idle"));
@@ -23,7 +24,7 @@ void MarcoRossi::InitAnimations()
 	animations.at("Dead")->SetIsLooped(false);
 }
 
-void MarcoRossi::InitColliders()
+void CMarcoRossi::InitColliders()
 {
 	auto collider = new CCollider2D;
 	collider->SetGameObject(this);
@@ -33,7 +34,7 @@ void MarcoRossi::InitColliders()
 	colliders.push_back(collider);
 }
 
-void MarcoRossi::SwitchingCharacter()
+void CMarcoRossi::SwitchingCharacter()
 {
 	lastTimeSwitch = GetTickCount();
 	controllable = false;
@@ -49,10 +50,10 @@ void MarcoRossi::SwitchingCharacter()
 
 	CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("SwitchCharacter");
 
-	mariner->cabin->Switching();
+	
 }
 
-MarcoRossi::MarcoRossi()
+CMarcoRossi::CMarcoRossi()
 {
 	InitAnimations();
 	InitColliders();
@@ -66,7 +67,7 @@ MarcoRossi::MarcoRossi()
 	SetState(RossiState::IDLE);
 }
 
-void MarcoRossi::SetState(RossiState _state)
+void CMarcoRossi::SetState(RossiState _state)
 {
 	state = _state;
 	switch (state)
@@ -103,7 +104,7 @@ void MarcoRossi::SetState(RossiState _state)
 	}
 }
 
-void MarcoRossi::Update(DWORD dt)
+void CMarcoRossi::Update(DWORD dt)
 {
 	DebugOut(L"jason pos %f %f\n", transform.position.x, transform.position.y);
 
@@ -146,7 +147,7 @@ void MarcoRossi::Update(DWORD dt)
 
 	if (inputHandler->OnKeyDown(ControlKey::SHOOTING_KEY))
 	{
-		auto bullet = Instantiate<PistolBullet>(transform.position);
+		auto bullet = Instantiate<CPistolBullet>(transform.position);
 		bullet->SetVelocity(Vector2(nx * bullet->GetSpeed(), 0.0f));
 
 		CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("JasonBullet");
@@ -155,7 +156,7 @@ void MarcoRossi::Update(DWORD dt)
 	UntouchableUpdate();
 }
 
-void MarcoRossi::Render()
+void CMarcoRossi::Render()
 {
 	if (controllable == false)
 	{
@@ -169,7 +170,7 @@ void MarcoRossi::Render()
 	animation->Render(transform.position, -nx, layer_index + 1, 0, damagedColor[colorIndex]);
 }
 
-void MarcoRossi::OnDead()
+void CMarcoRossi::OnDead()
 {
 	DebugOut(L"[JASON] On Dead\n");
 	SetState(RossiState::DEAD);
@@ -177,7 +178,7 @@ void MarcoRossi::OnDead()
 	CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("JasonDie");
 }
 
-void MarcoRossi::OnOverlapped(CCollider2D* selfCollider, CGameObject* object)
+void CMarcoRossi::OnOverlapped(CCollider2D* selfCollider, CGameObject* object)
 {
 	if (dynamic_cast<CEnemy*>(object))
 	{
@@ -188,7 +189,7 @@ void MarcoRossi::OnOverlapped(CCollider2D* selfCollider, CGameObject* object)
 	}
 }
 
-void MarcoRossi::OnCollisionEnter(CCollider2D* selfCollider, CCollisionEvent* collision)
+void CMarcoRossi::OnCollisionEnter(CCollider2D* selfCollider, CCollisionEvent* collision)
 {
 	auto other = collision->obj;
 
@@ -197,7 +198,7 @@ void MarcoRossi::OnCollisionEnter(CCollider2D* selfCollider, CCollisionEvent* co
 		if (onGround == false && collision->ny == 1) onGround = true;
 		// TODO: Collise with wall, then hold idle state
 	}
-	else if (dynamic_cast<SlugMariner*>(other))
+	else if (dynamic_cast<CSlugMariner*>(other))
 	{
 		if (controllable == false && velocity.y < 0)
 		{
@@ -223,6 +224,6 @@ void MarcoRossi::OnCollisionEnter(CCollider2D* selfCollider, CCollisionEvent* co
 	}
 }
 
-void MarcoRossi::OnTriggerEnter(CCollider2D* selfCollider, CCollisionEvent* collision)
+void CMarcoRossi::OnTriggerEnter(CCollider2D* selfCollider, CCollisionEvent* collision)
 {
 }

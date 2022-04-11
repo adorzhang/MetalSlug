@@ -1,8 +1,8 @@
 #include "Playable.h"
 
-MarcoRossi* CPlayable::rossi = nullptr;
-SlugMariner* CPlayable::mariner = nullptr;
-SlugNoid* CPlayable::noid = nullptr;
+CMarcoRossi* CPlayable::rossi = nullptr;
+CSlugMariner* CPlayable::mariner = nullptr;
+CSlugNoid* CPlayable::noid = nullptr;
 
 DWORD CPlayable::switchDelay = 300;
 DWORD CPlayable::lastTimeSwitch = 0;

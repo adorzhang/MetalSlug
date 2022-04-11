@@ -89,6 +89,15 @@
     <Filter Include="Framework\System">
       <UniqueIdentifier>{614c8ac7-8cfa-4401-b33b-4f7b96dac9f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameObjects\Player\MarcoRossi">
+      <UniqueIdentifier>{27930336-0029-4029-b1db-074d9990b9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjects\Player\MarcoRossi\Action">
+      <UniqueIdentifier>{ac34be04-13ee-4af0-ada0-65f6af77a2fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjects\Player\MarcoRossi\Child">
+      <UniqueIdentifier>{22f1127e-b878-4712-aa7f-b4ce061ff2f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -175,9 +184,6 @@
     <ClCompile Include="SlugNoid.cpp">
       <Filter>Game\GameObjects\Player</Filter>
     </ClCompile>
-    <ClCompile Include="MarcoRossi.cpp">
-      <Filter>Game\GameObjects\Player</Filter>
-    </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
@@ -199,6 +205,39 @@
     </ClCompile>
     <ClCompile Include="Playable.cpp">
       <Filter>Game\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MarcoRossi.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiRightState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiLeftState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiIdleState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiUpState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrel.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="Legs.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Game\GameObjects\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomExplosion.cpp">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="BreakableBrick.cpp">
+      <Filter>Game\GameObjects\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualEffect.cpp">
+      <Filter>Game\GameObjects\VFX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -283,9 +322,6 @@
     <ClInclude Include="SlugNoid.h">
       <Filter>Game\GameObjects\Player</Filter>
     </ClInclude>
-    <ClInclude Include="MarcoRossi.h">
-      <Filter>Game\GameObjects\Player</Filter>
-    </ClInclude>
     <ClInclude Include="IntroScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
@@ -312,6 +348,42 @@
     </ClInclude>
     <ClInclude Include="System.h">
       <Filter>Framework\System</Filter>
+    </ClInclude>
+    <ClInclude Include="MarcoRossi.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiRightState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiLeftState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiIdleState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiUpState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Legs.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrel.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="IRossiState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Game\GameObjects\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomExplosion.h">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="BreakableBrick.h">
+      <Filter>Game\GameObjects\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualEffect.h">
+      <Filter>Game\GameObjects\VFX</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

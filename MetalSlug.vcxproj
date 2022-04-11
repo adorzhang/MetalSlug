@@ -150,6 +150,15 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationManager.cpp" />
+    <ClCompile Include="Barrel.cpp" />
+    <ClCompile Include="BreakableBrick.cpp" />
+    <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="Legs.cpp" />
+    <ClCompile Include="RandomExplosion.cpp" />
+    <ClCompile Include="RossiIdleState.cpp" />
+    <ClCompile Include="RossiLeftState.cpp" />
+    <ClCompile Include="RossiRightState.cpp" />
+    <ClCompile Include="RossiUpState.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="PistolBullet.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -184,10 +193,21 @@
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="VisualEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationManager.h" />
+    <ClInclude Include="Barrel.h" />
+    <ClInclude Include="BreakableBrick.h" />
+    <ClInclude Include="Brick.h" />
+    <ClInclude Include="IRossiState.h" />
+    <ClInclude Include="Legs.h" />
+    <ClInclude Include="RandomExplosion.h" />
+    <ClInclude Include="RossiIdleState.h" />
+    <ClInclude Include="RossiLeftState.h" />
+    <ClInclude Include="RossiRightState.h" />
+    <ClInclude Include="RossiUpState.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="PistolBullet.h" />
     <ClInclude Include="Bullet.h" />
@@ -223,6 +243,7 @@
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="VisualEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

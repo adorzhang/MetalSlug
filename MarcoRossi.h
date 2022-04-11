@@ -12,7 +12,7 @@ enum class RossiState
 
 class CPlayable;
 
-class MarcoRossi : public CPlayable
+class CMarcoRossi : public CPlayable
 {
 private:
 	const float WALK_SPEED = 0.12f;
@@ -30,7 +30,7 @@ protected:
 
 	void SwitchingCharacter();
 public:
-	MarcoRossi();
+	CMarcoRossi();
 
 	void SetState(RossiState state);
 

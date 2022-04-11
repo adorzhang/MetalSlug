@@ -2,9 +2,9 @@
 #include <dinput.h>
 #include "GameObject.h"
 
-class MarcoRossi;
-class SlugMariner;
-class SlugNoid;
+class CMarcoRossi;
+class CSlugMariner;
+class CSlugNoid;
 
 enum ControlKey
 {
@@ -21,9 +21,9 @@ enum ControlKey
 class CPlayable : public CGameObject
 {
 protected:
-	static MarcoRossi* rossi;
-	static SlugMariner* mariner;
-	static SlugNoid* noid;
+	static CMarcoRossi* rossi;
+	static CSlugMariner* mariner;
+	static CSlugNoid* noid;
 	static DWORD switchDelay;
 	static DWORD lastTimeSwitch;
 
