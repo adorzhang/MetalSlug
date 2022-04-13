@@ -1,0 +1,254 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+#tex-player	textures\player.png	41	255	4
+tex-rossi textures\marco_rossi.gif	0	0	0
+tex-tileset	textures\tileset.png	0	0	0
+tex-enemies	textures\enemies.png	41	255	4
+tex-items	textures\items.png	0	0	0
+tex-healthbar	textures\healthbar.png	41	255	4
+tex-bbox	textures\bbox.png	0	0	0
+tex-green-bbox	textures\green-bbox.png	0	0	0
+
+# id			left	top	width	height	texture_id
+[SPRITES]
+# ==== MARCO ROSSI =========
+# idle vl-pistol			
+spr-rossi-barrel-pistol-idle-0	11	8	41	37	tex-rossi
+spr-rossi-barrel-pistol-idle-1	45	8	74	37	tex-rossi
+spr-rossi-barrel-pistol-idle-2	78	8	108	37	tex-rossi
+spr-rossi-barrel-pistol-idle-3	112	8	143	37	tex-rossi
+# idle vl-shotgun
+spr-rossi-barrel-shotgun-idle-0	1	478	38	505	tex-rossi
+spr-rossi-barrel-shotgun-idle-1	41	477	79	505	tex-rossi
+spr-rossi-barrel-shotgun-idle-2	82	477	120	505	tex-rossi
+spr-rossi-barrel-shotgun-idle-3	124	477	162	505	tex-rossi
+# idle vl-ak
+spr-rossi-barrel-ak-idle-0	13	1059	49	1103	tex-rossi
+spr-rossi-barrel-ak-idle-1	53	1060	90	1102	tex-rossi
+spr-rossi-barrel-ak-idle-2	93	1060	131	1101	tex-rossi
+spr-rossi-barrel-ak-idle-3	133	1060	172	1101	tex-rossi
+
+# walk vl-pistol			
+spr-rossi-barrel-pistol-walk-0	13	149	45	177	tex-rossi
+spr-rossi-barrel-pistol-walk-1	47	148	77	177	tex-rossi
+spr-rossi-barrel-pistol-walk-2	78	148	107	175	tex-rossi
+spr-rossi-barrel-pistol-walk-3	108	148	136	176	tex-rossi
+spr-rossi-barrel-pistol-walk-4	139	149	168	176	tex-rossi
+spr-rossi-barrel-pistol-walk-5	171	149	201	176	tex-rossi
+spr-rossi-barrel-pistol-walk-6	204	149	236	178	tex-rossi
+spr-rossi-barrel-pistol-walk-7	239	149	271	178	tex-rossi
+spr-rossi-barrel-pistol-walk-8	274	149	307	177	tex-rossi
+spr-rossi-barrel-pistol-walk-9	373	147	302	177	tex-rossi
+spr-rossi-barrel-pistol-walk-10	376	149	307	177	tex-rossi
+spr-rossi-barrel-pistol-walk-11	417	148	443	177	tex-rossi
+# walk vl-shotgun
+spr-rossi-barrel-shotgun-walk-0	396	474	434	501	tex-rossi
+spr-rossi-barrel-shotgun-walk-1	437	474	474	501	tex-rossi
+spr-rossi-barrel-shotgun-walk-2	478	474	515	501	tex-rossi
+spr-rossi-barrel-shotgun-walk-3	521	475	557	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-4	560	475	598	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-5	600	474	637	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-6	640	475	676	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-7	680	474	714	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-8	717	475	753	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-9	757	475	793	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-10	796	475	832	502	tex-rossi
+spr-rossi-barrel-shotgun-walk-11	836	475	872	502	tex-rossi
+# walk vl-ak
+spr-rossi-barrel-ak-walk-0	13	1059	49	1102	tex-rossi
+spr-rossi-barrel-ak-walk-1	52	1060	90	1102	tex-rossi
+spr-rossi-barrel-ak-walk-2	93	1060	131	1101	tex-rossi
+spr-rossi-barrel-ak-walk-3	132	1061	172	1101	tex-rossi
+spr-rossi-barrel-ak-walk-4	179	1061	218	1100	tex-rossi
+spr-rossi-barrel-ak-walk-5	225	1059	263	1094	tex-rossi
+spr-rossi-barrel-ak-walk-6	266	1069	308	1099	tex-rossi
+spr-rossi-barrel-ak-walk-7	311	1067	349	1102	tex-rossi
+spr-rossi-barrel-ak-walk-8	356	1062	1102	1099	tex-rossi
+spr-rossi-barrel-ak-walk-9	398	1060	436	1103	tex-rossi
+
+#stare up vl-pistol
+spr-rossi-barrel-pistol-stare-up-0	15	57	43	84	tex-rossi
+spr-rossi-barrel-pistol-stare-up-1	48	58	77	84	tex-rossi
+spr-rossi-barrel-pistol-stare-up-2	81	57	109	83	tex-rossi
+spr-rossi-barrel-pistol-stare-up-3	114	57	143	83	tex-rossi
+#stare up vl-shotgun
+spr-rossi-barrel-shotgun-stare-up-0	165	469	196	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-1	199	469	228	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-2	231	469	260	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-3	263	469	292	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-4	297	469	328	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-5	331	469	360	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-6	263	469	292	505	tex-rossi
+spr-rossi-barrel-shotgun-stare-up-7	263	469	292	505	tex-rossi
+#stare up vl-ak
+spr-rossi-barrel-ak-stare-up-0	647	1060	675	1099	tex-rossi
+spr-rossi-barrel-ak-stare-up-1	679	1064	710	1098	tex-rossi
+spr-rossi-barrel-ak-stare-up-2	714	1065	746	1099	tex-rossi
+spr-rossi-barrel-ak-stare-up-3	748	1066	781	1098	tex-rossi
+spr-rossi-barrel-ak-stare-up-4	784	1065	815	1099	tex-rossi
+spr-rossi-barrel-ak-stare-up-5	818	1067	847	1098	tex-rossi
+
+# jump					
+spr-jason-walk-jump	12	30	8	16	tex-player
+# die					
+spr-jason-die-0	3	64	16	16	tex-player
+spr-jason-die-1	20	64	16	16	tex-player
+spr-jason-die-2	37	64	16	16	tex-player
+spr-jason-die-3	54	64	16	16	tex-player
+spr-jason-die-4	3	81	16	16	tex-player
+# crouch					
+spr-jason-crouch-0	3	47	16	8	tex-player
+spr-jason-crouch-1	21	47	16	8	tex-player
+# lie					
+spr-jason-lie	20	89	16	8	tex-player
+
+# ==== SOPHIA =========
+# wheel part
+spr-sophia-wheel-0	3	21	8	8	tex-player
+spr-sophia-wheel-1	12	21	8	8	tex-player
+spr-sophia-wheel-2	21	21	8	8	tex-player
+spr-sophia-wheel-3	30	21	8	8	tex-player
+# middle part
+spr-sophia-middle	3	12	8	8	tex-player
+# gun part
+spr-sophia-gun-00	12	3	8	8	tex-player
+spr-sophia-gun-45	21	3	8	8	tex-player
+spr-sophia-gun-90	30	3	8	8	tex-player
+# cabin part
+spr-sophia-cabin	39	3	16	8	tex-player
+spr-sophia-cabin-turn	56	3	16	8	tex-player
+spr-sophia-cabin-45	73	3	16	16	tex-player
+spr-sophia-cabin-open	125	3	16	16	tex-player
+
+# === INTERRUPT ======
+spr-interrupt-close	153	1486	22	18	tex-enemies
+spr-interrupt-open	128	1489	22	15	tex-enemies
+spr-interrupt-bullet	178	1495	9	9	tex-enemies
+
+# === NEOWORM ========
+spr-neoworm-0	168	1265	18	10	tex-enemies
+spr-neoworm-1	187	1265	17	10	tex-enemies
+spr-neoworm-larva	178	1495	9	9	tex-enemies
+
+# === BALLBOT ========
+spr-ballbot-0	128	737	18	18	tex-enemies
+spr-ballbot-1	149	737	18	18	tex-enemies
+spr-ballbot-2	170	737	18	18	tex-enemies
+
+# === STUKA ==========
+spr-stuka-0	54	386	18	18	tex-enemies
+spr-stuka-1	74	386	18	18	tex-enemies
+spr-stuka-2	94	386	18	18	tex-enemies
+spr-stuka-3	114	386	18	18	tex-enemies
+spr-stuka-4	134	386	18	18	tex-enemies
+spr-stuka-5	154	386	18	18	tex-enemies
+spr-stuka-6	174	386	18	18	tex-enemies
+
+# === EYELET =========
+spr-eyelet-0	128	31	18	15	tex-enemies
+spr-eyelet-1	148	28	18	18	tex-enemies
+spr-eyelet-2	168	31	18	15	tex-enemies
+spr-eyelet-3	188	36	18	10	tex-enemies
+
+# === BALL CARRY =====
+spr-ballcarry-sleep	128	652	16	16	tex-enemies
+spr-ballcarry-move-0	147	651	18	17	tex-enemies
+spr-ballcarry-open	168	653	18	15	tex-enemies
+spr-ballcarry-move-1	188	650	16	18	tex-enemies
+
+# === DRAP ===========
+spr-drap-0	128	274	18	18	tex-enemies
+spr-drap-1	148	276	18	16	tex-enemies
+spr-drap-2	188	276	18	16	tex-enemies
+spr-drap-3	168	274	18	18	tex-enemies
+
+# === GX680 ==========
+spr-gx680-0	128	296	18	16	tex-enemies
+spr-gx680-1	148	295	18	17	tex-enemies
+
+# === GX680S =========
+spr-gx680s-0	128	1150	18	16	tex-enemies
+spr-gx680s-1	148	1149	18	17	tex-enemies
+
+# === LASER GUARD ====
+spr-laserguard-0	128	717	17	18	tex-enemies
+spr-laserguard-1	146	717	17	18	tex-enemies
+
+# === PLAYER BULLET ===
+spr-hyperbeam-axisy	117	20	6	24	tex-player
+spr-hyperbeam-axisx	91	21	24	6	tex-player
+spr-jason-bullet	75	40	4	4	tex-player
+spr-bigjason-xbullet	234	107	8	6	tex-player
+spr-bigjason-ybullet	244	106	6	8	tex-player
+
+# === ENEMY BULLET ===
+spr-ballcarry-bomb	47	514	10	10	tex-enemies
+
+# ===== ITEMS ========
+spr-power-item	255	109	16	16	tex-items
+spr-hover-item	105	109	16	16	tex-items
+spr-gun-item	5	59	16	16	tex-items
+
+# ===== VFX ==========
+spr-explosion-0	140	101	7	8	tex-player
+spr-explosion-1	149	97	16	13	tex-player
+spr-explosion-2	166	97	16	16	tex-player
+spr-explosion-3	183	93	24	24	tex-player
+
+spr-sophia-explosion-0	159	3	45	40	tex-player
+spr-sophia-explosion-1	143	45	64	47	tex-player
+
+# ===== HUD ==========
+# Health Bar
+spr-healthbar-0	64	0	8	48	tex-healthbar
+spr-healthbar-1	56	0	8	48	tex-healthbar
+spr-healthbar-2	48	0	8	48	tex-healthbar
+spr-healthbar-3	40	0	8	48	tex-healthbar
+spr-healthbar-4	32	0	8	48	tex-healthbar
+spr-healthbar-5	24	0	8	48	tex-healthbar
+spr-healthbar-6	16	0	8	48	tex-healthbar
+spr-healthbar-7	8	0	8	48	tex-healthbar
+spr-healthbar-8	0	0	8	48	tex-healthbar
+
+# ani_id		sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+
+# ==== JASON =========
+# idle
+ani-jason-idle	spr-jason-idle	100
+# walk
+ani-jason-walk	spr-jason-walk-jump	100	spr-jason-walk-0	100	spr-jason-walk-jump	100	spr-jason-walk-1	100
+# jump
+ani-jason-jump	spr-jason-walk-jump	100
+# die
+ani-jason-die	spr-jason-die-0	100	spr-jason-die-3	100	spr-jason-die-2	100	spr-jason-die-1	100	spr-jason-die-0	100	spr-jason-die-3	100	spr-jason-die-2	100	spr-jason-die-1	100	spr-jason-die-4	100	spr-jason-lie	300
+# crouch
+ani-jason-crouch	spr-jason-crouch-0	100	spr-jason-crouch-1	100
+
+# ==== SOPHIA ========
+# wheel
+ani-sophia-left-wheel	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100	spr-sophia-wheel-3	100
+ani-sophia-right-wheel	spr-sophia-wheel-3	100	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100
+
+# === NEOWORM ========
+ani-neoworm	spr-neoworm-0	100	spr-neoworm-1	100
+
+# === BALLBOT ========
+ani-ballbot	spr-ballbot-0	100	spr-ballbot-1	100	spr-ballbot-2	100
+
+# === STUKA ==========
+ani-stuka	spr-stuka-0	150	spr-stuka-1	150	spr-stuka-2	150	spr-stuka-3	150	spr-stuka-4	150	spr-stuka-5	150	spr-stuka-6	150
+
+# === EYELET =========
+ani-eyelet	spr-eyelet-0	100	spr-eyelet-1	100	spr-eyelet-2	100	spr-eyelet-3	100
+
+# === BALL CARRY =====
+ani-ballcarry	spr-ballcarry-move-0	100	spr-ballcarry-move-1	100
+
+# ===== VFX ==========
+ani-big-explosion	spr-explosion-3	100	spr-explosion-2	100	spr-explosion-1	100	spr-explosion-0	100
+ani-small-explosion	spr-explosion-2	200	spr-explosion-1	100	spr-explosion-0	100
+ani-sophia-explosion	spr-sophia-explosion-0	100	spr-sophia-explosion-1	100
+
+[MAP]
+maps\sectionA.json

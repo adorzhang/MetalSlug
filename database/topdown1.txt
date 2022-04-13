@@ -1,0 +1,133 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+tex-player	textures\player.png	41	255	4
+tex-tileset	textures\tileset.png	0	0	0
+tex-indoor	textures\indoor.png	0	0	0
+tex-enemies	textures\enemies.png	41	255	4
+tex-items	textures\items.png	0	0	0
+tex-healthbar	textures\healthbar.png	41	255	4
+tex-gunbar	textures\gunbar.png	41	255	4
+tex-bbox	textures\bbox.png	0	0	0
+tex-green-bbox	textures\green-bbox.png	0	0	0
+
+# id			left	top	width	height	texture_id
+[SPRITES]
+# === BIG JASON ======
+# idle
+spr-bigjason-idle-front	235	3	20	32	tex-player
+spr-bigjason-idle-back	235	36	20	32	tex-player
+spr-bigjason-idle-left	233	69	24	32	tex-player
+# walk
+spr-bigjason-walk-front-0	210	3	20	31	tex-player
+spr-bigjason-walk-front-1	260	3	20	31	tex-player
+spr-bigjason-walk-back-0	210	36	20	31	tex-player
+spr-bigjason-walk-back-1	260	36	20	31	tex-player
+spr-bigjason-walk-left-0	208	69	24	31	tex-player
+spr-bigjason-walk-left-1	258	69	24	31	tex-player
+# fall when die
+spr-bigjason-fall-0	284	4	23	31	tex-player
+spr-bigjason-fall-1	308	6	24	29	tex-player
+spr-bigjason-fall-2	333	8	23	27	tex-player
+spr-bigjason-fall-3	358	10	24	25	tex-player
+spr-bigjason-fall-4	383	19	24	16	tex-player
+
+# === DRAP ===========
+spr-drap-0	128	274	18	18	tex-enemies
+spr-drap-1	148	276	18	16	tex-enemies
+spr-drap-2	188	276	18	16	tex-enemies
+spr-drap-3	168	274	18	18	tex-enemies
+
+# === GX680 ==========
+spr-gx680-0	128	296	18	16	tex-enemies
+spr-gx680-1	148	295	18	17	tex-enemies
+
+# === GX680S =========
+spr-gx680s-0	128	1150	18	16	tex-enemies
+spr-gx680s-1	148	1149	18	17	tex-enemies
+
+# === LASER GUARD ====
+spr-laserguard-0	128	717	17	18	tex-enemies
+spr-laserguard-1	146	717	17	18	tex-enemies
+
+# === PLAYER BULLET ===
+spr-bigjason-xbullet	234	107	8	6	tex-player
+spr-bigjason-ybullet	244	106	6	8	tex-player
+
+# === ENEMY BULLET ===
+spr-gx680-bullet	210	304	8	8	tex-enemies
+spr-laser-bullet	0	0	8	16	tex-bbox
+
+# ===== ITEMS ========
+spr-power-item	255	109	16	16	tex-items
+spr-hover-item	105	109	16	16	tex-items
+spr-gun-item	5	59	16	16	tex-items
+
+# ==== PLATFORMS =====
+spr-breakable-brick	153	255	16	16	tex-indoor
+
+# ===== VFX ==========
+spr-enemy-destroy-0	313	106	8	8	tex-player
+spr-enemy-destroy-1	322	102	16	16	tex-player
+spr-bullet-destroy-0	279	102	16	16	tex-player
+spr-bullet-destroy-1	298	103	11	13	tex-player
+spr-gun-flash-axisx	226	103	7	12	tex-player
+spr-gun-flash-axisy	211	106	12	7	tex-player
+
+# ===== HUD ==========
+# Health Bar
+spr-healthbar-0	64	0	8	48	tex-healthbar
+spr-healthbar-1	56	0	8	48	tex-healthbar
+spr-healthbar-2	48	0	8	48	tex-healthbar
+spr-healthbar-3	40	0	8	48	tex-healthbar
+spr-healthbar-4	32	0	8	48	tex-healthbar
+spr-healthbar-5	24	0	8	48	tex-healthbar
+spr-healthbar-6	16	0	8	48	tex-healthbar
+spr-healthbar-7	8	0	8	48	tex-healthbar
+spr-healthbar-8	0	0	8	48	tex-healthbar
+
+# Gun Bar
+spr-gunbar-8	64	0	8	48	tex-gunbar
+spr-gunbar-7	56	0	8	48	tex-gunbar
+spr-gunbar-6	48	0	8	48	tex-gunbar
+spr-gunbar-5	40	0	8	48	tex-gunbar
+spr-gunbar-4	32	0	8	48	tex-gunbar
+spr-gunbar-3	24	0	8	48	tex-gunbar
+spr-gunbar-2	16	0	8	48	tex-gunbar
+spr-gunbar-1	8	0	8	48	tex-gunbar
+spr-gunbar-0	0	0	8	48	tex-gunbar
+
+# ani_id		sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+# === BIG JASON ======
+# idle
+ani-bigjason-idle-front	spr-bigjason-idle-front	100
+ani-bigjason-idle-back	spr-bigjason-idle-back	100
+ani-bigjason-idle-left	spr-bigjason-idle-left	100
+# walk
+ani-bigjason-walk-front	spr-bigjason-idle-front	100	spr-bigjason-walk-front-0	100	spr-bigjason-idle-front	100	spr-bigjason-walk-front-1	100
+ani-bigjason-walk-back	spr-bigjason-idle-back	100	spr-bigjason-walk-back-0	100	spr-bigjason-idle-back	100	spr-bigjason-walk-back-1	100
+ani-bigjason-walk-left	spr-bigjason-idle-left	100	spr-bigjason-walk-left-0	100	spr-bigjason-idle-left	100	spr-bigjason-walk-left-1	100
+# dead
+ani-bigjason-dead	spr-bigjason-idle-front	100	spr-bigjason-idle-left	100	spr-bigjason-idle-back	100	spr-bigjason-idle-left	100	spr-bigjason-idle-front	100	spr-bigjason-idle-left	100	spr-bigjason-idle-back	100	spr-bigjason-idle-left	100	spr-bigjason-fall-0	100	spr-bigjason-fall-1	100	spr-bigjason-fall-2	100	spr-bigjason-fall-3	100	spr-bigjason-fall-4	500
+
+# === DRAP ===========
+ani-drap	spr-drap-0	150	spr-drap-1	150	spr-drap-2	150	spr-drap-3	150
+
+# === GX680 ==========
+ani-gx680	spr-gx680-0	100	spr-gx680-1	100
+
+# === GX680S =========
+ani-gx680s	spr-gx680s-0	100	spr-gx680s-1	100
+
+# === LASER GUARD ====
+ani-laserguard	spr-laserguard-0	100	spr-laserguard-1	100
+
+# ===== VFX ==========
+ani-firework	spr-enemy-destroy-0	100	spr-enemy-destroy-1	100
+ani-big-bullet-explosion	spr-bullet-destroy-0	100
+ani-small-bullet-explosion	spr-bullet-destroy-1	100
+ani-gun-flash-axisx	spr-gun-flash-axisx	100
+ani-gun-flash-axisy	spr-gun-flash-axisy	100
+
+[MAP]
+maps\topdown1.json

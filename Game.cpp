@@ -186,7 +186,7 @@ void CGame::Init(HWND hWnd)
 	game->GetSystem<CInputHandler>()->Initialize();
 	game->AddSystem(new CCamera);
 	game->AddSystem(new CSceneManager);
-	game->GetSystem<CSceneManager>()->Load(L"database\\blaster-master.txt");
+	game->GetSystem<CSceneManager>()->Load(L"database\\metalslug.txt");
 
 	game->AddSystem(new CSound(hWnd));
 	game->GetSystem<CSound>()->Initialize(hWnd);

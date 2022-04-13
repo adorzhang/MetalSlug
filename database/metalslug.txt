@@ -1,0 +1,12 @@
+[SETTINGS]
+start	1
+#scene list
+[SCENES]
+1	database\sectionA.txt
+2	database\sectionB.txt
+3	database\sectionC.txt
+4	database\topdown1.txt
+5	database\topdown2.txt
+6	database\topdown3.txt
+7	database\topdown4.txt
+8	database\bossroom.txt

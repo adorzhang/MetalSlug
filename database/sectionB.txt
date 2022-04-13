@@ -1,0 +1,165 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+tex-player	textures\player.png	41	255	4
+tex-tileset	textures\tileset.png	0	0	0
+tex-enemies	textures\enemies.png	41	255	4
+tex-items	textures\items.png	0	0	0
+tex-healthbar	textures\healthbar.png	41	255	4
+tex-bbox	textures\bbox.png	0	0	0
+tex-green-bbox	textures\green-bbox.png	0	0	0
+
+# id			left	top	width	height	texture_id
+[SPRITES]
+# ==== JASON =========
+# idle					
+spr-jason-idle	3	30	8	16	tex-player
+# walk					
+spr-jason-walk-jump	12	30	8	16	tex-player
+spr-jason-walk-0	21	30	8	16	tex-player
+spr-jason-walk-1	30	30	8	16	tex-player
+# jump					
+spr-jason-walk-jump	12	30	8	16	tex-player
+# die					
+spr-jason-die-0	3	64	16	16	tex-player
+spr-jason-die-1	20	64	16	16	tex-player
+spr-jason-die-2	37	64	16	16	tex-player
+spr-jason-die-3	54	64	16	16	tex-player
+spr-jason-die-4	3	81	16	16	tex-player
+# crouch					
+spr-jason-crouch-0	3	47	16	8	tex-player
+spr-jason-crouch-1	21	47	16	8	tex-player
+# lie					
+spr-jason-lie	20	89	16	8	tex-player
+
+# ==== SOPHIA =========
+# wheel part
+spr-sophia-wheel-0	3	21	8	8	tex-player
+spr-sophia-wheel-1	12	21	8	8	tex-player
+spr-sophia-wheel-2	21	21	8	8	tex-player
+spr-sophia-wheel-3	30	21	8	8	tex-player
+# middle part
+spr-sophia-middle	3	12	8	8	tex-player
+# gun part
+spr-sophia-gun-00	12	3	8	8	tex-player
+spr-sophia-gun-45	21	3	8	8	tex-player
+spr-sophia-gun-90	30	3	8	8	tex-player
+# cabin part
+spr-sophia-cabin	39	3	16	8	tex-player
+spr-sophia-cabin-turn	56	3	16	8	tex-player
+spr-sophia-cabin-45	73	3	16	16	tex-player
+spr-sophia-cabin-open	125	3	16	16	tex-player
+
+# === INTERRUPT ======
+spr-interrupt-close	153	1486	22	18	tex-enemies
+spr-interrupt-open	128	1489	22	15	tex-enemies
+spr-interrupt-bullet	178	1495	9	9	tex-enemies
+
+# === NEOWORM ========
+spr-neoworm-0	168	1265	18	10	tex-enemies
+spr-neoworm-1	187	1265	17	10	tex-enemies
+spr-neoworm-larva	178	1495	9	9	tex-enemies
+
+# === BALLBOT ========
+spr-ballbot-0	128	737	18	18	tex-enemies
+spr-ballbot-1	149	737	18	18	tex-enemies
+spr-ballbot-2	170	737	18	18	tex-enemies
+
+# === STUKA ==========
+spr-stuka-0	54	386	18	18	tex-enemies
+spr-stuka-1	74	386	18	18	tex-enemies
+spr-stuka-2	94	386	18	18	tex-enemies
+spr-stuka-3	114	386	18	18	tex-enemies
+spr-stuka-4	134	386	18	18	tex-enemies
+spr-stuka-5	154	386	18	18	tex-enemies
+spr-stuka-6	174	386	18	18	tex-enemies
+
+# === EYELET =========
+spr-eyelet-0	128	31	18	15	tex-enemies
+spr-eyelet-1	148	28	18	18	tex-enemies
+spr-eyelet-2	168	31	18	15	tex-enemies
+spr-eyelet-3	188	36	18	10	tex-enemies
+
+# === BALL CARRY =====
+spr-ballcarry-sleep	128	652	16	16	tex-enemies
+spr-ballcarry-move-0	147	651	18	17	tex-enemies
+spr-ballcarry-open	168	653	18	15	tex-enemies
+spr-ballcarry-move-1	188	650	16	18	tex-enemies
+
+# === PLAYER BULLET ===
+spr-hyperbeam-axisy	117	20	6	24	tex-player
+spr-hyperbeam-axisx	91	21	24	6	tex-player
+spr-jason-bullet	75	40	4	4	tex-player
+spr-bigjason-xbullet	234	107	8	6	tex-player
+spr-bigjason-ybullet	244	106	6	8	tex-player
+
+# === ENEMY BULLET ===
+spr-ballcarry-bomb	47	514	10	10	tex-enemies
+
+# ===== ITEMS ========
+spr-power-item	255	109	16	16	tex-items
+spr-hover-item	105	109	16	16	tex-items
+spr-gun-item	5	59	16	16	tex-items
+
+# ===== VFX ==========
+spr-explosion-0	140	101	7	8	tex-player
+spr-explosion-1	149	97	16	13	tex-player
+spr-explosion-2	166	97	16	16	tex-player
+spr-explosion-3	183	93	24	24	tex-player
+
+spr-sophia-explosion-0	159	3	45	40	tex-player
+spr-sophia-explosion-1	143	45	64	47	tex-player
+
+# ===== HUD ==========
+# Health Bar
+spr-healthbar-0	64	0	8	48	tex-healthbar
+spr-healthbar-1	56	0	8	48	tex-healthbar
+spr-healthbar-2	48	0	8	48	tex-healthbar
+spr-healthbar-3	40	0	8	48	tex-healthbar
+spr-healthbar-4	32	0	8	48	tex-healthbar
+spr-healthbar-5	24	0	8	48	tex-healthbar
+spr-healthbar-6	16	0	8	48	tex-healthbar
+spr-healthbar-7	8	0	8	48	tex-healthbar
+spr-healthbar-8	0	0	8	48	tex-healthbar
+
+# ani_id		sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+
+# ==== JASON =========
+# idle
+ani-jason-idle	spr-jason-idle	100
+# walk
+ani-jason-walk	spr-jason-walk-jump	100	spr-jason-walk-0	100	spr-jason-walk-jump	100	spr-jason-walk-1	100
+# jump
+ani-jason-jump	spr-jason-walk-jump	100
+# die
+ani-jason-die	spr-jason-die-0	100	spr-jason-die-3	100	spr-jason-die-2	100	spr-jason-die-1	100	spr-jason-die-0	100	spr-jason-die-3	100	spr-jason-die-2	100	spr-jason-die-1	100	spr-jason-die-4	100	spr-jason-lie	300
+# crouch
+ani-jason-crouch	spr-jason-crouch-0	100	spr-jason-crouch-1	100
+
+# ==== SOPHIA ========
+# wheel
+ani-sophia-left-wheel	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100	spr-sophia-wheel-3	100
+ani-sophia-right-wheel	spr-sophia-wheel-3	100	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100
+
+# === NEOWORM ========
+ani-neoworm	spr-neoworm-0	100	spr-neoworm-1	100
+
+# === BALLBOT ========
+ani-ballbot	spr-ballbot-0	100	spr-ballbot-1	100	spr-ballbot-2	100
+
+# === STUKA ==========
+ani-stuka	spr-stuka-0	150	spr-stuka-1	150	spr-stuka-2	150	spr-stuka-3	150	spr-stuka-4	150	spr-stuka-5	150	spr-stuka-6	150
+
+# === EYELET =========
+ani-eyelet	spr-eyelet-0	100	spr-eyelet-1	100	spr-eyelet-2	100	spr-eyelet-3	100
+
+# === BALL CARRY =====
+ani-ballcarry	spr-ballcarry-move-0	100	spr-ballcarry-move-1	100
+
+# ===== VFX ==========
+ani-big-explosion	spr-explosion-3	100	spr-explosion-2	100	spr-explosion-1	100	spr-explosion-0	100
+ani-small-explosion	spr-explosion-2	200	spr-explosion-1	100	spr-explosion-0	100
+ani-sophia-explosion	spr-sophia-explosion-0	100	spr-sophia-explosion-1	100
+
+[MAP]
+maps\sectionB.json
