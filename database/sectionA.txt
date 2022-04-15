@@ -2,6 +2,8 @@
 [TEXTURES]
 #tex-player	textures\player.png	41	255	4
 tex-rossi textures\marco_rossi.gif	0	0	0
+tex-mariner textures\slug_mariner.png	0	0	0
+tex-noid textures\slog_noid.png	0	0	0
 tex-tileset	textures\tileset.png	0	0	0
 tex-enemies	textures\enemies.png	41	255	4
 tex-items	textures\items.png	0	0	0
@@ -87,6 +89,153 @@ spr-rossi-barrel-ak-stare-up-2	714	1065	746	1099	tex-rossi
 spr-rossi-barrel-ak-stare-up-3	748	1066	781	1098	tex-rossi
 spr-rossi-barrel-ak-stare-up-4	784	1065	815	1099	tex-rossi
 spr-rossi-barrel-ak-stare-up-5	818	1067	847	1098	tex-rossi
+
+#shoot up vl-pistol
+spr-rossi-barrel-pistol-shoot-up-0	147	18	169	84	tex-rossi
+spr-rossi-barrel-pistol-shoot-up-1	173	18	195	84	tex-rossi
+spr-rossi-barrel-pistol-shoot-up-2	198	18	221	84	tex-rossi
+#shoot up vl-shotgun
+spr-rossi-barrel-shotgun-shoot-up-0	29	551	52	623	tex-rossi
+spr-rossi-barrel-shotgun-shoot-up-1	55	551	78	623	tex-rossi
+spr-rossi-barrel-shotgun-shoot-up-2	79	551	103	623	tex-rossi
+spr-rossi-barrel-shotgun-shoot-up-3	106	551	129	623	tex-rossi
+#shoot up vl-ak
+spr-rossi-barrel-ak-shoot-up-0	48	1108	77	1178	tex-rossi
+spr-rossi-barrel-ak-shoot-up-1	80	1108	108	1178	tex-rossi
+spr-rossi-barrel-ak-shoot-up-2	113	1108	142	1178	tex-rossi
+spr-rossi-barrel-ak-shoot-up-3	145	1108	173	1178	tex-rossi
+
+#shoot straight vl-pistol
+spr-rossi-barrel-pistol-shoot-straight-0	227	8	278	31	tex-rossi
+spr-rossi-barrel-pistol-shoot-straight-1	280	8	333	31	tex-rossi
+spr-rossi-barrel-pistol-shoot-straight-2	336	8	388	31	tex-rossi
+#shoot straight vl-shotgun
+spr-rossi-barrel-shotgun-shoot-straight-0	1013	514	1073	541	tex-rossi
+spr-rossi-barrel-shotgun-shoot-straight-1	1075	514	1136	541	tex-rossi
+spr-rossi-barrel-shotgun-shoot-straight-2	1139	514	1199	541	tex-rossi
+spr-rossi-barrel-shotgun-shoot-straight-2	1201	514	1261	541	tex-rossi
+#shoot straight vl-ak
+spr-rossi-barrel-ak-shoot-straight-0	303	1281	368	1308	tex-rossi
+spr-rossi-barrel-ak-shoot-straight-1	371	1281	437	1308	tex-rossi
+spr-rossi-barrel-ak-shoot-straight-2	440	1281	505	1308	tex-rossi
+
+#shoot down vl-pistol
+spr-rossi-barrel-pistol-shoot-down-0	430	40	454	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-1	452	40	476	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-2	475	40	500	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-3	499	40	523	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-4	524	40	548	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-5	548	40	572	94	tex-rossi
+spr-rossi-barrel-pistol-shoot-down-6	571	40	594	94	tex-rossi
+#shoot down vl-shotgun
+spr-rossi-barrel-shotgun-shoot-down-0	970	554	1004	618	tex-rossi
+spr-rossi-barrel-shotgun-shoot-down-1	1008	554	1042	618	tex-rossi
+spr-rossi-barrel-shotgun-shoot-down-2	1044	554	1078	618	tex-rossi
+spr-rossi-barrel-shotgun-shoot-down-3	1080	554	1114	618	tex-rossi
+#shoot down vl-ak
+spr-rossi-barrel-ak-shoot-down-0	183	1116	214	1174	tex-rossi
+spr-rossi-barrel-ak-shoot-down-1	215	1116	245	1174	tex-rossi
+spr-rossi-barrel-ak-shoot-down-2	248	1116	279	1174	tex-rossi
+spr-rossi-barrel-ak-shoot-down-3	281	1116	312	1174	tex-rossi
+
+#legs idle
+spr-rossi-legs-idle-0	130	1537	151	1553	tex-rossi
+spr-rossi-legs-idle-1	156	1537	176	1553	tex-rossi
+spr-rossi-legs-idle-2	180	1537	201	1553	tex-rossi
+spr-rossi-legs-idle-3	204	1537	225	1553	tex-rossi
+spr-rossi-legs-idle-4	228	1537	249	1553	tex-rossi
+#legs run
+spr-rossi-legs-run-0	256	1533	277	1553	tex-rossi
+spr-rossi-legs-run-1	279	1533	308	1553	tex-rossi
+spr-rossi-legs-run-2	311	1533	342	1549	tex-rossi
+spr-rossi-legs-run-3	344	1533	364	1553	tex-rossi
+spr-rossi-legs-run-4	366	1533	382	1553	tex-rossi
+spr-rossi-legs-run-5	385	1533	401	1553	tex-rossi
+spr-rossi-legs-run-6	404	1533	425	1553	tex-rossi
+spr-rossi-legs-run-7	427	1533	454	1553	tex-rossi
+spr-rossi-legs-run-8	457	1533	488	1553	tex-rossi
+spr-rossi-legs-run-9	491	1533	511	1553	tex-rossi
+spr-rossi-legs-run-10	513	1533	528	1553	tex-rossi
+spr-rossi-legs-run-11	530	1533	548	1553	tex-rossi
+spr-rossi-legs-run-12	550	1533	572	1553	tex-rossi
+spr-rossi-legs-run-13	576	1533	600	1553	tex-rossi
+spr-rossi-legs-run-14	603	1533	617	1553	tex-rossi
+spr-rossi-legs-run-16	621	1533	640	1553	tex-rossi
+spr-rossi-legs-run-17	643	1533	670	1553	tex-rossi
+spr-rossi-legs-run-18	674	1533	689	1553	tex-rossi
+#legs jump up
+spr-rossi-legs-jump-up-0	781	1527	799	1553	tex-rossi
+spr-rossi-legs-jump-up-1	802	1527	821	1553	tex-rossi
+spr-rossi-legs-jump-up-2	824	1528	844	1553	tex-rossi
+spr-rossi-legs-jump-up-3	847	1528	867	1553	tex-rossi
+spr-rossi-legs-jump-up-4	869	1528	891	1548	tex-rossi
+spr-rossi-legs-jump-up-5	894	1528	915	1546	tex-rossi
+#mariner run
+spr-mariner-run-0	4	4	58	56	tex-mariner
+spr-mariner-run-1	60	4	115	56	tex-mariner
+spr-mariner-run-2	118	4	171	56	tex-mariner
+spr-mariner-run-3	174	4	227	56	tex-mariner
+spr-mariner-run-4	230	4	283	56	tex-mariner
+spr-mariner-run-5	286	3	340	56	tex-mariner
+spr-mariner-run-6	343	3	397	56	tex-mariner
+spr-mariner-run-7	400	3	453	56	tex-mariner
+spr-mariner-run-8	456	3	511	56	tex-mariner
+spr-mariner-run-9	513	3	569	56	tex-mariner
+spr-mariner-run-10	4	59	58	112	tex-mariner
+spr-mariner-run-11	62	59	117	112	tex-mariner
+spr-mariner-run-12	120	59	175	111	tex-mariner
+spr-mariner-run-13	178	59	233	111	tex-mariner
+spr-mariner-run-14	236	59	292	111	tex-mariner
+spr-mariner-run-15	295	59	351	111	tex-mariner
+spr-mariner-run-16	354	58	409	111	tex-mariner
+spr-mariner-run-17	413	59	470	111	tex-mariner
+spr-mariner-run-18	473	58	530	110	tex-mariner
+spr-mariner-run-19	3	115	60	166	tex-mariner
+spr-mariner-run-20	64	115	120	165	tex-mariner
+spr-mariner-run-21	124	114	180	166	tex-mariner
+spr-mariner-run-21	183	114	240	166	tex-mariner
+spr-mariner-run-21	244	114	300	166	tex-mariner
+spr-mariner-run-21	304	114	362	166	tex-mariner
+spr-mariner-run-21	364	114	422	166	tex-mariner
+spr-mariner-run-21	426	114	484	166	tex-mariner
+spr-mariner-run-21	486	114	545	166	tex-mariner
+spr-mariner-run-21	3	170	62	223	tex-mariner
+spr-mariner-run-21	64	170	123	222	tex-mariner
+#mariner close
+spr-mariner-close-0	4	226	59	277	tex-mariner
+spr-mariner-close-1	63	225	119	277	tex-mariner
+spr-mariner-close-2	122	228	178	277	tex-mariner
+spr-mariner-close-3	181	231	237	277	tex-mariner
+spr-mariner-close-4	240	234	296	277	tex-mariner
+spr-mariner-close-5	299	238	355	277	tex-mariner
+#mariner gun
+spr-mariner-gun-0	88	346	102	372	tex-mariner
+#mariner gun particle
+spr-mariner-gun-particle-0	126	450	144	476	tex-mariner
+spr-mariner-gun-particle-1	128	480	144	514	tex-mariner
+spr-mariner-gun-particle-2	130	517	140	556	tex-mariner
+spr-mariner-gun-particle-3	129	562	140	602	tex-mariner
+
+#noid enter
+spr-noid-enter-0	2	18	50	66	tex-noid
+spr-noid-enter-1	52	16	100	66	tex-noid
+spr-noid-enter-2	102	15	150	66	tex-noid
+spr-noid-enter-3	151	15	200	66	tex-noid
+spr-noid-enter-4	202	13	250	66	tex-noid
+spr-noid-enter-5	252	16	300	66	tex-noid
+spr-noid-enter-6	302	16	350	66	tex-noid
+spr-noid-enter-7	352	15	400	66	tex-noid
+spr-noid-enter-8	2	82	50	132	tex-noid
+spr-noid-enter-9	52	80	115	132	tex-noid
+
+spr-noid-enter-0	126	450	144	66	tex-noid
+spr-noid-enter-0	126	450	144	66	tex-noid
+spr-noid-enter-0	126	450	144	66	tex-noid
+#noid exnit
+#noid walk
+#noid preparing jump
+#noid jump
+
 
 # jump					
 spr-jason-walk-jump	12	30	8	16	tex-player
