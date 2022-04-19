@@ -20,7 +20,7 @@ void CEnemy::DropItem()
 	// TODO: Can only drop a single item, so convert each item's own rate to its rate in all items
 	if (CMath::Random(1, 100) <= CItem::GetDropRate())
 	{
-		auto item = Instantiate<CPowerItem>(transform.position);
+		auto item = Instantiate<CPower>(transform.position);
 	}
 }
 
@@ -59,7 +59,7 @@ void CEnemy::OnDamagedUpdate()
 
 void CEnemy::TakeDamage(int damage)
 {
-	CGame::GetInstance()->GetService<CSound>()->PlayWaveFile("EnemyOnDamaged");
+	CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("EnemyOnDamaged");
 
 	lastTimeTakeDamage = GetTickCount();
 	isTakingDamaged = true;
@@ -69,6 +69,6 @@ void CEnemy::TakeDamage(int damage)
 		hp = 0;
 		OnDestroy();
 
-		CGame::GetInstance()->GetService<CSound>()->PlayWaveFile("EnemyDie");
+		CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("EnemyDie");
 	}
 }

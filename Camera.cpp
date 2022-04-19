@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Utils.h"
 
+
 CCamera::CCamera()
 {
 	position = VectorInfinity();

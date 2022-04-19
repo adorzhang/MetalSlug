@@ -1,8 +1,7 @@
 #include <algorithm>    
 #include "Collider2D.h"
 #include "Utils.h"
-#include "Sophia.h"
-#include "GX680.h"
+#include "MarcoRossi.h"
 
 void CCollider2D::SweptAABB(
 	Rect movingRect, Rect staticRect,
@@ -389,7 +388,7 @@ void CCollider2D::PhysicsUpdate(std::vector<CGameObject*>* coObjects)
 			(CTagUtils::PlayerCTag(otherCTag) && CTagUtils::EnemyCTag(selfCTag)) ||
 			(CTagUtils::PlayerCTag(selfCTag) && otherCTag == CTag::EnemyBullet) ||
 			(CTagUtils::PlayerCTag(otherCTag) && selfCTag == CTag::EnemyBullet) ||
-			(selfCTag == CTag::BigJason && otherCTag == CTag::HarmPlatform) ||
+			//(selfCTag == CTag::BigJason && otherCTag == CTag::HarmPlatform) ||
 			(CTagUtils::EnemyCTag(selfCTag) && otherCTag == CTag::HarmPlatform))
 		{
 			if (isTrigger == false) object->OnCollisionEnter(this, coEvents[i]);
@@ -477,11 +476,11 @@ void CCollider2D::DealWithOverlappedCase(std::vector<CGameObject*>* coObjects)
 			(CTagUtils::EnemyCTag(otherCTag) && selfCTag == CTag::PlayerBullet) ||
 			(CTagUtils::EnemyCTag(selfCTag) && otherCTag == CTag::EnemyBullet) ||
 			(CTagUtils::EnemyCTag(otherCTag) && selfCTag == CTag::EnemyBullet) ||
-			(selfCTag == CTag::MiniPortal && otherCTag == CTag::Jason) ||
-			(otherCTag == CTag::MiniPortal && selfCTag == CTag::Jason) ||
-			(selfCTag == CTag::BigJason && otherCTag == CTag::HarmPlatform) ||
-			(CTagUtils::EnemyCTag(selfCTag) && otherCTag == CTag::HarmPlatform) ||
-			(selfCTag == CTag::BossTrigger && otherCTag == CTag::BigJason))
+			//(selfCTag == CTag::MiniPortal && otherCTag == CTag::Jason) ||
+			//(otherCTag == CTag::MiniPortal && selfCTag == CTag::Jason) ||
+			//(selfCTag == CTag::BigJason && otherCTag == CTag::HarmPlatform) ||
+			(CTagUtils::EnemyCTag(selfCTag) && otherCTag == CTag::HarmPlatform))
+			//(selfCTag == CTag::BossTrigger && otherCTag == CTag::BigJason))
 		{
 			if (bbSelf.Overlap(bbOther)) object->OnOverlapped(this, coO);
 			continue;
@@ -601,7 +600,7 @@ void CCollider2D::RenderBoundingBox()
 {
 	Vector2 posCollider = object->GetPosition() + offset;
 
-	LPDIRECT3DTEXTURE9 bbox = CGame::GetInstance()->GetComponent<CTextures>()->Get("tex-bbox");
+	LPDIRECT3DTEXTURE9 bbox = CGame::GetInstance()->GetSystem<CTextures>()->Get("tex-bbox");
 
 	Rect rect;
 	rect.left = 0;

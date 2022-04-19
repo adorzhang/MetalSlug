@@ -98,6 +98,9 @@
     <Filter Include="Game\GameObjects\Player\MarcoRossi\Child">
       <UniqueIdentifier>{22f1127e-b878-4712-aa7f-b4ce061ff2f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameObjects\Player\MarcoRossi\Direct">
+      <UniqueIdentifier>{438736c8-bff1-4a6e-994a-f40d17a13ffe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -237,6 +240,30 @@
       <Filter>Game\GameObjects\Platform</Filter>
     </ClCompile>
     <ClCompile Include="VisualEffect.cpp">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiExplosion.cpp">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>Game\GameObjects\Portal</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiHorizontalState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClCompile>
+    <ClCompile Include="IRossiState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiUpward45State.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClCompile>
+    <ClCompile Include="RossiUpwardState.cpp">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClCompile>
+    <ClCompile Include="BigExplosion.cpp">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Firework.cpp">
       <Filter>Game\GameObjects\VFX</Filter>
     </ClCompile>
   </ItemGroup>
@@ -383,6 +410,27 @@
       <Filter>Game\GameObjects\Platform</Filter>
     </ClInclude>
     <ClInclude Include="VisualEffect.h">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiExplosion.h">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>Game\GameObjects\Portal</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiHorizontalState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiUpward45State.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClInclude>
+    <ClInclude Include="RossiUpwardState.h">
+      <Filter>Game\GameObjects\Player\MarcoRossi\Direct</Filter>
+    </ClInclude>
+    <ClInclude Include="BigExplosion.h">
+      <Filter>Game\GameObjects\VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="Firework.h">
       <Filter>Game\GameObjects\VFX</Filter>
     </ClInclude>
   </ItemGroup>

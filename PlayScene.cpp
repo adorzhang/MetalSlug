@@ -15,7 +15,7 @@
 #include "SlugMariner.h"
 #include "SlugNoid.h"
 
-
+#include "Portal.h"
 
 #include "Brick.h"
 #include "BreakableBrick.h"

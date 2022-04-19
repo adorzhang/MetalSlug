@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include "SlugMariner.h"
 #include "SlugNoid.h"
+#include "MarcoRossi.h"
 #include "Camera.h"
 #include "PlayScene.h"
 #include "SceneManager.h"
@@ -11,6 +12,7 @@
 #include "ShotgunBullet.h"
 #include "AKBullet.h"
 #include "Enemy.h"
+#include "Brick.h"
 #include "Sound.h"
 
 void CSlugNoid::InitAnimations()
@@ -41,15 +43,15 @@ void CSlugNoid::SwitchingCharacter()
 	// Recovery full power
 	power = maxPower;
 
-	transform.position = mariner->GetPosition();
+	transform.position = rossi->GetPosition();
 	velocity.x = 0;
 	acceleration.x = 0;
-	nx = mariner->GetDirection();
+	nx = rossi->GetDirection();
 	SetState(NoidState::JUMPING);
 
 	CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("SwitchCharacter");
 
-	mariner->cabin->Switching();
+	//mariner->cabin->Switching();
 }
 
 CSlugNoid::CSlugNoid()
@@ -197,7 +199,7 @@ void CSlugNoid::OnCollisionEnter(CCollider2D* selfCollider, CCollisionEvent* col
 		if (onGround == false && collision->ny == 1) onGround = true;
 		// TODO: Collise with wall, then hold idle state
 	}
-	else if (dynamic_cast<SlugMariner*>(other))
+	else if (dynamic_cast<CSlugMariner*>(other))
 	{
 		if (controllable == false && velocity.y < 0)
 		{

@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include "SlugMariner.h"
 #include "SlugNoid.h"
+#include "MarcoRossi.h"
 #include "Camera.h"
 #include "PlayScene.h"
 #include "SceneManager.h"
@@ -11,15 +12,16 @@
 #include "ShotgunBullet.h"
 #include "AKBullet.h"
 #include "Enemy.h"
+#include "Brick.h"
 #include "Sound.h"
 
 void CSlugMariner::InitAnimations()
 {
 	auto animation_manager = CGame::GetInstance()->GetSystem<CAnimationManager>();
-	AddAnimation("Idle", animation_manager->Get("ani-rossi-idle"));
-	AddAnimation("Walk", animation_manager->Get("ani-rossi-walk"));
-	AddAnimation("Jump", animation_manager->Get("ani-rossi-jump"));
-	AddAnimation("Dead", animation_manager->Get("ani-rossi-die"));
+	AddAnimation("Idle", animation_manager->Get("ani-mariner-idle"));
+	AddAnimation("Walk", animation_manager->Get("ani-mariner-walk"));
+	AddAnimation("Jump", animation_manager->Get("ani-mariner-jump"));
+	AddAnimation("Dead", animation_manager->Get("ani-mariner-die"));
 	animations.at("Dead")->SetIsLooped(false);
 }
 
@@ -41,15 +43,15 @@ void CSlugMariner::SwitchingCharacter()
 	// Recovery full power
 	power = maxPower;
 
-	transform.position = mariner->GetPosition();
+	transform.position = rossi->GetPosition();
 	velocity.x = 0;
 	acceleration.x = 0;
-	nx = mariner->GetDirection();
+	nx = rossi->GetDirection();
 	SetState(MarinerState::JUMPING);
 
 	CGame::GetInstance()->GetSystem<CSound>()->PlayWaveFile("SwitchCharacter");
 
-	mariner->cabin->Switching();
+	//mariner->cabin->Switching();
 }
 
 CSlugMariner::CSlugMariner()
@@ -58,11 +60,11 @@ CSlugMariner::CSlugMariner()
 	InitColliders();
 
 	// Player's settings
-	tag = CTag::Rossi;
+	tag = CTag::Mariner;
 	isEnabled = false;
 	onGround = false;
 	controllable = false;
-	rossi = this;
+	mariner = this;
 	SetState(MarinerState::IDLE);
 }
 

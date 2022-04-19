@@ -1,5 +1,6 @@
 #include "AnimationManager.h"
 #include "Brick.h"
+#include "Collider2D.h"
 
 CBrick::CBrick() :CGameObject()
 {

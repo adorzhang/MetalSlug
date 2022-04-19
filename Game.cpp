@@ -186,7 +186,7 @@ void CGame::Init(HWND hWnd)
 	game->GetSystem<CInputHandler>()->Initialize();
 	game->AddSystem(new CCamera);
 	game->AddSystem(new CSceneManager);
-	game->GetSystem<CSceneManager>()->Load(L"database\\metalslug.txt");
+	game->GetSystem<CSceneManager>()->Load(L"database\\metal-slug.txt");
 
 	game->AddSystem(new CSound(hWnd));
 	game->GetSystem<CSound>()->Initialize(hWnd);

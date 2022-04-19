@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 #include "Utils.h"
 #include "PlayScene.h"
-#include "Animation.h"
+#include "AnimationManager.h"
 
 void CSceneManager::_ParseSection_SETTINGS(std::string line)
 {
@@ -73,7 +73,7 @@ void CSceneManager::SwitchScene(int scene_id)
 
 	game->GetSystem<CTextures>()->Clear();
 	game->GetSystem<CSprites>()->Clear();
-	game->GetSystem<CAnimation>()->Clear();
+	game->GetSystem<CAnimationManager>()->Clear();
 
 	last_scene = current_scene;
 	current_scene = scene_id;

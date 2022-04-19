@@ -1,41 +1,42 @@
 #pragma once
 #include "Playable.h"
+#include "IRossiState.h"
+#include "Barrel.h"
+#include "Legs.h"
 
-enum class RossiState
-{
-	IDLE,
-	MOVING_LEFT,
-	MOVING_RIGHT,
-	JUMPING,
-	DEAD,
-};
+class IRossiState;
+class CBarrel;
+class CLegs;
 
-class CPlayable;
 
 class CMarcoRossi : public CPlayable
 {
 private:
-	const float WALK_SPEED = 0.12f;
-	const float WALK_ACCELERATION = 0.002f;
-	const float JUMP_SPEED = 0.53f;
+	const float MOVE_SPEED = 0.15f;
+	const float MOVE_ACCELERATION = 0.0002f;
+	const float JUMP_SPEED = 0.7f;
 	const float GRAVITY = -0.0026f;
-	const float CROUCH_SPEED = 0.02f;
-	const Vector2 IDLE_SIZE = Vector2(8.0f, 16.0f);
 
-	RossiState state;
-	LPANIMATION animation;
-protected:
-	void InitAnimations();
-	void InitColliders();
+	IRossiState* stateAction;
+	IRossiState* stateDirection;
 
+	DWORD lastTimeToLiftGun;
+	DWORD lastTimeToLowerGun;
+
+	// Power, Hover in class Player
+	virtual void InitColliders();
 	void SwitchingCharacter();
 public:
 	CMarcoRossi();
 
-	void SetState(RossiState state);
+	CBarrel* barrel;
+	CLegs* legs;
 
-	void Update(DWORD dt);
-	void Render();
+	IRossiState* GetActionState() { return this->stateAction; }
+	IRossiState* GetDirectionState() { return this->stateDirection; }
+
+	virtual void Update(DWORD dt);
+	virtual void Render();
 	void OnDead();
 
 	void OnOverlapped(CCollider2D* selfCollider, CGameObject* object);

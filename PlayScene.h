@@ -84,7 +84,7 @@ inline T* Instantiate(Vector2 position)
 {
 	CGameObject* newObject = new T;
 	newObject->SetPosition(position);
-	auto current_scene = (CPlayScene*)CGame::GetInstance()->GetComponent<CScenes>()->GetCurrentScene();
+	auto current_scene = (CPlayScene*)CGame::GetInstance()->GetSystem<CSceneManager>()->GetCurrentScene();
 	current_scene->RequestInstantiate(newObject);
 	return (T*)newObject;
 }

@@ -2,7 +2,7 @@
 start	1
 #scene list
 [SCENES]
-1	database\sectionA.txt
+1	database\mission-1.txt
 2	database\sectionB.txt
 3	database\sectionC.txt
 4	database\topdown1.txt

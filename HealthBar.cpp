@@ -2,7 +2,7 @@
 
 void CHealthBar::InitSprites()
 {
-	auto sprites = CGame::GetInstance()->GetComponent<CSprites>();
+	auto sprites = CGame::GetInstance()->GetSystem<CSprites>();
 	AddSprite("Power-0", sprites->Get("spr-healthbar-0"));
 	AddSprite("Power-1", sprites->Get("spr-healthbar-1"));
 	AddSprite("Power-2", sprites->Get("spr-healthbar-2"));
@@ -21,8 +21,8 @@ CHealthBar::CHealthBar()
 	auto game = CGame::GetInstance();
 
 	offset = Vector2(16, -176);
-	mainCam = game->GetComponent<CCamera>();
-	owner = (CPlayable*)((CPlayScene*)game->GetComponent<CSceneManager>()->GetCurrentScene())->GetPlayer();
+	mainCam = game->GetSystem<CCamera>();
+	owner = (CPlayable*)((CPlayScene*)game->GetSystem<CSceneManager>()->GetCurrentScene())->GetPlayer();
 }
 
 void CHealthBar::Update(DWORD dt)

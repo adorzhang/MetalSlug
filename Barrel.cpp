@@ -1,5 +1,7 @@
 #include "Barrel.h"
-
+#include "RossiHorizontalState.h"
+#include "RossiUpward45State.h"
+#include "RossiUpwardState.h"
 
 void CBarrel::InitSprites()
 {
@@ -45,15 +47,15 @@ void CBarrel::Render()
 {
 	int colorIndex = parent->GetColorIndex();
 	auto directionState = parent->GetDirectionState();
-	if (dynamic_cast<CSophiaHorizontalState*>(directionState))
+	if (dynamic_cast<CRossiHorizontalState*>(directionState))
 	{
-		if (isSwitching == true)
+		/*if (isSwitching == true)
 		{
 			sprites.at(SPR_CABIN_OPEN)->Draw(transform.position + parent->GetPosition() + Vector2(0.0f, 4.0f), -nx, layer_index, 0, damagedColor[colorIndex]);
 		}
 		else
 		{
-			if (dynamic_cast<CSophiaHorizontalState*>(directionState)->IsTurning() == false)
+			if (dynamic_cast<CRossiHorizontalState*>(directionState)->IsTurning() == false)
 			{
 				sprites.at(SPR_CABIN_00)->Draw(transform.position + parent->GetPosition(), -nx, layer_index, 0, damagedColor[colorIndex]);
 			}
@@ -61,11 +63,11 @@ void CBarrel::Render()
 			{
 				sprites.at(SPR_CABIN_TURN)->Draw(transform.position + parent->GetPosition(), -nx, layer_index, 0, damagedColor[colorIndex]);
 			}
-		}
+		}*/
 	}
 	else
 	{
 		nx = parent->GetDirection();
-		sprites.at(SPR_CABIN_UPWARD)->Draw(transform.position + parent->GetPosition(), -nx, layer_index, 0, damagedColor[colorIndex]);
+		//sprites.at(SPR_CABIN_UPWARD)->Draw(transform.position + parent->GetPosition(), -nx, layer_index, 0, damagedColor[colorIndex]);
 	}
 }

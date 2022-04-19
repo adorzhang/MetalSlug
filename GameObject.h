@@ -1,3 +1,4 @@
+#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
 
@@ -36,7 +37,7 @@ protected:
 	int inNodesIndex = -1;			//
 
 	std::unordered_map<std::string, LPSPRITE> sprites;
-	std::unordered_map<std::string, LPANIMATE> animations;
+	std::unordered_map<std::string, LPANIMATION> animations;
 
 	int colorIndex = 0;
 
@@ -78,8 +79,8 @@ public:
 	int GetColorIndex() { return this->colorIndex; }
 
 	void AddSprite(std::string stateName, LPSPRITE sprite);
-	void AddAnimation(std::string stateName, LPANIMATE animate);
-	std::unordered_map<std::string, LPANIMATE> GetAnimations() { return animations; }
+	void AddAnimation(std::string stateName, LPANIMATION animate);
+	std::unordered_map<std::string, LPANIMATION> GetAnimations() { return animations; }
 
 	virtual void PhysicsUpdate(std::vector<CGameObject*>* coObjects);
 	virtual void Update(DWORD dt) = 0;

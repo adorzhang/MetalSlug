@@ -15,7 +15,7 @@ public:
 template<typename T>
 inline T* CSystemManager::GetSystem()
 {
-	for (auto system : components)
+	for (auto system : systems)
 	{
 		T* result = dynamic_cast<T*>(system);
 		if (result) return result;

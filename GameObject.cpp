@@ -26,7 +26,7 @@ void CGameObject::AddSprite(std::string stateName, LPSPRITE sprite)
 	sprites.insert(std::make_pair(stateName, sprite));
 }
 
-void CGameObject::AddAnimation(std::string stateName, LPANIMATE animate)
+void CGameObject::AddAnimation(std::string stateName, LPANIMATION animate)
 {
 	animations.insert(std::make_pair(stateName, animate));
 }

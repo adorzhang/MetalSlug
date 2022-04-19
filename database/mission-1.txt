@@ -1,15 +1,8 @@
 # id	file_path	transparent_color_r	g	b
 [TEXTURES]
-#tex-player	textures\player.png	41	255	4
-tex-rossi textures\marco_rossi.gif	0	0	0
-tex-mariner textures\slug_mariner.png	0	0	0
-tex-noid textures\slog_noid.png	0	0	0
-tex-tileset	textures\tileset.png	0	0	0
-tex-enemies	textures\enemies.png	41	255	4
-tex-items	textures\items.png	0	0	0
-tex-healthbar	textures\healthbar.png	41	255	4
-tex-bbox	textures\bbox.png	0	0	0
-tex-green-bbox	textures\green-bbox.png	0	0	0
+tex-rossi	textures\marco_rossi.png	0	0	0
+tex-mariner	textures\slug_mariner.png	0	0	0
+tex-noid	textures\slog_noid.png	0	0	0
 
 # id			left	top	width	height	texture_id
 [SPRITES]
@@ -170,6 +163,7 @@ spr-rossi-legs-jump-up-2	824	1528	844	1553	tex-rossi
 spr-rossi-legs-jump-up-3	847	1528	867	1553	tex-rossi
 spr-rossi-legs-jump-up-4	869	1528	891	1548	tex-rossi
 spr-rossi-legs-jump-up-5	894	1528	915	1546	tex-rossi
+
 #mariner run
 spr-mariner-run-0	4	4	58	56	tex-mariner
 spr-mariner-run-1	60	4	115	56	tex-mariner
@@ -192,15 +186,15 @@ spr-mariner-run-17	413	59	470	111	tex-mariner
 spr-mariner-run-18	473	58	530	110	tex-mariner
 spr-mariner-run-19	3	115	60	166	tex-mariner
 spr-mariner-run-20	64	115	120	165	tex-mariner
-spr-mariner-run-21	124	114	180	166	tex-mariner
-spr-mariner-run-21	183	114	240	166	tex-mariner
-spr-mariner-run-21	244	114	300	166	tex-mariner
-spr-mariner-run-21	304	114	362	166	tex-mariner
-spr-mariner-run-21	364	114	422	166	tex-mariner
-spr-mariner-run-21	426	114	484	166	tex-mariner
-spr-mariner-run-21	486	114	545	166	tex-mariner
-spr-mariner-run-21	3	170	62	223	tex-mariner
-spr-mariner-run-21	64	170	123	222	tex-mariner
+spr-mariner-run-22	124	114	180	166	tex-mariner
+spr-mariner-run-23	183	114	240	166	tex-mariner
+spr-mariner-run-24	244	114	300	166	tex-mariner
+spr-mariner-run-25	304	114	362	166	tex-mariner
+spr-mariner-run-26	364	114	422	166	tex-mariner
+spr-mariner-run-27	426	114	484	166	tex-mariner
+spr-mariner-run-28	486	114	545	166	tex-mariner
+spr-mariner-run-29	3	170	62	223	tex-mariner
+spr-mariner-run-30	64	170	123	222	tex-mariner
 #mariner close
 spr-mariner-close-0	4	226	59	277	tex-mariner
 spr-mariner-close-1	63	225	119	277	tex-mariner
@@ -227,137 +221,75 @@ spr-noid-enter-6	302	16	350	66	tex-noid
 spr-noid-enter-7	352	15	400	66	tex-noid
 spr-noid-enter-8	2	82	50	132	tex-noid
 spr-noid-enter-9	52	80	115	132	tex-noid
-
-spr-noid-enter-0	126	450	144	66	tex-noid
-spr-noid-enter-0	126	450	144	66	tex-noid
-spr-noid-enter-0	126	450	144	66	tex-noid
-#noid exnit
-#noid walk
+#noid exit
+spr-noid-exit-0	1	147	50	198	tex-noid
+spr-noid-exit-1	52	147	100	198	tex-noid
+spr-noid-exit-2	102	147	150	198	tex-noid
+spr-noid-exit-3	152	147	200	198	tex-noid
+spr-noid-exit-4	202	147	250	198	tex-noid
+spr-noid-exit-5	252	147	300	198	tex-noid
+spr-noid-exit-6	302	145	350	198	tex-noid
+spr-noid-exit-7	352	147	400	198	tex-noid
+spr-noid-exit-8	2	212	49	198	tex-noid
+spr-noid-exit-9	52	213	100	264	tex-noid
+spr-noid-exit-10	101	213	149	264	tex-noid
+spr-noid-exit-11	152	215	200	264	tex-noid
+spr-noid-exit-12	202	216	250	264	tex-noid
+#noid idle
+spr-noid-idle-0	2	398	50	448	tex-noid
+spr-noid-idle-1	52	399	100	448	tex-noid
+spr-noid-idle-2	102	400	149	448	tex-noid
+spr-noid-idle-3	152	400	200	448	tex-noid
+spr-noid-idle-4	201	400	250	448	tex-noid
+spr-noid-idle-5	252	400	300	448	tex-noid
+spr-noid-idle-6	2	464	50	514	tex-noid
+spr-noid-idle-7	52	465	100	514	tex-noid
+spr-noid-idle-8	102	466	150	514	tex-noid
+spr-noid-idle-9	167	466	216	514	tex-noid
+spr-noid-idle-10	131	467	283	514	tex-noid
+spr-noid-idle-11	314	467	366	514	tex-noid
+#noid walk right
+spr-noid-walk-right-0	15	662	67	712	tex-noid
+spr-noid-walk-right-1	98	663	148	712	tex-noid
+spr-noid-walk-right-2	164	663	214	712	tex-noid
+spr-noid-walk-right-3	216	664	263	712	tex-noid
+spr-noid-walk-right-4	266	663	313	712	tex-noid
+spr-noid-walk-right-5	315	450	364	772	tex-noid
+#noid walk left
+spr-noid-walk-left-0	16	530	69	580	tex-noid
+spr-noid-walk-left-1	84	531	134	580	tex-noid
+spr-noid-walk-left-2	150	532	199	580	tex-noid
+spr-noid-walk-left-3	216	532	264	580	tex-noid
+spr-noid-walk-left-4	266	532	314	580	tex-noid
+spr-noid-walk-left-5	315	532	364	580	tex-noid
+spr-noid-walk-left-6	2	596	49	646	tex-noid
+spr-noid-walk-left-7	52	596	100	646	tex-noid
+spr-noid-walk-left-8	102	596	150	646	tex-noid
+spr-noid-walk-left-9	152	598	201	646	tex-noid
+spr-noid-walk-left-10	233	598	285	646	tex-noid
+spr-noid-walk-left-11	314	598	366	646	tex-noid
 #noid preparing jump
+spr-noid-pre-jump-0	2	714	50	762	tex-noid
+spr-noid-pre-jump-1	52	714	100	762	tex-noid
+spr-noid-pre-jump-2	102	715	150	762	tex-noid
+spr-noid-pre-jump-3	152	715	200	762	tex-noid
 #noid jump
+spr-noid-jump-0	16	932	66	995	tex-noid
+spr-noid-jump-1	80	932	132	995	tex-noid
+spr-noid-jump-2	144	931	198	993	tex-noid
+#noid landing
+spr-noid-landing-0	2	1198	50	1258	tex-noid
+spr-noid-landing-1	52	1199	100	1258	tex-noid
+spr-noid-landing-2	102	1200	150	1258	tex-noid
+spr-noid-landing-3	152	1198	200	1258	tex-noid
+spr-noid-landing-4	202	1210	249	1258	tex-noid
+spr-noid-landing-5	252	1211	300	1258	tex-noid
+#noid damage
+spr-noid-damage-0	2	1272	49	1324	tex-noid
+spr-noid-damage-1	52	1272	100	1324	tex-noid
+spr-noid-damage-2	102	1272	150	995	tex-noid
+spr-noid-damage-3	152	1272	200	995	tex-noid
 
-
-# jump					
-spr-jason-walk-jump	12	30	8	16	tex-player
-# die					
-spr-jason-die-0	3	64	16	16	tex-player
-spr-jason-die-1	20	64	16	16	tex-player
-spr-jason-die-2	37	64	16	16	tex-player
-spr-jason-die-3	54	64	16	16	tex-player
-spr-jason-die-4	3	81	16	16	tex-player
-# crouch					
-spr-jason-crouch-0	3	47	16	8	tex-player
-spr-jason-crouch-1	21	47	16	8	tex-player
-# lie					
-spr-jason-lie	20	89	16	8	tex-player
-
-# ==== SOPHIA =========
-# wheel part
-spr-sophia-wheel-0	3	21	8	8	tex-player
-spr-sophia-wheel-1	12	21	8	8	tex-player
-spr-sophia-wheel-2	21	21	8	8	tex-player
-spr-sophia-wheel-3	30	21	8	8	tex-player
-# middle part
-spr-sophia-middle	3	12	8	8	tex-player
-# gun part
-spr-sophia-gun-00	12	3	8	8	tex-player
-spr-sophia-gun-45	21	3	8	8	tex-player
-spr-sophia-gun-90	30	3	8	8	tex-player
-# cabin part
-spr-sophia-cabin	39	3	16	8	tex-player
-spr-sophia-cabin-turn	56	3	16	8	tex-player
-spr-sophia-cabin-45	73	3	16	16	tex-player
-spr-sophia-cabin-open	125	3	16	16	tex-player
-
-# === INTERRUPT ======
-spr-interrupt-close	153	1486	22	18	tex-enemies
-spr-interrupt-open	128	1489	22	15	tex-enemies
-spr-interrupt-bullet	178	1495	9	9	tex-enemies
-
-# === NEOWORM ========
-spr-neoworm-0	168	1265	18	10	tex-enemies
-spr-neoworm-1	187	1265	17	10	tex-enemies
-spr-neoworm-larva	178	1495	9	9	tex-enemies
-
-# === BALLBOT ========
-spr-ballbot-0	128	737	18	18	tex-enemies
-spr-ballbot-1	149	737	18	18	tex-enemies
-spr-ballbot-2	170	737	18	18	tex-enemies
-
-# === STUKA ==========
-spr-stuka-0	54	386	18	18	tex-enemies
-spr-stuka-1	74	386	18	18	tex-enemies
-spr-stuka-2	94	386	18	18	tex-enemies
-spr-stuka-3	114	386	18	18	tex-enemies
-spr-stuka-4	134	386	18	18	tex-enemies
-spr-stuka-5	154	386	18	18	tex-enemies
-spr-stuka-6	174	386	18	18	tex-enemies
-
-# === EYELET =========
-spr-eyelet-0	128	31	18	15	tex-enemies
-spr-eyelet-1	148	28	18	18	tex-enemies
-spr-eyelet-2	168	31	18	15	tex-enemies
-spr-eyelet-3	188	36	18	10	tex-enemies
-
-# === BALL CARRY =====
-spr-ballcarry-sleep	128	652	16	16	tex-enemies
-spr-ballcarry-move-0	147	651	18	17	tex-enemies
-spr-ballcarry-open	168	653	18	15	tex-enemies
-spr-ballcarry-move-1	188	650	16	18	tex-enemies
-
-# === DRAP ===========
-spr-drap-0	128	274	18	18	tex-enemies
-spr-drap-1	148	276	18	16	tex-enemies
-spr-drap-2	188	276	18	16	tex-enemies
-spr-drap-3	168	274	18	18	tex-enemies
-
-# === GX680 ==========
-spr-gx680-0	128	296	18	16	tex-enemies
-spr-gx680-1	148	295	18	17	tex-enemies
-
-# === GX680S =========
-spr-gx680s-0	128	1150	18	16	tex-enemies
-spr-gx680s-1	148	1149	18	17	tex-enemies
-
-# === LASER GUARD ====
-spr-laserguard-0	128	717	17	18	tex-enemies
-spr-laserguard-1	146	717	17	18	tex-enemies
-
-# === PLAYER BULLET ===
-spr-hyperbeam-axisy	117	20	6	24	tex-player
-spr-hyperbeam-axisx	91	21	24	6	tex-player
-spr-jason-bullet	75	40	4	4	tex-player
-spr-bigjason-xbullet	234	107	8	6	tex-player
-spr-bigjason-ybullet	244	106	6	8	tex-player
-
-# === ENEMY BULLET ===
-spr-ballcarry-bomb	47	514	10	10	tex-enemies
-
-# ===== ITEMS ========
-spr-power-item	255	109	16	16	tex-items
-spr-hover-item	105	109	16	16	tex-items
-spr-gun-item	5	59	16	16	tex-items
-
-# ===== VFX ==========
-spr-explosion-0	140	101	7	8	tex-player
-spr-explosion-1	149	97	16	13	tex-player
-spr-explosion-2	166	97	16	16	tex-player
-spr-explosion-3	183	93	24	24	tex-player
-
-spr-sophia-explosion-0	159	3	45	40	tex-player
-spr-sophia-explosion-1	143	45	64	47	tex-player
-
-# ===== HUD ==========
-# Health Bar
-spr-healthbar-0	64	0	8	48	tex-healthbar
-spr-healthbar-1	56	0	8	48	tex-healthbar
-spr-healthbar-2	48	0	8	48	tex-healthbar
-spr-healthbar-3	40	0	8	48	tex-healthbar
-spr-healthbar-4	32	0	8	48	tex-healthbar
-spr-healthbar-5	24	0	8	48	tex-healthbar
-spr-healthbar-6	16	0	8	48	tex-healthbar
-spr-healthbar-7	8	0	8	48	tex-healthbar
-spr-healthbar-8	0	0	8	48	tex-healthbar
 
 # ani_id		sprite1_id	time1	sprite2_id	time2	...
 [ANIMATIONS]
@@ -374,30 +306,14 @@ ani-jason-die	spr-jason-die-0	100	spr-jason-die-3	100	spr-jason-die-2	100	spr-ja
 # crouch
 ani-jason-crouch	spr-jason-crouch-0	100	spr-jason-crouch-1	100
 
-# ==== SOPHIA ========
-# wheel
-ani-sophia-left-wheel	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100	spr-sophia-wheel-3	100
-ani-sophia-right-wheel	spr-sophia-wheel-3	100	spr-sophia-wheel-0	100	spr-sophia-wheel-1	100	spr-sophia-wheel-2	100
+# ==== ROSSI =========
+#barrel idle
+ani-rossi-barrel-pistol-idle	spr-rossi-barrel-pistol-0	100	spr-rossi-barrel-pistol-1	100	spr-rossi-barrel-pistol-2	100	spr-rossi-barrel-pistol-3	100
 
-# === NEOWORM ========
-ani-neoworm	spr-neoworm-0	100	spr-neoworm-1	100
-
-# === BALLBOT ========
-ani-ballbot	spr-ballbot-0	100	spr-ballbot-1	100	spr-ballbot-2	100
-
-# === STUKA ==========
-ani-stuka	spr-stuka-0	150	spr-stuka-1	150	spr-stuka-2	150	spr-stuka-3	150	spr-stuka-4	150	spr-stuka-5	150	spr-stuka-6	150
-
-# === EYELET =========
-ani-eyelet	spr-eyelet-0	100	spr-eyelet-1	100	spr-eyelet-2	100	spr-eyelet-3	100
-
-# === BALL CARRY =====
-ani-ballcarry	spr-ballcarry-move-0	100	spr-ballcarry-move-1	100
-
-# ===== VFX ==========
-ani-big-explosion	spr-explosion-3	100	spr-explosion-2	100	spr-explosion-1	100	spr-explosion-0	100
-ani-small-explosion	spr-explosion-2	200	spr-explosion-1	100	spr-explosion-0	100
-ani-sophia-explosion	spr-sophia-explosion-0	100	spr-sophia-explosion-1	100
+#legs idle
+#legs 
+# ==== MARINER =========
+# ==== NOID =========
 
 [MAP]
 maps\sectionA.json
