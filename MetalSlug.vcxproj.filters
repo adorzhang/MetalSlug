@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BossElements">
+      <UniqueIdentifier>{aa6fc74f-0f0e-4e73-a5f3-5c506e920e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EnemyObjects">
+      <UniqueIdentifier>{7ab49f0c-3ecc-477a-978c-157c7fefcce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hub">
+      <UniqueIdentifier>{31a5eff4-a00e-43a6-9318-48dc4f374c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ItemObjects">
+      <UniqueIdentifier>{fc1fda86-3f7e-4186-a8b2-c3aac1b48719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainCharacterObjects">
+      <UniqueIdentifier>{650a4c49-cdf2-4a43-bf1c-233a1edff803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{293c72d8-6cba-4c86-873c-b8df0f78d937}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animations.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossScence.cpp" />
+    <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="dxaudio.cpp" />
+    <ClCompile Include="EndingScence.cpp" />
+    <ClCompile Include="EnemyObject.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Goomba.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="IntroScence.cpp" />
+    <ClCompile Include="Koopas.cpp" />
+    <ClCompile Include="MainCharacter.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MenuScence.cpp" />
+    <ClCompile Include="PlayScence.cpp" />
+    <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="Scence.cpp" />
+    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="SpecialPortal.cpp" />
+    <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="Stair.cpp" />
+    <ClCompile Include="Textures.cpp" />
+    <ClCompile Include="TiledMap.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Coupling.cpp">
+      <Filter>BossElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Pincer.cpp">
+      <Filter>BossElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Cannon.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Dome.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Eyeball.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Floater.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Insect.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Jumper.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Mine.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Locust.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Skull.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Teleporter.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Worm.cpp">
+      <Filter>EnemyObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GunHub.cpp">
+      <Filter>Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerHub.cpp">
+      <Filter>Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>ItemObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Egg.cpp">
+      <Filter>ItemObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>ItemObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Lava.cpp">
+      <Filter>ItemObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>ItemObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BarrelObject.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CabinObject.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="WheelObject.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Legs.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>MainCharacterObjects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animations.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossScence.h" />
+    <ClInclude Include="Brick.h" />
+    <ClInclude Include="dxaudio.h" />
+    <ClInclude Include="EndingScence.h" />
+    <ClInclude Include="EnemyObject.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Goomba.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="IntroScence.h" />
+    <ClInclude Include="KeyEventHandler.h" />
+    <ClInclude Include="Koopas.h" />
+    <ClInclude Include="MainCharacter.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="MenuScence.h" />
+    <ClInclude Include="PlayScence.h" />
+    <ClInclude Include="Portal.h" />
+    <ClInclude Include="Scence.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SpecialPortal.h" />
+    <ClInclude Include="Sprites.h" />
+    <ClInclude Include="Stair.h" />
+    <ClInclude Include="Textures.h" />
+    <ClInclude Include="TiledMap.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Coupling.h">
+      <Filter>BossElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Pincer.h">
+      <Filter>BossElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Cannon.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Dome.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Eyeball.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Floater.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Insect.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Jumper.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Mine.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Locust.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Skull.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Teleporter.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Worm.h">
+      <Filter>EnemyObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GunHub.h">
+      <Filter>Hub</Filter>
+    </ClInclude>
+    <ClInclude Include="HovHub.h">
+      <Filter>Hub</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerHub.h">
+      <Filter>Hub</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>ItemObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Egg.h">
+      <Filter>ItemObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>ItemObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Lava.h">
+      <Filter>ItemObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>ItemObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BarrelObject.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CabinObject.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="WheelObject.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Constant.h" />
+    <ClInclude Include="Legs.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
+      <Filter>MainCharacterObjects</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

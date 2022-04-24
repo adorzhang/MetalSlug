@@ -1,0 +1,235 @@
+# id	file_path	transparent_color_r	g	b
+[TEXTURES]
+1	textures\Jason-and-Sophia.png	0	57	115
+2	textures\BlasterMaster-Enemies.png	255	0	255
+33	textures\NES-Blaster-Master-Area-2.png	255	255	255
+50	textures\NES-BlasterMaster-Dungeon.png	255	255	255
+55	textures\sophia.png	255	255	255
+66	textures\bosses.png	255	0	255
+# id	left	top	right	bottom	texture_id
+[SPRITES]
+# tiled map sprites
+# BOSS
+# Mau vang
+10	84	440	144	500	66
+11	149	439	209	504	66
+12	215	440	275	500	66
+13	281	439	341	504	66
+# Mau Tim
+14	85	992	145	1056	66
+15	153	991	213	1056	66
+16	219	992	279	1056	66
+17	286	991	346	1056	66
+# Mau Dong
+18	86	853	146	917	66
+19	152	852	212	917	66
+20	218	853	278	917	66
+21	284	852	344	917	66
+# Mau Xanh Ngoc
+22	84	715	144	779	66
+23	150	714	210	779	66
+24	216	715	276	779	66
+25	286	714	346	779	66
+# Mau Tim Hong
+26	85	578	145	642	66
+27	150	577	210	642	66
+28	217	578	277	642	66
+29	284	577	344	642	66
+# Mau Xanh La Cay
+30	80	303	140	367	66
+31	146	302	206	367	66
+32	213	303	273	367	66
+33	280	302	340	367	66
+# Khop noi - ben phai
+34	69	1129	85	1146	66
+35	94	1129	110	1146	66
+36	142	1129	158	1146	66
+# Chan - ben phai
+37	71	1147	89	1179	66
+38	96	1147	114	1179	66
+39	144	1147	162	1179	66
+# Khop noi - ben trai
+40	222	1129	238	1146	66
+# Chan - ben trai
+41	218	1147	236	1179	66
+# Explosion
+42	155	181	162	189	55
+43	171	178	187	191	55
+44	192	177	208	193	55
+45	177	121	201	145	55
+# SOFIA Human
+#idle
+10001	3	30	11	46	1
+#move left
+10002	12	30	20	46	1
+10003	21	30	29	46	1
+10004	30	30	38	46	1
+# Crawl left - Bo ben trai
+10005	39	30	55	46	1
+10006	56	30	72	46	1
+# BIG-SOFIA
+# move left
+10007	208	69	232	101	1
+10008	233	69	257	101	1
+10009	258	69	282	101	1
+# move up
+10010	208	36	232	68	1
+10011	233	36	257	68	1
+10012	258	36	282	68	1
+# move down
+10013	208	3	232	35	1
+10014	233	3	257	35	1
+10015	258	3	282	35	1
+# Main character empty sprite
+70001	0	0	0	0	1
+# WEAPON
+# Main character
+# fly_horizontal
+100001	91	20	114	27	1
+# fly_vertical
+100002	116	20	123	43	1
+# explode
+100003	140	101	148	109	1
+100004	149	97	165	113	1
+100005	166	97	182	113	1
+100006	183	93	207	117	1
+# Human-Sofia
+# bullet
+100007	135	183	139	187	55
+# bullet_explosion
+100008	155	181	162	189	55
+100009	171	178	187	191	55
+100010	192	177	208	193	55
+# Cannon
+# bullet
+100011	252	102	260	118	1
+# bullet_explosion
+100012	296	102	312	118	1
+# Eyeball
+# bullet
+100013	252	102	260	118	1
+# bullet_explosion
+100014	296	102	312	118	1
+# BOSS
+# bullet
+100015	252	102	260	118	1
+# bullet_explosion
+100016	296	102	312	118	1
+# HUB OBJECTS
+# PowerHub - Text
+800001	175	219	183	235	55
+# PowerHub
+800002	85	97	93	129	55
+800005	95	97	103	129	55
+800006	110	97	118	129	55
+800007	120	97	128	129	55
+800008	130	98	138	130	55
+800009	141	98	149	130	55
+800010	152	98	160	130	55
+800011	27	96	35	128	55
+800012	242	101	250	133	55
+# GunHub
+800003	154	221	162	253	55
+# Hov-Text
+800004	112	240	120	256	55
+# path
+[MAP]
+map-overworld-25.txt
+# ani_id	sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+# ==== BOSS =========
+# di chuyen mau vang
+100	10	100	11	100	12	100	13	100
+# Xuat hien
+101	30	666	26	666	22	666	18	666	14	666	10	666
+# ==== Khop noi BOSS - Ben Phai =========
+102	36	100
+# ==== Chan cua BOSS - Ben Phai =========
+103	39	100
+# ==== Khop noi BOSS - Ben Trai =========
+104	40	100
+# ==== Chan cua BOSS - Ben Trai =========
+105	41	100
+# ==== Explosion =========
+106	42	100	43	100	44	100	45	4000
+# ==== SOFIA HUMAN =========
+#idle
+600	10001	100
+#move left
+601	10002	100	10003	100	10004	100
+#crawl left
+602	10005	100	10006	100
+#BIG-SOFIA
+#move left
+603	10007	100	10008	100	10009	100
+#move up
+604	10010	100	10011	100	10012	100
+#move down
+605	10013	100	10014	100	10015	100
+# ==== MAIN CHARACTER =========
+#idle
+2000	70001	100
+# ==== WEAPON =========
+# Main Character
+# left
+4000	100001	100
+# Up
+4001	100002	100
+# explode
+4002	100003	100	100004	100	100005	100
+# Human-Sofia
+# Bullet
+4003	100007	100
+# Bullet_explosion
+4004	100008	100	100009	100	100010	100
+# Boss
+# Bullet
+4005	100011	100
+# Bullet_explosion
+4006	100012	100
+# ==== HUB =========
+#PowerHub - Text
+100000	800001	100
+#PowerHub
+100001	800002	100
+100004	800005	100
+100005	800006	100
+100006	800007	100
+100007	800008	100
+100008	800009	100
+100009	800010	100
+100010	800011	100
+100011	800012	100
+#GunHub
+100002	800003	100
+#Hov - text
+100003	800004	100
+# id	ani1	ani2	ani3
+#
+[ANIMATION_SETS]
+# SOFIA 
+1	600	601	602	603	604	605
+# MAIN_CHARACTER 
+2	2000
+# BOSS	dichuyenmauvang	xuathien	Khopnoi-benphai	Chan-benphai	Khopnoi-bentrai	Chan-bentrai	Explosion
+3	100	101	102	103	104	105	106
+# WEAPON
+7	4000	4001	4002	4003	4004	4005	4006
+# HUB
+100	100000	100001	100002	100003	100004	100005	100006	100007	100008	100009	100010	100011
+[OBJECTS]
+# object_id  type	x	y	ani_set_id	extra_settings per object type
+# type: 0 = Mario , 1 = Brick, 2 = Boss,3 = Khop noi cua BOSS,4 = Chan cua BOSS  500 = PowerHub, 501 = GunHub, 11= Human
+# MAIN_CHARACTER need to be created first!
+1	9	160	40	2
+# MAIN OBJECTS LIST
+# HUMAN
+2	11	160	40	1
+# HUB LIST - x,y theo trục màn hình
+9	500	10	100	100
+11	501	10	50	100
+# BOSS ENEMY
+10	2	120	200	3	
+# MAP OBJECT LIST
+# cellx celly id_object...
+[GRID]
