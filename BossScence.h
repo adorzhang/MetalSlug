@@ -7,7 +7,6 @@
 
 #include "Boss.h"
 #include "MainCharacter.h"
-#include "Human.h"
 #include "GunHub.h"
 #include "PowerHub.h"
 
@@ -17,7 +16,6 @@ class CBossScence : public CScene
 {
 protected:
 	CMainCharacter* player;// A play scene has to have player, right? 
-	CHuman* player_human;// A play scene has to have player, right? 
 	vector<LPGAMEOBJECT> objects;
 	vector<LPGAMEOBJECT> hub_objects;
 
@@ -39,7 +37,6 @@ public:
 	virtual void Unload();
 
 	CMainCharacter* GetPlayer() { return player; }
-	CHuman* GetHumanPlayer() { return player_human; }
 	void ReLoad();
 };
 

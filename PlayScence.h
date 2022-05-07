@@ -13,7 +13,7 @@
 #include "Goomba.h"
 #include "Koopas.h"
 #include "EnemyObject1.h"
-#include "Worm.h"
+#include "Chowmein.h"
 #include "Spider.h"
 #include "Cannon.h"
 #include "Spike.h"
@@ -29,14 +29,14 @@
 #include "Mine.h"
 #include "Egg.h"
 #include "Arrow.h"
+#include "Background.h"
+#include "Foreground.h"
 //bo sung
 #include "MainCharacter.h"
 #include "BarrelObject.h"
 #include "Legs.h"
-#include "CabinObject.h"
-#include "Human.h"
-//#include "Vehicle.h"
-#include "Body.h"
+
+#include "Barrel.h"
 
 #include "TiledMap.h"
 #include "Grid.h"
@@ -49,6 +49,9 @@ class CPlayScene : public CScene
 protected:
 	//CMario *player;	
 	CMainCharacter* player;// A play scene has to have player, right? 
+	CBackground* background;
+	CForeground* foreground;
+
 	//CHuman* player_human;
 	float cx,cy;
 	float cam_y;

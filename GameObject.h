@@ -52,11 +52,11 @@ public:
 	float dx;	// dx = vx*dt
 	float dy;	// dy = vy*dt
 
-	float vx;
-	float vy;
+	float vx;	//speed x
+	float vy;	//speed y
 
-	int nx;	 
-	int ny;
+	int nx;	 //direction x
+	int ny;	//direction y
 	int state;
 
 	DWORD dt; 

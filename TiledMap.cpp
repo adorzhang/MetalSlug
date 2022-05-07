@@ -9,6 +9,8 @@
 #define MAP_SECTION_SPRITE_ID_CELLS 4
 #define MAP_SECTION_MAP_WIDTH 2
 #define MAP_SECTION_MAP_HEIGHT 3
+#define MAP_SECTION_MAP_BACKGROUND 5
+#define MAP_SECTION_MAP_FOREGROUND 6
 #define TILED_MAP_SIZE 16
 
 CTiledMap* CTiledMap::__instance = NULL;
@@ -58,6 +60,7 @@ void CTiledRow::Render(float x, float y, int alpha)
 {
 	//for(currentCell=0;tiled_row.size();currentCell++)
 		//tiled_row[currentCell]->GetSprite()->Draw(x, y, alpha);
+
 }
 
 CTiledMap::CTiledMap()
@@ -116,6 +119,8 @@ void CTiledMap::LoadMap(LPCWSTR filePath)
 		if (line == "[SPRITE_ID_CELLS]") { section = MAP_SECTION_SPRITE_ID_CELLS; continue; }
 		if (line == "[MAP_WIDTH]") { section = MAP_SECTION_MAP_WIDTH; continue; }
 		if (line == "[MAP_HEIGHT]") { section = MAP_SECTION_MAP_HEIGHT; continue; }
+		if (line == "[BACKGROUND]") { section = MAP_SECTION_MAP_BACKGROUND; continue; }
+		if (line == "[FOREGROUND]") { section = MAP_SECTION_MAP_FOREGROUND; continue; }
 		if (line[0] == '[') { section = MAP_SECTION_UNKNOWN; continue; }
 		if (section == MAP_SECTION_SPRITE_ID_CELLS) is_MAP_SECTION_SPRITE_ID_CELLS = true;
 		else is_MAP_SECTION_SPRITE_ID_CELLS = false;
@@ -128,6 +133,8 @@ void CTiledMap::LoadMap(LPCWSTR filePath)
 		case MAP_SECTION_SPRITE_ID_CELLS: _ParseSection_SPRITE_ID_CELLS(line,lineCount); break;
 		case MAP_SECTION_MAP_WIDTH: _ParseSection_MAP_WIDTH(line); break;
 		case MAP_SECTION_MAP_HEIGHT: _ParseSection_MAP_HEIGHT(line); break;
+		case MAP_SECTION_MAP_BACKGROUND: _ParseSection_MAP_BACKGROUND(line); break;
+		case MAP_SECTION_MAP_FOREGROUND: _ParseSection_MAP_FOREGROUND(line); break;
 		}
 		if (is_MAP_SECTION_SPRITE_ID_CELLS)
 			lineCount++;
@@ -176,6 +183,19 @@ void CTiledMap::_ParseSection_MAP_HEIGHT(string line)
 	this->map_height = map_height;
 }
 
+void CTiledMap::_ParseSection_MAP_BACKGROUND(string line)
+{
+	this->background = split(line);
+
+
+}
+
+void CTiledMap::_ParseSection_MAP_FOREGROUND(string line)
+{
+	this->foreground = split(line);
+
+}
+
 void CTiledMap::Render()
 {
 	for (int r_index = 0; r_index < tiledmap_row_set.size(); r_index++)
@@ -189,6 +209,7 @@ void CTiledMap::Render()
 	}
 }
 
+
 void CTiledMap::Render(float x, float y)
 {
 	for (int r_index = 0; r_index < tiledmap_row_set_next_map.size(); r_index++)
@@ -200,6 +221,12 @@ void CTiledMap::Render(float x, float y)
 			cell->GetSprite()->Draw(c_index * TILED_MAP_SIZE+x, r_index == 0 ? r_index * this->map_height+y : this->map_height - r_index * TILED_MAP_SIZE+y);
 		}
 	}
+
+	
+}
+
+void CTiledMap::Update(DWORD dt) {
+
 }
 
 CTiledMapSets::CTiledMapSets()

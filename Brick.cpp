@@ -1,5 +1,6 @@
 #include "Brick.h"
 #include "Game.h"
+#include "Utils.h"
 CBrick::CBrick(float l, float t, float r, float b,int type)
 {
 	
@@ -42,7 +43,7 @@ void CBrick::Render()
 			break;
 		}
 		animation_set->at(ani)->Render(x, y);
-		//RenderBoundingBox();
+		RenderBoundingBox();
 	}
 	
 }
@@ -70,6 +71,10 @@ void CBrick::GetBoundingBox(float &l, float &t, float &r, float &b)
 		t = y - height;
 		r = x + width;
 		b = y;
+	}
+	else
+	{
+		DebugOut(L"[INFO] Brick disable false!\n");
 	}
 	
 }

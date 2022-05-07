@@ -10,20 +10,13 @@
 #define LEG_ANI_SWIM			5
 #define LEG_ANI_JUMP_STRAIGHT	6
 
-#define WHEEL_EFFECT_TIME 1000
-#define WHEEL_BBOX_WIDTH 8
-#define LEG_BBOX_WIDTH 22
-#define WHEEL_BBOX_HEIGHT 8
-#define LEG_BBOX_HEIGHT 22
-#define WHEEL_PUSH_EFFECT_TIME 300
-#define WHEEL_UP_DOWN_EFFECT_TIME 100
+
+#define LEG_BBOX_WIDTH 30
+#define LEG_BBOX_HEIGHT 32
+
 class CLegs : public CGameObject
 {
 	int level;
-	DWORD up_effect_start;
-	DWORD push_effect_time;
-	DWORD up_down_effect_time;
-	bool is_being_up_effect_wheel;
 	float start_x;			// initial position of legs at scene
 	float start_y;
 
@@ -31,8 +24,10 @@ class CLegs : public CGameObject
 
 	float x_delta;
 	float y_delta;
-	bool is_start_push_effect;
-	bool is_end_push_effect;
+
+
+	bool isEnable;
+	bool isDisplay;
 public:
 	CLegs(float x = 0.0f, float y = 0.0f);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_objects = NULL);
@@ -40,7 +35,6 @@ public:
 
 	void SetState(int state);
 	void SetLevel(int l) { level = l; }
-	void StartUpEffect() { y -= 1; up_effect_start = GetTickCount(); }
 
 	void Reset();
 

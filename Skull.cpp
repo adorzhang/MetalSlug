@@ -1,6 +1,6 @@
 ﻿#include "Skull.h"
 #include "Brick.h"
-#include "Worm.h"
+#include "Chowmein.h"
 #include "Dome.h"
 #include "Weapon.h"
 CSkull::CSkull(int _item) :CEnemyObject()

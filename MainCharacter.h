@@ -1,13 +1,11 @@
 #pragma once
 #include "GameObject.h"
 #include "BarrelObject.h"
-//#include "WheelObject.h"
 #include "Legs.h"
-#include "CabinObject.h"
+
 #include "Weapon.h"
-#include "Human.h"
-//#include "Vehicle.h"
-#include "Body.h"
+
+#include "Barrel.h"
 
 #define MAIN_CHARACTER_RUN_SPEED							0.15f 
 //0.1f
@@ -22,7 +20,7 @@
 
 
 #define MAIN_CHARACTER_STATE_RUN_LEFT						200
-#define MAIN_CHARACTER_STATE_JUMP					300
+#define MAIN_CHARACTER_STATE_JUMP							300
 #define MAIN_CHARACTER_STATE_DIE							401
 #define MAIN_CHARACTER_STATE_EXPLOSION						400
 #define MAIN_CHARACTER_STATE_UP_BARREL						500
@@ -30,8 +28,6 @@
 #define MAIN_CHARACTER_STATE_DOWN_BARREL					502
 #define MAIN_CHARACTER_STATE_NONE_COLLISION					600
 #define MAIN_CHARACTER_STATE_HUMAN							800
-//#define MAIN_CHARACTER_STATE_OPEN_CABIN					801
-//#define MAIN_CHARACTER_STATE_CLOSE_CABIN					802
 #define MAIN_CHARACTER_STATE_SWIM							801
 #define MAIN_CHARACTER_STATE_JUMP_STRAIGHT					802
 
@@ -106,8 +102,8 @@ class CMainCharacter : public CGameObject
 public:
 
 	//Bo sung property
-	bool Is_On_Ground;
-	bool Is_Human;
+	bool isOnGround;
+	bool isHuman;
 	//bool CanChangeState;
 	bool IsStartingBossScence;
 	CMainCharacter(float x = 0.0f, float y = 0.0f);

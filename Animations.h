@@ -41,7 +41,7 @@ public:
 	LPANIMATION_FRAME GetFrame(int frame) { return frames[frame]; }
 
 
-	void Render(float x, float y, bool flip = false, int alpha = 255);
+	void Render(float x, float y, bool flip = false, int alpha = 255, float scale = 1);
 };
 
 typedef CAnimation *LPANIMATION;

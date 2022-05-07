@@ -17,11 +17,10 @@ CLegs::CLegs(float x, float y) : CGameObject()
 	start_y = y;
 	this->x = x;
 	this->y = y;
-
-	//is_Right_Wheel = false;
-	//is_Middle_Wheel = false;
 	x_delta = 0;
-	//push_effect_time = 0;
+
+	this->isEnable = true;
+	this->isDisplay = true;
 }
 
 void CLegs::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
@@ -29,67 +28,6 @@ void CLegs::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	CGameObject::Update(dt);
 	x = player_x;
 	y = player_y;
-	//Hiệu ứng bánh xe lên xuống khi di chuyển
-	/*if (vx != 0)
-	{
-		up_down_effect_time += dt;
-		if (!is_being_up_effect_wheel)
-		{
-			if (up_down_effect_time <= WHEEL_UP_DOWN_EFFECT_TIME)
-			{
-				y_delta += 0.01 * dt;
-			}
-			else
-			{
-				is_being_up_effect_wheel = true;
-				up_down_effect_time = 0;
-			}
-		}
-		else
-		{
-			if (up_down_effect_time <= WHEEL_UP_DOWN_EFFECT_TIME)
-			{
-				y_delta -= 0.01 * dt;
-			}
-			else
-			{
-				is_being_up_effect_wheel = false;
-				up_down_effect_time = 0;
-			}
-		}
-
-	}
-	if (is_start_push_effect && is_being_up && is_Right_Wheel)
-	{
-		push_effect_time += dt;
-		if (push_effect_time <= WHEEL_PUSH_EFFECT_TIME && !is_end_push_effect)
-			x_delta -= 0.01 * dt;
-		else
-		{
-			is_end_push_effect = true;
-			push_effect_time = 0;
-			x_delta = x_delta;
-		}
-	}
-
-	else if (is_start_push_effect && is_being_up && !is_Right_Wheel)
-	{
-		push_effect_time += dt;
-		if (push_effect_time <= WHEEL_PUSH_EFFECT_TIME && !is_end_push_effect)
-			x_delta += 0.01 * dt;
-		else
-		{
-			is_end_push_effect = true;
-			push_effect_time = 0;
-			x_delta = x_delta;
-		}
-	}*/
-
-	//else
-	{
-		//push_effect_time = 0;
-		//x_delta = 0;
-	}
 
 }
 
@@ -147,7 +85,7 @@ void CLegs::Render()
 		animation_set->at(ani)->isRepeat = true;
 		animation_set->at(ani)->Render(x , y - MAIN_CHARACTER_BBOX_HEIGHT  + y_delta, flip, alpha);
 	}
-	
+	RenderBoundingBox();
 }
 
 void CLegs::SetState(int state)
@@ -156,8 +94,6 @@ void CLegs::SetState(int state)
 	switch (state)
 	{
 	case MAIN_CHARACTER_STATE_UP_BARREL:
-		is_start_push_effect = true;
-		is_being_up = true;
 		break;
 	case MAIN_CHARACTER_STATE_JUMP:
 		break;
@@ -170,22 +106,23 @@ void CLegs::SetState(int state)
 	case MAIN_CHARACTER_STATE_SWIM:
 		break;
 	default:
-		is_start_push_effect = false;
-		is_being_up = false;
-		is_end_push_effect = false;
 		break;
 	}
 }
 
 void CLegs::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-
+	if (isEnable)
+	{
+		left = x;
+		top = y - LEG_BBOX_HEIGHT;
+		right = x + LEG_BBOX_WIDTH;
+		bottom = y;
+	}
 
 }
 
-/*
-	Reset WHEEL status to the beginning state of a scene
-*/
+
 void CLegs::Reset()
 {
 

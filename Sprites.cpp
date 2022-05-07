@@ -20,15 +20,15 @@ CSprites *CSprites::GetInstance()
 	return __instance;
 }
 
-void CSprite::Draw(float x, float y, int alpha,bool flip)
+void CSprite::Draw(float x, float y, int alpha,bool flip, float scale)
 {
 	CGame * game = CGame::GetInstance();
-	game->DrawWithTransformation(x, y, texture, left, top, right, bottom, alpha, flip);
+	game->DrawWithTransformation(x, y, texture, left, top, right, bottom, alpha, flip, scale);
 }
-void CSprite::DrawWithoutTransformation(float x, float y, int alpha, bool flip)
+void CSprite::DrawWithoutTransformation(float x, float y, int alpha, bool flip, float scale)
 {
 	CGame* game = CGame::GetInstance();
-	game->DrawWithoutTransformation(x, y, texture, left, top, right, bottom, alpha, flip);
+	game->DrawWithoutTransformation(x, y, texture, left, top, right, bottom, alpha, flip, scale);
 }
 void CSprites::Add(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 tex)
 {

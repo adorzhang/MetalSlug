@@ -1,9 +1,9 @@
 #include "Locust.h"
 #include "Brick.h"
-#include "Worm.h"
+#include "Chowmein.h"
 CLocust::CLocust(int _item, int _type) :CEnemyObject()
 {
-	SetState(LOCUST_STATE_MOVE);
+	SetState(LOCUST_STATE_FLYING);
 	this->blood = 1;
 	item = _item;
 	time_moving = 0;
@@ -145,25 +145,25 @@ void CLocust::Render()
 		switch (state)
 		{
 		case LOCUST_STATE_IDLE:
-			ani = LOCUST_ANI_MOVE_LEFT;
+			ani = LOCUST_ANI_FLYING_LEFT;
 			break;
-		case LOCUST_STATE_MOVE:
+		case LOCUST_STATE_FLYING:
 			if (nx > 0)
-				ani = LOCUST_ANI_MOVE_RIGHT;
+				ani = LOCUST_ANI_FLYING_RIGHT;
 			else
-				ani = LOCUST_ANI_MOVE_LEFT;
+				ani = LOCUST_ANI_FLYING_LEFT;
 			break;
 		case LOCUST_STATE_CHANGE_DIRECTION:
 			if (nx > 0)
-				ani = LOCUST_ANI_MOVE_RIGHT;
+				ani = LOCUST_ANI_FLYING_RIGHT;
 			else
-				ani = LOCUST_ANI_MOVE_LEFT;
+				ani = LOCUST_ANI_FLYING_LEFT;
 			break;
 		case LOCUST_STATE_ATTACK:
 			if (nx > 0)
-				ani = LOCUST_ANI_MOVE_RIGHT;
+				ani = LOCUST_ANI_FLYING_RIGHT;
 			else
-				ani = LOCUST_ANI_MOVE_LEFT;
+				ani = LOCUST_ANI_FLYING_LEFT;
 			break;
 		case STATE_ITEM:
 			ani = item;
@@ -188,8 +188,8 @@ void CLocust::SetState(int state)
 	case LOCUST_STATE_IDLE:
 		vx = 0;
 		break;
-	case LOCUST_STATE_MOVE:
-		vx = LOCUST_MOVE_SPEED;
+	case LOCUST_STATE_FLYING:
+		vx = LOCUST_FLYING_SPEED;
 		break;
 	case LOCUST_STATE_CHANGE_DIRECTION:
 		vx = -vx;

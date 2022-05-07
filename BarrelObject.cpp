@@ -44,10 +44,10 @@ void CBarrelObject::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		if (vx != 0) //Add effect if running
 		{
 			StartUpEffect();
-			if (GetTickCount() - up_effect_start > WHEEL_EFFECT_TIME)
-			{
-				y += 1;
-			}
+			//if (GetTickCount() - up_effect_start > WHEEL_EFFECT_TIME)
+			//{
+				//y += 1;
+			//}
 
 
 		}
@@ -58,10 +58,10 @@ void CBarrelObject::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		if (vx != 0) //Add effect if running
 		{
 			StartUpEffect();
-			if (GetTickCount() - up_effect_start > WHEEL_EFFECT_TIME)
-			{
-				y -= 1;
-			}
+			//if (GetTickCount() - up_effect_start > WHEEL_EFFECT_TIME)
+			//{
+			//	y -= 1;
+			//}
 
 
 		}

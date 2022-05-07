@@ -41,7 +41,7 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 #define OBJECT_TYPE_MARIO	0
 
 //Map objects
-#define OBJECT_TYPE_BRICK	1
+#define OBJECT_TYPE_BRICK	4
 #define OBJECT_TYPE_LAVA	30
 #define OBJECT_TYPE_SPIKE	21
 #define OBJECT_TYPE_STAIR	22
@@ -49,7 +49,7 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 
 //Enemy objects
 #define OBJECT_TYPE_ENEMY1	2
-#define OBJECT_TYPE_WORM	3
+#define OBJECT_TYPE_CHOWMEIN	3
 #define OBJECT_TYPE_SPIDER	10
 #define OBJECT_TYPE_FLOATER	12
 #define OBJECT_TYPE_DOME	13
@@ -57,7 +57,7 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 
 #define OBJECT_TYPE_INSECT	15
 
-#define OBJECT_TYPE_ORB		16
+#define OBJECT_TYPE_LOCUST		16
 #define OBJECT_TYPE_SKULL	17
 #define OBJECT_TYPE_CANNON	19
 #define OBJECT_TYPE_EYEBALL	20
@@ -68,12 +68,8 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 
 //Main character objects
 #define OBJECT_TYPE_MAIN_CHARACTER	9
-//#define OBJECT_TYPE_WHEEL_LEFT	4
 
-//#define OBJECT_TYPE_WHEEL_RIGHT	6
-
-//#define OBJECT_TYPE_VEHICLE	7
-#define OBJECT_TYPE_BODY	7
+#define OBJECT_TYPE_BARREL	7
 
 #define OBJECT_TYPE_HUMAN	11
 
@@ -202,17 +198,17 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		player = new CMainCharacter(x, y);
 		player->SetPosition(x, y);
 		player->SetAnimationSet(animation_sets->Get(ani_set_id));
-		if (type_scence == OVER_WORLD)
-			player->Is_Human = true;
+		//if (type_scence == OVER_WORLD)
+			//player->Is_Human = true;
 		DebugOut(L"[INFO] Player object created!\n");
 		return;
 		break;
-	case OBJECT_TYPE_WORM:
+	case OBJECT_TYPE_CHOWMEIN:
 	{
 		int item = 0;
 		if (tokens.size() > 5)
 			item = atoi(tokens[5].c_str());
-		obj = new CWorm(item);
+		obj = new CChowmein(item);
 		LPANIMATION_SET ani_set = animation_sets->Get(200);
 		obj->SetAnimationItemSet(ani_set);
 	}
@@ -307,7 +303,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		obj->SetAnimationItemSet(ani_set);
 	}
 	break;
-	case OBJECT_TYPE_ORB:
+	case OBJECT_TYPE_LOCUST:
 	{
 		int item = 0;
 		int type = 0;
@@ -408,9 +404,9 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		}
 		break;
 	}
-	case OBJECT_TYPE_BODY:
+	case OBJECT_TYPE_BARREL:
 	{
-		obj = new CBody();
+		obj = new CBarrel();
 		float _x, _y;
 		obj->SetID(object_id);
 		obj->SetAnimationSet(animation_sets->Get(ani_set_id));
@@ -447,7 +443,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 				{
 					float old_x_player = CGame::GetInstance()->GetParamXPlayer();
 					float old_y_player = CGame::GetInstance()->GetParamYPlayer();
-					player->Is_Human = true;
+					//player->Is_Human = true;
 					//player->SetState(MAIN_CHARACTER_STATE_OPEN_CABIN);
 					player->SetPosition(old_x_player, old_y_player);
 
@@ -519,6 +515,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 
 	obj->SetAnimationSet(ani_set);
 	objects.push_back(obj);
+	
 }
 
 /*
@@ -536,7 +533,33 @@ void CPlayScene::_ParseSection_MAP(string line)
 
 	tiledMap = new CTiledMap();
 	tiledMap->LoadMap(path.c_str());
+
+	vector<string> fg = tiledMap->getForeground();
+	vector<string> bg = tiledMap->getBackground();
+	if (fg.size() > 0) {
+		float x = atof(fg[2].c_str());
+		float y = atof(fg[3].c_str());
+		int ani_set_id = atoi(fg[4].c_str());
+		CAnimationSets* animation_sets = CAnimationSets::GetInstance();
+		foreground = new CForeground(x, y);
+		foreground->SetPosition(x, y);
+		foreground->SetAnimationSet(animation_sets->Get(ani_set_id));
+	}
+	if (bg.size() > 0) {
+		float x = atof(bg[2].c_str());
+		float y = atof(bg[3].c_str());
+		int ani_set_id = atoi(bg[4].c_str());
+		CAnimationSets* animation_sets = CAnimationSets::GetInstance();
+		background = new CBackground(x, y);
+		background->SetPosition(x, y);
+		background->SetAnimationSet(animation_sets->Get(ani_set_id));
+	}
+
+
+	
 	CTiledMapSets::GetInstance()->Add(id, tiledMap);
+
+
 
 
 }
@@ -679,16 +702,19 @@ void CPlayScene::Update(DWORD dt)
 	}
 	else
 	{
+		if (background) background->Update(dt);
+		if (foreground) foreground->Update(dt);
+
 		map_objects = CGrid::GetInstance()->GetList();
 		vector<LPGAMEOBJECT> coObjects;
 		if (map_objects.size() > 0)
 		{
 			for (auto object : map_objects)
 				coObjects.push_back(object.second);
-			{
+			//{
 				for (auto object : map_objects)
 					object.second->Update(dt, &coObjects);
-			}
+			//}
 		}
 		if (player == NULL) return;
 		else
@@ -759,42 +785,19 @@ void CPlayScene::Update(DWORD dt)
 		//Thực hiện chuyển về scene trước
 		else if (game->GetIsPreMap() == true)
 		{
-
-			//float player_x, player_y;
-			//player->GetPosition(player_x, player_y);
-			//Không xét va chạm và render player lên màn hình
-			//player->SetState(MAIN_CHARACTER_STATE_NONE_COLLISION);
-			//Cho camera di chuyển theo trục x
-			//player->SetSpeed(-0.4, 0);
-			//Lấy width, height của map hiện tại
-			//CMap* map = CTiledMapSets::GetInstance()->Get(id);
-			//int widthMap, heightMap;
-			//map->GetMapWidth(widthMap);
-			//map->GetMapHeight(heightMap);
-			//Lấy width, height của map trước
-			//map = CTiledMapSets::GetInstance()->Get(id_pre_map);
-			//int widthPreMap, heightPreMap;
-			//map->GetMapWidth(widthPreMap);
-			//map->GetMapHeight(heightPreMap);
-			//player->GetPosition(player_x, player_y);
-			//Sau hiệu ứng di chuyển camera sang màn thì tiến hành chuyển màn
-			//if (player_x <= -(widthPreMap / 3))
+			if (CGame::GetInstance()->GetParamEnteringOverWorld())
 			{
-				if (CGame::GetInstance()->GetParamEnteringOverWorld())
+				if (player)
 				{
-					if (player)
-					{
-						float player_x, player_y;
-						player->GetPosition(player_x, player_y);
-						CGame::GetInstance()->SetParamPlayer(player_x, player_y);
-					}
-					CGame::GetInstance()->SetParamEnteringOverWorld(false);
+					float player_x, player_y;
+					player->GetPosition(player_x, player_y);
+					CGame::GetInstance()->SetParamPlayer(player_x, player_y);
 				}
-				// switch scene
-				game->SwitchScene(game->GetSceneId(), player->GetAlive(), player->GetPower());
-				game->SetIsPreMap(false);
+				CGame::GetInstance()->SetParamEnteringOverWorld(false);
 			}
-
+			// switch scene
+			game->SwitchScene(game->GetSceneId(), player->GetAlive(), player->GetPower());
+			game->SetIsPreMap(false);
 
 		}
 		else if (game->GetIsUpMap() == true)
@@ -843,6 +846,7 @@ void CPlayScene::Update(DWORD dt)
 			else
 			{
 				cx -= (float)game->GetScreenWidth() / 2;
+				
 			}
 		}
 		//Xử lý camera theo trục y
@@ -856,14 +860,6 @@ void CPlayScene::Update(DWORD dt)
 
 			player->GetPosition(player_x, player_y);
 
-			//float height = (player_y - cy);
-
-			/*if (height >= ((float)game->GetScreenHeight() / 80))
-			{
-				height += (float)(game->GetScreenHeight() / 3);
-
-				cy += height;
-			}*/
 			if (player_y > (float)game->GetScreenHeight() / 2 && player_y < heightMap - (float)(game->GetScreenHeight() / 2) - 1 && id != 1 && id != 5 && id != 3 && id != 22 && id != 23)
 			{
 				cam_y = player_y + (float)game->GetScreenHeight() / 2;
@@ -875,44 +871,63 @@ void CPlayScene::Update(DWORD dt)
 		/*for (int i = 0; i < hub_objects.size(); i++)
 			hub_objects[i]->Update(dt);*/
 		Sound::getInstance()->Play(SOUND_ID_AREA_2);
+
+		
 	}
 }
 
 void CPlayScene::Render()
 {
+	//LPDIRECT3DTEXTURE9 maptextures = CTextures::GetInstance()->Get(67);
+	//background
+	//CGame::GetInstance()->Draw(-5, 130, maptextures, 0, 0, 5169, 273); //TODO: cal position
+	//forceground
+	//CGame::GetInstance()->Draw(-5, 185, maptextures, 0, 1196, 5169, 1418); //TODO: cal position
+
+	if (background != NULL) background->Render();
+	if (foreground != NULL) foreground->Render();
+
+	//Vẽ tiled map của scene hiện tại
+	CTiledMapSets::GetInstance()->Get(id)->Render();
+	//Tạo hiệu ứng vẽ tiled map của scene tiếp theo nếu thỏa điều kiện
+	if (id_next_map != -1 && CTiledMapSets::GetInstance()->Get(id_next_map) && CGame::GetInstance()->GetRenderingNextMap())
 	{
+		CMap* map = CTiledMapSets::GetInstance()->Get(id);
+		int widthMap, heightMap;
+		map->GetMapWidth(widthMap);
+		map->GetMapHeight(heightMap);
 
-		LPDIRECT3DTEXTURE9 maptextures = CTextures::GetInstance()->Get(67);
-		//background
-		CGame::GetInstance()->Draw(-5, 130, maptextures, 0, 0, 5169, 273); //TODO: cal position
-		//forceground
-		CGame::GetInstance()->Draw(-5, 185, maptextures, 0, 1196, 5169, 1418); //TODO: cal position
+		map = CTiledMapSets::GetInstance()->Get(id_next_map);
+		int widthNextMap, heightNextMap;
+		map->GetMapWidth(widthNextMap);
+		map->GetMapHeight(heightNextMap);
+		CTiledMapSets::GetInstance()->Get(id_next_map)->Render(widthMap, heightMap <= heightNextMap ? 0 : heightMap - heightNextMap);
+	}
 
-		//Vẽ tất cả các object hiện tại nếu thỏa điều kiện
-		if (player->GetState() != MAIN_CHARACTER_STATE_NONE_COLLISION)
+	//Vẽ tất cả các object hiện tại nếu thỏa điều kiện
+	if (player->GetState() != MAIN_CHARACTER_STATE_NONE_COLLISION)
+	{
+		for (auto object : map_objects)
+			object.second->Render();
+		//Vẽ player object
+		if (type_scence != OVER_WORLD)
 		{
-			for (auto object : map_objects)
-				object.second->Render();
-			//Vẽ player object
-			if (type_scence != OVER_WORLD)
-			{
-				player->Render();
-			}
-
-			if (player->GetPower() < 0 && player->GetState() == MAIN_CHARACTER_STATE_DIE)
-			{
-				int lives = player->GetAlive();
-				if (lives >= 0)
-				{
-					lives -= 1;
-					player->SetAlive(lives);
-					ReLoad();
-				}
-			}
-			//Vẽ Hub objects
-			/*for (int i = 0; i < hub_objects.size(); i++)
-				hub_objects[i]->Render();*/
+			player->Render();
 		}
+
+		if (player->GetPower() < 0 && player->GetState() == MAIN_CHARACTER_STATE_DIE)
+		{
+			int lives = player->GetAlive();
+			if (lives >= 0)
+			{
+				lives -= 1;
+				player->SetAlive(lives);
+				ReLoad();
+			}
+		}
+		//Vẽ Hub objects
+		/*for (int i = 0; i < hub_objects.size(); i++)
+			hub_objects[i]->Render();*/
 	}
 }
 
@@ -1030,9 +1045,9 @@ void CPlayScenceKeyHandler::OnKeyDown(int KeyCode)
 	switch (KeyCode)
 	{
 	case DIK_UP:
-		
+
 		player->SetState(MAIN_CHARACTER_STATE_UP_BARREL);
-			break;
+		break;
 	case DIK_SPACE:
 		player->SetState(MAIN_CHARACTER_STATE_JUMP);
 		break;
@@ -1080,7 +1095,7 @@ void CPlayScenceKeyHandler::KeyState(BYTE* states)
 	if (player->GetState() == MAIN_CHARACTER_STATE_DIE) return;
 	if (player->GetState() == MAIN_CHARACTER_STATE_NONE_COLLISION) return;
 	if (CGame::GetInstance()->GetCurrentScenceID() == SCENCE_ID_OVERWORLD_END) return;
-	
+
 	else if (game->IsKeyDown(DIK_DOWN))
 	{
 		player->SetState(MAIN_CHARACTER_STATE_DOWN_BARREL);
@@ -1099,4 +1114,3 @@ void CPlayScenceKeyHandler::KeyState(BYTE* states)
 		player->SetState(MAIN_CHARACTER_STATE_IDLE);
 	}
 }
-

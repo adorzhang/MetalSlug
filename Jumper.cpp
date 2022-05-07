@@ -1,6 +1,6 @@
 #include "Jumper.h"
 #include "Brick.h"
-#include "Worm.h"
+#include "Chowmein.h"
 CJumper::CJumper(int _item) :CEnemyObject()
 {
 	SetState(JUMPER_STATE_IDLE);

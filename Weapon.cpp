@@ -2,7 +2,7 @@
 #include "Weapon.h"
 
 #include "EnemyObject1.h"
-#include "Worm.h"
+#include "Chowmein.h"
 #include "Spider.h"
 #include "Cannon.h"
 #include "Eyeball.h"
@@ -117,14 +117,14 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 		{
 			for (UINT i = 0; i < colliable_object->size(); i++)
 			{
-				if (dynamic_cast<CWorm*>(colliable_object->at(i)))
+				if (dynamic_cast<CChowmein*>(colliable_object->at(i)))
 				{
-					CWorm* worm = dynamic_cast<CWorm*>(colliable_object->at(i));
-					if (worm->GetState() != STATE_ITEM)
+					CChowmein* chowmein = dynamic_cast<CChowmein*>(colliable_object->at(i));
+					if (chowmein->GetState() != STATE_ITEM)
 					{
 						float l1, t1, r1, b1, l2, t2, r2, b2;
 						GetBoundingBox(l1, t1, r1, b1);
-						worm->GetBoundingBox(l2, t2, r2, b2);
+						chowmein->GetBoundingBox(l2, t2, r2, b2);
 
 						if (game->CheckCollision(l1, t1, r1, b1, l2, t2, r2, b2) == true)
 						{
@@ -133,7 +133,7 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 
 							if (!isAttacked)
 							{
-								worm->LostBlood(GetDame());
+								chowmein->LostBlood(GetDame());
 								isAttacked = true;
 							}
 						}
@@ -677,14 +677,14 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 						}
 					}
 				}
-				else if (dynamic_cast<CWorm*>(colliable_object->at(i)))
+				else if (dynamic_cast<CChowmein*>(colliable_object->at(i)))
 				{
-					CWorm* worm = dynamic_cast<CWorm*>(colliable_object->at(i));
-					if (worm->GetState() != STATE_ITEM)
+					CChowmein* chowmein = dynamic_cast<CChowmein*>(colliable_object->at(i));
+					if (chowmein->GetState() != STATE_ITEM)
 					{
 						float l1, t1, r1, b1, l2, t2, r2, b2;
 						GetBoundingBox(l1, t1, r1, b1);
-						worm->GetBoundingBox(l2, t2, r2, b2);
+						chowmein->GetBoundingBox(l2, t2, r2, b2);
 
 						if (game->CheckCollision(l1, t1, r1, b1, l2, t2, r2, b2) == true)
 						{
@@ -692,7 +692,7 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 							isBurning = true;
 							if (!isAttacked)
 							{
-								worm->LostBlood(GetDame());
+								chowmein->LostBlood(GetDame());
 								isAttacked = true;
 							}
 						}
@@ -1012,14 +1012,14 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 							SetState(WEAPON_PLAYER_ROCKET_STATE_FLY_HORIZONTAL_RIGHT);
 					}
 				}
-				if (dynamic_cast<CWorm*>(minObjectDistance))
+				if (dynamic_cast<CChowmein*>(minObjectDistance))
 				{
-					CWorm* worm = dynamic_cast<CWorm*>(minObjectDistance);
-					if (worm->GetState() != STATE_ITEM)
+					CChowmein* chowmein = dynamic_cast<CChowmein*>(minObjectDistance);
+					if (chowmein->GetState() != STATE_ITEM)
 					{
 						float l1, t1, r1, b1, l2, t2, r2, b2;
 						GetBoundingBox(l1, t1, r1, b1);
-						worm->GetBoundingBox(l2, t2, r2, b2);
+						chowmein->GetBoundingBox(l2, t2, r2, b2);
 
 						if (game->CheckCollision(l1, t1, r1, b1, l2, t2, r2, b2) == true)
 						{
@@ -1027,7 +1027,7 @@ void CWeapon::Update(DWORD dt, vector<LPGAMEOBJECT>* colliable_object)
 							isBurning = true;
 							if (!isAttacked)
 							{
-								worm->LostBlood(GetDame());
+								chowmein->LostBlood(GetDame());
 								isAttacked = true;
 							}
 						}

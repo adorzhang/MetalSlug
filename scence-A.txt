@@ -10,7 +10,7 @@
 8	textures\marine_diver.png				255				255	255
 9	textures\slog_noid.png				255				255	255
 10	textures\slug_mariner.png				255				255	255
-67	textures\misson-1.png					255				255	255
+67	textures\misson-1.png	255	255	255
 68	textures\marco_rossi.png				255				255	255
 # id	left	top	right	bottom	texture_id
 [SPRITES]
@@ -427,6 +427,20 @@
 484	663	1379	727	1428	2
 485	50	1440	109	1469	2
 486	121	1440	179	1469	2
+#effects
+487	47	1478	76	1570	2
+488	88	1478	126	1570	2
+489	146	1478	196	1570	2
+490	213	1478	270	1570	2
+491	284	1478	350	1570	2
+492	364	1478	438	1570	2
+493	446	1478	524	1570	2
+494	535	1478	612	1570	2
+495	620	1478	700	1570	2
+496	704	1478	794	1570	2
+497	60	1568	149	1656	2
+498	152	1568	240	1656	2
+499	262	1568	350	1656	2
 #============================CHOWMEIN CONGA ============================
 #idle
 500	15	27	66	72	3
@@ -452,17 +466,17 @@
 517	85	229	140	274	3
 #attack
 518	23	294	71	338	3
-519	87	229	131	338	3
+519	87	294	131	338	3
 520	147	287	188	338	3
-521	204	289	247	338	3
-522	252	293	307	338	3
-523	317	295	379	338	3
-524	394	294	369	338	3
-525	380	293	555	338	3
-526	567	294	631	338	3
+521	204	286	247	338	3
+522	252	286	307	338	3
+523	317	286	379	338	3
+524	394	286	468	338	3
+525	480	286	554	338	3
+526	567	286	630	338	3
 527	17	353	76	397	3
 528	81	353	136	397	3
-529	146	353	200	397	3
+529	145	353	200	397	3
 530	208	353	259	397	3
 531	17	412	70	459	3
 532	82	412	135	459	3
@@ -908,9 +922,32 @@
 #bullet_explosion
 100021	166	97	182	113	1
 
-# path
-[MAP]
-Map-Blaster-Master-Area-2-A.txt
+#background
+3000	0	0	2375	274	67
+3001	2376	82	2888	274	67
+#wave back
+3002	2	277	706	325	67
+3003	2	326	706	374	67
+3004	2	374	706	422	67
+3005	2	424	706	471	67
+3006	2	473	706	521	67
+3007	2	522	706	570	67
+3008	2	570	706	618	67
+3009	2	620	706	667	67
+#wave front 
+3010	2	668	564	733	67
+3011	2	735	564	800	67
+3012	2	800	564	866	67
+3013	2	866	564	932	67
+3014	2	932	564	997	67
+3015	2	997	564	1064	67
+3016	2	1064	564	1129	67
+3017	2	1129	564	1196	67
+#foreground
+3500	0	1196	1609	1416	67
+3501	1614	856	5171	1086	67
+3502	1612	1148	2902	1282	67
+
 # ani_id	sprite1_id	time1	sprite2_id	time2	...
 [ANIMATIONS]
 #=============LOCUST===========================================
@@ -928,6 +965,8 @@ Map-Blaster-Master-Area-2-A.txt
 605	430	50	432	50	434	50	436	50	438	50	440	50	442	50	444	50	446	50	448	50	450	50	452	50	454	50	456	50
 #death
 606	457	50	459	50	461	50	463	50	465	50	467	50	469	50	471	50	473	50	475	50	477	50	479	50	481	50	483	50	485	50
+#effects
+607	487	50	488	50	489	50	490	50	491	50	492	50	493	50	494	50	495	50	496	50	497	50	498	50	499	50
 #============CHOWMEIN CONGA ==================================
 #idle
 611	500	50	501	50	502	50	503	50	504	50	505	50	506	50
@@ -1029,13 +1068,18 @@ Map-Blaster-Master-Area-2-A.txt
 # ====BARREL ROSSI LV2=========
 # ====BARREL ROSSI LV3=========
 # ====BARREL ROSSI LV4=========
-
+#background
+808	3000	100
+809	3001	100
+#foreground
+810	3500	100
+811	3501	100
+812	3502	100
 # ==== MAIN CHARACTER =========
 #idle
 2000	70001	100
 #explosion
 2001	70002	200
-
 # ==== WEAPON =========
 # Main Character
 # left
@@ -1057,7 +1101,7 @@ Map-Blaster-Master-Area-2-A.txt
 # Rossi barrel
 4	800	801	802	803	804	805	806	807
 #locust
-5	600	601	602	603	604	605	606
+5	600	601	602	603	604	605	606	607
 #chowmein conga
 6	611	612	613	614	615	616	617
 # WEAPON Player-horizontal Player-vertical Player-explode Big human-bullet Big human-explosion Cannon-bullet Cannon-explosion Eyeball-bullet Eyeball-explosion	Floater-bullet	Floater-explosion	Skull bullet left	Skull bullet right	Skull bullet explosion	Player-Rocket-right	Player-Rocket-left	Player-Rocket-up	Player-Rocket-down
@@ -1072,51 +1116,61 @@ Map-Blaster-Master-Area-2-A.txt
 11	632	633	634	635	636	637	638
 #mariner driver
 12	639	640	641	642
+#background
+13	808	809
+#foreground
+14	810	811	812
+
 
 # ITEMS
 # P
 200	900000
 [OBJECTS]
 # object_id  type	x	y	ani_set_id	extra_settings per object type
-# type: 0 = Mario , 1 = Brick, 22=Stair, 2 = Enemy1, 3 = Worm, 4 = Wheel_Left, 5 = Wheel_Middle, 6 = Wheel_right, 7= Body, 8= Barrel, 9= Main character, 10= Spider, 11=Human
-# type: 12 = Floater, 13 = Domes, 14 = Jumpers, 15 = Insect,16 = Orbs, 17 = Skulls, 18 = Dashers, 500 = PowerHub, 501 = GunHub, 42 = Legs
+# type: 0 = Background, 1 = Foreground , 2 = Enemy1, 3 = Chowmein, 4 = Brick, 5 = Wheel_Middle, 6 = Wheel_right, 7= Body, 8= Barrel, 9= Main character, 10= Spider, 11=Human
+# type: 12 = Floater, 13 = Domes, 14 = Jumpers, 15 = Insect,16 = Orbs, 17 = Skulls, 18 = Dashers, 500 = PowerHub, 22=Stair,  501 = GunHub, 42 = Legs,
 # Player need to be created first!
 1	9	0	200	2
-# Legs
-3	42	30	132	3
-# Barrel
-5	7	25	118	4
 #locust enemy
 2	16	300	200	5
+# Legs
+3	42	30	132	3
+#chowmein
+4	3	0	250	6
+# Barrel
+5	7	25	118	4
 
 # MAP OBJECT LIST
 # BRICK 
 # object_id 	type	l	t	ani_set_id	r	b	
-100	1	0	65	2	318	70
-101	1	384	65	2	511.5	70
-102	1	575.5	65	2	701.5	70
-103	1	769	65	2	1024	70
-104	1	48	65	2	81	174
-105	1	112	65	2	145	158
-106	1	176	65	2	209	174
-107	1	240	65	2	273	126
-108	1	304	65	2	337	159
-109	1	368	65	2	401	172
-110	1	432	65	2	465	173
-111	1	496	65	2	529	157
-112	1	559	65	2	592	175
-113	1	624	65	2	657	126
-114	1	688	65	2	721	175
-115	1	752	65	2	785	173
-116	1	817	65	2	850	158
-117	1	880	65	2	913	127
-118	1	2	65	2	1024	209
-120	1	2	65	2	1024	0
-121	1	978	65	2	1022	79
-
+#100	4	0	79.5	2	1024	70
+#101	4	384	79.5	2	511.5	70
+#102	4	575.5	79.5	2	701.5	70
+#103	4	769	79.5	2	1024	70
+#104	4	48	209	2	81	174
+#105	4	112	208	2	145	158
+#106	4	176	209	2	209	174
+#107	4	240	207	2	273	126
+#108	4	304	208	2	337	159
+#109	4	368	207	2	401	172
+#110	4	432	208	2	465	173
+#111	4	496	208	2	529	157
+#112	4	559	208	2	592	175
+#113	4	624	207	2	657	126
+#114	4	688	210	2	721	175
+#115	4	752	208	2	785	173
+#116	4	817	207	2	850	158
+#117	4	880	208	2	913	127
+#118	4	2	223	2	1024	209
+120	4	2	18	2	380	0
+#121	4	978	206	2	1022	79
 # --- SCENE PORTAL ----
 # object_id 	type	l	t	ani_set_id	r	b	scene_id	type_portal: 1-Next scene 0-Previous scene	next_portal_id
-1000	50	965	121.5	2	977	80.5	2	1	1000
+#1000	50	965	121.5	2	977	80.5	2	1	1000
+
+# path
+[MAP]
+Map-Blaster-Master-Area-2-A.txt
 # cellx celly id_object...
 [GRID]
 #0	0	10	104	105	119	118	122
@@ -1127,10 +1181,5 @@ Map-Blaster-Master-Area-2-A.txt
 #0	5	116	117	12	118
 #0	6	118	121
 #1	0	100	120	119	136	122	123
-1	0	2
-1	1	100	120	124	125	127
-1	2	101	120	127	128
-1	3	101	102	120	129	130
-1	4	102	103	120	130	131	132
-1	5	103	120	1000	132	133	134
-1	6	103	120	1000	121	134	135
+1	0	120
+

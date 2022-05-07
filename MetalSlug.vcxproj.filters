@@ -91,7 +91,7 @@
     <ClCompile Include="Teleporter.cpp">
       <Filter>EnemyObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Worm.cpp">
+    <ClCompile Include="Chowmein.cpp">
       <Filter>EnemyObjects</Filter>
     </ClCompile>
     <ClCompile Include="GunHub.cpp">
@@ -118,12 +118,6 @@
     <ClCompile Include="BarrelObject.cpp">
       <Filter>MainCharacterObjects</Filter>
     </ClCompile>
-    <ClCompile Include="CabinObject.cpp">
-      <Filter>MainCharacterObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Human.cpp">
-      <Filter>MainCharacterObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>MainCharacterObjects</Filter>
     </ClCompile>
@@ -135,9 +129,11 @@
     <ClCompile Include="Legs.cpp">
       <Filter>MainCharacterObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Body.cpp">
+    <ClCompile Include="Barrel.cpp">
       <Filter>MainCharacterObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Foreground.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
@@ -204,7 +200,7 @@
     <ClInclude Include="Teleporter.h">
       <Filter>EnemyObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Worm.h">
+    <ClInclude Include="Chowmein.h">
       <Filter>EnemyObjects</Filter>
     </ClInclude>
     <ClInclude Include="GunHub.h">
@@ -234,12 +230,6 @@
     <ClInclude Include="BarrelObject.h">
       <Filter>MainCharacterObjects</Filter>
     </ClInclude>
-    <ClInclude Include="CabinObject.h">
-      <Filter>MainCharacterObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Human.h">
-      <Filter>MainCharacterObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Vehicle.h">
       <Filter>MainCharacterObjects</Filter>
     </ClInclude>
@@ -251,8 +241,10 @@
     <ClInclude Include="Legs.h">
       <Filter>MainCharacterObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Body.h">
+    <ClInclude Include="Barrel.h">
       <Filter>MainCharacterObjects</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Foreground.h" />
   </ItemGroup>
 </Project>

@@ -67,7 +67,7 @@ void CGame::Init(HWND hWnd)
 /*
 	Utility function to wrap LPD3DXSPRITE::Draw 
 */
-void CGame::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha,bool flip)
+void CGame::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha,bool flip, float sc)
 {
 	//D3DXMATRIX oldMatrix;
 	//spriteHandler->GetTransform(&oldMatrix);
@@ -79,10 +79,10 @@ void CGame::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top
 	r.bottom = bottom;
 	float width = right - left;
 	float height = bottom - top;
-	int scale = 1;
+	int scale = sc;
 	D3DXVECTOR2 center = D3DXVECTOR2(p.x+(width / 2) * scale, p.y+(height / 2) * scale); 
 	//D3DXVECTOR2 translate = D3DXVECTOR2(x, y); 
-	D3DXVECTOR2 scaling = D3DXVECTOR2((flip) ? -1 : 1, 1);
+	D3DXVECTOR2 scaling = D3DXVECTOR2((flip) ? -sc : sc, sc);
 	float angle = 0;
 	D3DXMATRIX newMatrix;
 	D3DXMatrixTransformation2D(
@@ -122,14 +122,14 @@ void CGame::SetRenderData(D3DXVECTOR2& center, D3DXVECTOR2& translate, D3DXVECTO
 	
 	
 }
-void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip )
+void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float sc )
 {
 	float width = right - left;
 	float height = bottom - top;
-	int scale = 1;
+	int scale = sc;
 	D3DXVECTOR2 center= D3DXVECTOR2(flip?(width/2)*scale - width*scale: (width / 2) * scale,(height/2)*scale);
 	D3DXVECTOR2 translate= D3DXVECTOR2(flip?x+width*scale:x,y); 
-	D3DXVECTOR2 scaling= D3DXVECTOR2((flip) ? -1 : 1, 1);
+	D3DXVECTOR2 scaling= D3DXVECTOR2((flip) ? -sc : sc, sc);
 	float angle=0;
 	SetRenderData(center, translate, scaling);
 	RECT r;
@@ -154,7 +154,7 @@ void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture,
 	spriteHandler->Draw(texture, &r, NULL, NULL, D3DCOLOR_ARGB(alpha, 255,255,255));
 
 }
-void CGame::DrawWithoutTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip)
+void CGame::DrawWithoutTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float sc)
 {
 	RECT r;
 	r.left = left;

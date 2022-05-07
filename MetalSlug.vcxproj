@@ -149,12 +149,12 @@
   <ItemGroup>
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Arrow.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="BarrelObject.cpp" />
-    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="Barrel.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossScence.cpp" />
     <ClCompile Include="Brick.cpp" />
-    <ClCompile Include="CabinObject.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="Coupling.cpp" />
@@ -165,12 +165,12 @@
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Eyeball.cpp" />
     <ClCompile Include="Floater.cpp" />
+    <ClCompile Include="Foreground.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GunHub.cpp" />
-    <ClCompile Include="Human.cpp" />
     <ClCompile Include="Insect.cpp" />
     <ClCompile Include="IntroScence.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -202,17 +202,17 @@
     <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WheelObject.cpp" />
-    <ClCompile Include="Worm.cpp" />
+    <ClCompile Include="Chowmein.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
     <ClInclude Include="Arrow.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="BarrelObject.h" />
-    <ClInclude Include="Body.h" />
+    <ClInclude Include="Barrel.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossScence.h" />
     <ClInclude Include="Brick.h" />
-    <ClInclude Include="CabinObject.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="Constant.h" />
@@ -224,13 +224,13 @@
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Eyeball.h" />
     <ClInclude Include="Floater.h" />
+    <ClInclude Include="Foreground.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GunHub.h" />
     <ClInclude Include="HovHub.h" />
-    <ClInclude Include="Human.h" />
     <ClInclude Include="Insect.h" />
     <ClInclude Include="IntroScence.h" />
     <ClInclude Include="Item.h" />
@@ -262,7 +262,7 @@
     <ClInclude Include="Vehicle.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WheelObject.h" />
-    <ClInclude Include="Worm.h" />
+    <ClInclude Include="Chowmein.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

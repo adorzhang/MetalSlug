@@ -2,6 +2,8 @@
 #include <unordered_map>
 #include "Map.h"
 #include "Sprites.h"
+#include "Background.h"
+#include "Foreground.h"
 using namespace std;
 
 class CTiledCell
@@ -38,6 +40,7 @@ typedef CTiledRow* LPTILEDROW;
 //typedef CTiledMapSet* LPTILEDMAP_SET;
 class CTiledMap :public CMap
 {
+
 protected:
 	int textureId;
 	unordered_map<int, LPTILEDROW> tiledmap_row_set;
@@ -46,16 +49,21 @@ protected:
 
 	void _ParseSection_MAP_WIDTH(string line);
 	void _ParseSection_MAP_HEIGHT(string line);
+	void _ParseSection_MAP_BACKGROUND(string line);
+	void _ParseSection_MAP_FOREGROUND(string line);
 public:
 	static CTiledMap* __instance;
 	CTiledMap();
 	//void Add(int id, LPTILEDMAP_SET tiled_map_set);
 	virtual void LoadMap(LPCWSTR filePath);
 	virtual void Render();
+	virtual void Update(DWORD dt);
 	virtual void Render(float x, float y);
 	LPTILEDROW Get(unsigned int id);
 	static CTiledMap* GetInstance();
 	virtual void Clear();
+	vector<string> getBackground() { return background; };
+	vector<string> getForeground() { return foreground; };
 };
 typedef CTiledMap* LPTILEDMAP;
 
