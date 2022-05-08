@@ -289,10 +289,14 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				//CBrick* brick = dynamic_cast<CBrick*>(e->obj);
 				if (e->ny > 0)
 				{
+					DebugOut(L"[INFO] Main character cbrick 292 \n");
 					isOnGround = true;
 				}
-				else
+				else {
+					DebugOut(L"[INFO] Main character cbrick 296 \n");
 					isOnGround = false;
+				}
+					
 			}
 			else if (dynamic_cast<CLava*>(e->obj)) // if e->obj is CLava
 			{
@@ -755,7 +759,7 @@ void CMainCharacter::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		for (int i = 0; i < list_weapon.size(); i++)
 			list_weapon[i]->Update(dt, coObjects);
 	}
-	//Cập nhật vị trí cho các đối tượng thành phần như bánh xe, cabin, human...
+
 	//Chạy hàm cập nhật của các đối tượng thành phần
 	for (int i = 0; i < componentObjects.size(); i++)
 	{
@@ -794,7 +798,7 @@ void CMainCharacter::Render()
 				componentObjects[i]->Render();
 
 			}
-			RenderBoundingBox();
+			//RenderBoundingBox();
 		}
 
 	}
@@ -802,15 +806,16 @@ void CMainCharacter::Render()
 
 void CMainCharacter::SetState(int state)
 {
-
+	
 	CGameObject::SetState(state);
-
+	
 	switch (state)
 	{
 	case MAIN_CHARACTER_STATE_RUN_RIGHT:
 		vx = MAIN_CHARACTER_RUN_SPEED;
 		nx = 1;
 		break;
+		
 	case MAIN_CHARACTER_STATE_RUN_LEFT:
 		vx = -MAIN_CHARACTER_RUN_SPEED;
 		nx = -1;
@@ -844,6 +849,7 @@ void CMainCharacter::SetState(int state)
 		vy = 0;
 		break;
 	case MAIN_CHARACTER_STATE_NONE_COLLISION:
+		DebugOut(L"[INFO] Main character none collision \n");
 		break;
 	default:
 		break;
@@ -892,14 +898,14 @@ void CMainCharacter::SetState(int state)
 			list_weapon.push_back(weapon);
 			Sound::getInstance()->Play(SOUND_ID_BULLET_FIRE);
 		}
-		else if (state == MAIN_CHARACTER_STATE_UP_BARREL)
+		/*else if (state == MAIN_CHARACTER_STATE_UP_BARREL)
 		{
 			isBeingUpBarrel = true;
-		}
+		}*/
 		else
 		{
 			isStartFire = false;
-			isBeingUpBarrel = false;
+			//isBeingUpBarrel = false;
 		}
 
 	}

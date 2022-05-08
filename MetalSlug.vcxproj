@@ -144,9 +144,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="Background.cpp" />
@@ -263,6 +260,9 @@
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WheelObject.h" />
     <ClInclude Include="Chowmein.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

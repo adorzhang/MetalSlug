@@ -25,9 +25,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossScence.cpp" />
@@ -246,5 +243,8 @@
     </ClInclude>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Foreground.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -554,14 +554,8 @@ void CPlayScene::_ParseSection_MAP(string line)
 		background->SetPosition(x, y);
 		background->SetAnimationSet(animation_sets->Get(ani_set_id));
 	}
-
-
 	
 	CTiledMapSets::GetInstance()->Add(id, tiledMap);
-
-
-
-
 }
 
 void CPlayScene::_ParseSection_GRID(string line)
@@ -667,6 +661,8 @@ void CPlayScene::Load(int _alive, int _power)
 			break;
 		}
 		}
+
+		
 	}
 
 	f.close();
@@ -705,16 +701,17 @@ void CPlayScene::Update(DWORD dt)
 		if (background) background->Update(dt);
 		if (foreground) foreground->Update(dt);
 
-		map_objects = CGrid::GetInstance()->GetList();
+		//map_objects = CGrid::GetInstance()->GetList();
+		if(map_objects.size() == 0) map_objects = CGrid::GetInstance()->GetList();
 		vector<LPGAMEOBJECT> coObjects;
 		if (map_objects.size() > 0)
 		{
 			for (auto object : map_objects)
 				coObjects.push_back(object.second);
-			//{
-				for (auto object : map_objects)
-					object.second->Update(dt, &coObjects);
-			//}
+			
+			for (auto object : map_objects)
+				object.second->Update(dt, &coObjects);
+			
 		}
 		if (player == NULL) return;
 		else
