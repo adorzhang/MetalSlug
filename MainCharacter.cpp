@@ -778,13 +778,13 @@ void CMainCharacter::Render()
 	{
 		if (state == MAIN_CHARACTER_STATE_EXPLOSION)
 		{
-			animation_set->at(MAIN_CHARACTER_ANI_EXPLOSION)->Render(x, y + 25, alpha);
+			animation_set->at(MAIN_CHARACTER_ANI_EXPLOSION)->Render(x, y + 25, alpha, false, 1, 0);
 			if (animation_set->at(MAIN_CHARACTER_ANI_EXPLOSION)->isFinish)
 				SetState(MAIN_CHARACTER_STATE_DIE);
 		}
 		else
 		{
-			animation_set->at(0)->Render(x, y, alpha);
+			animation_set->at(0)->Render(x, y, alpha, false, 1, 0);
 			// Vẽ các đối tượng weapon của nhân vật chính
 			if (list_weapon.size() > 0)
 			{

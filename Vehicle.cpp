@@ -84,7 +84,7 @@ void CVehicle::Render()
 	if (isStateOpenCabin)
 	{
 		ani = VEHICLE_ANI_MO_CABIN;
-		animation_set->at(ani)->Render(x, y+10, flip, alpha);
+		animation_set->at(ani)->Render(x, y+10, alpha, flip);
 		if (animation_set->at(ani)->isFinish)
 		{
 			animation_set->at(ani)->isFinish = false;
@@ -110,9 +110,9 @@ void CVehicle::Render()
 					isBarrelStraight = false;
 				}
 				if (nx > 0)
-					animation_set->at(ani)->Render(x - 4, y + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x - 4, y + y_delta, alpha, flip);
 				else
-					animation_set->at(ani)->Render(x + 8, y + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x + 8, y + y_delta, alpha, flip);
 			}
 			break;
 			default:
@@ -126,17 +126,17 @@ void CVehicle::Render()
 				if (vehicle_nx != nx)
 				{
 					int _ani = VEHICLE_ANI_XOAY;
-					animation_set->at(_ani)->Render(x, y+2, flip, alpha);
+					animation_set->at(_ani)->Render(x, y+2, alpha, flip);
 					if (animation_set->at(_ani)->isFinish)
 					{
-						animation_set->at(ani)->Render(x, y+2, flip, alpha);
+						animation_set->at(ani)->Render(x, y+2, alpha, flip);
 						vehicle_nx = nx;
 						animation_set->at(_ani)->isFinish = false;
 					}
 				}
 				else
 				{
-					animation_set->at(ani)->Render(x, y+2+y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x, y+2+y_delta,alpha, flip);
 
 				}
 			}

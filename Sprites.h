@@ -18,8 +18,8 @@ class CSprite
 public: 
 	CSprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 tex);
 
-	void Draw(float x, float y, int alpha = 255,bool flip=false, float scale = 1);
-	void DrawWithoutTransformation(float x, float y, int alpha = 255, bool flip = false, float scale = 1);
+	void Draw(float x, float y, int alpha = 255,bool flip=false, float scale = 1, float angle = 0);
+	void DrawWithoutTransformation(float x, float y, int alpha = 255, bool flip = false, float scale = 1, float angle = 0);
 };
 
 typedef CSprite * LPSPRITE;

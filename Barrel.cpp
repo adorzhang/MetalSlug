@@ -58,9 +58,9 @@ void CBarrel::Render()
 	case MAIN_CHARACTER_STATE_RUN_LEFT:
 		ani = BODY_ANI_IDLE;
 		if (nx > 0)
-			animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+			animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 		else
-			animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+			animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 		break;
 	case MAIN_CHARACTER_STATE_UP_BARREL:
 	{
@@ -75,9 +75,9 @@ void CBarrel::Render()
 		//isBodyUp = true;//flag to determine suitable animation
 		
 		if (nx > 0)
-			animation_set->at(ani)->Render(x + 5, y + y_delta - 10, flip, alpha);
+			animation_set->at(ani)->Render(x + 5, y + y_delta - 10, 255, flip, 1, 0);
 		else
-			animation_set->at(ani)->Render(x - 4, y + y_delta - 10, flip, alpha);
+			animation_set->at(ani)->Render(x - 4, y + y_delta - 10, 255, flip, 1, 0);
 		
 	}
 	break;
@@ -95,15 +95,15 @@ void CBarrel::Render()
 
 		if (ani == BODY_ANI_SHOOT_UP) {
 			if (nx > 0)
-				animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+				animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 			else
-				animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+				animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 		}
 		else {
 			if (nx > 0)
-				animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+				animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 			else
-				animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+				animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 		}
 	}
 	break;
@@ -112,7 +112,7 @@ void CBarrel::Render()
 		if (ani == BODY_ANI_STARE) {
 			isBodyUp = false;
 			isBodyStraight = false;
-			animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+			animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 			return;
 		}
 		else {
@@ -143,15 +143,15 @@ void CBarrel::Render()
 			
 			if (ani == BODY_ANI_SHOOT_UP) {
 				if (nx > 0)
-					animation_set->at(ani)->Render(x , y + 2 + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x , y + 2 + y_delta, 255, flip, 1, 0);
 				else
-					animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 			}
 			else {
 				if (nx > 0)
-					animation_set->at(ani)->Render(x, y + 2 + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x, y + 2 + y_delta, 255, flip, 1, 0);
 				else
-					animation_set->at(ani)->Render(x-7, y + 2 + y_delta, flip, alpha);
+					animation_set->at(ani)->Render(x-7, y + 2 + y_delta, 255, flip, 1, 0);
 			}
 
 			isBodyUp = false;

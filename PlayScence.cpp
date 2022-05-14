@@ -351,14 +351,15 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	{
 		float r = atof(tokens[5].c_str());
 		float b = atof(tokens[6].c_str());
-		if (tokens.size() > 7)
+		float a = atof(tokens[7].c_str());
+		if (tokens.size() > 8)
 		{
-			int type = atoi(tokens[7].c_str());
-			obj = new CBrick(x, y, r, b, type);
+			int type = atoi(tokens[8].c_str());
+			obj = new CBrick(x, y, r, b, a, type);
 
 		}
 		else
-			obj = new CBrick(x, y, r, b);
+			obj = new CBrick(x, y, r, b, a);
 		break;
 	}
 	case OBJECT_TYPE_EGG:

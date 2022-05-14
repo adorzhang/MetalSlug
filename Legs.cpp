@@ -77,13 +77,13 @@ void CLegs::Render()
 	if (vx == 0) {
 		//animation_set->at(ani)->isPause = true; //Dừng animation 
 		animation_set->at(ani)->isRepeat = true;
-		animation_set->at(ani)->Render(x, y - MAIN_CHARACTER_BBOX_HEIGHT, flip, alpha);
+		animation_set->at(ani)->Render(x, y - MAIN_CHARACTER_BBOX_HEIGHT, 255, flip, 1, 0);
 	}
 	else // Nhân vật di chuyển
 	{
 		//animation_set->at(ani)->isPause = false; // Tiếp tục animation đã dừng trước đó
 		animation_set->at(ani)->isRepeat = true;
-		animation_set->at(ani)->Render(x , y - MAIN_CHARACTER_BBOX_HEIGHT  + y_delta, flip, alpha);
+		animation_set->at(ani)->Render(x , y - MAIN_CHARACTER_BBOX_HEIGHT  + y_delta, 255, flip, 1, 0);
 	}
 	RenderBoundingBox();
 }

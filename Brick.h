@@ -22,7 +22,7 @@ class CBrick : public CGameObject
 	bool isDisplay;
 	bool isEnable;
 public:
-	CBrick(float l, float t, float r, float b, int type = BRICK_TYPE_NORMAL);
+	CBrick(float l, float t, float r, float b, float angle = 0, int type = BRICK_TYPE_NORMAL);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects = NULL);
 	virtual void Render();
 	virtual void GetBoundingBox(float &l, float &t, float &r, float &b);

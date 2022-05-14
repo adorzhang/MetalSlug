@@ -20,9 +20,9 @@ void CAnimation::Add(int spriteId, DWORD time)
 }
 
 // NOTE: sometimes Animation object is NULL ??? HOW ??? 
-void CAnimation::Render(float x, float y, bool flip, int alpha, float scale)
+void CAnimation::Render(float x, float y, int alpha, bool flip, float scale, float angle)
 {
-	
+	DebugOut(L"[INFO] angle %f\n", angle);
 		DWORD now = GetTickCount();
 		if (currentFrame == -1)
 		{
@@ -49,9 +49,9 @@ void CAnimation::Render(float x, float y, bool flip, int alpha, float scale)
 			
 		}
 		if(isHubObject||isIntroEndScence)
-			frames[currentFrame]->GetSprite()->DrawWithoutTransformation(x, y, alpha, flip, scale);	                     	
+			frames[currentFrame]->GetSprite()->DrawWithoutTransformation(x, y, alpha, flip, scale, angle);	                     	
 		else
-			frames[currentFrame]->GetSprite()->Draw(x, y, alpha, flip, scale);
+			frames[currentFrame]->GetSprite()->Draw(x, y, alpha, flip, scale, angle);
 	
 	
 }

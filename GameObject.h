@@ -59,6 +59,8 @@ public:
 	int ny;	//direction y
 	int state;
 
+	float angle;
+
 	DWORD dt; 
 
 	LPANIMATION_SET animation_set;

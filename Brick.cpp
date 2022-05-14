@@ -1,7 +1,7 @@
 #include "Brick.h"
 #include "Game.h"
 #include "Utils.h"
-CBrick::CBrick(float l, float t, float r, float b,int type)
+CBrick::CBrick(float l, float t, float r, float b, float angle,int type)
 {
 	
 	x = l;
@@ -9,7 +9,7 @@ CBrick::CBrick(float l, float t, float r, float b,int type)
 	y = t;
 
 	width = r - l + 1;
-
+	this->angle = angle;
 	height = -(b - t + 1);
 
 	this->type = type;
@@ -42,7 +42,8 @@ void CBrick::Render()
 		case BRICK_STATE_NONE:
 			break;
 		}
-		animation_set->at(ani)->Render(x, y);
+		animation_set->at(ani)->Render(x, y, 255, false, 1, 0.8);
+		//DebugOut(L"[INFO] Brick angle!: %f\n", this->angle);
 		RenderBoundingBox();
 	}
 	

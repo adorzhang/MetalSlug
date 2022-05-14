@@ -122,15 +122,15 @@ void CGame::SetRenderData(D3DXVECTOR2& center, D3DXVECTOR2& translate, D3DXVECTO
 	
 	
 }
-void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float sc )
+void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float scale, float angle )
 {
 	float width = right - left;
 	float height = bottom - top;
-	int scale = sc;
+
 	D3DXVECTOR2 center= D3DXVECTOR2(flip?(width/2)*scale - width*scale: (width / 2) * scale,(height/2)*scale);
 	D3DXVECTOR2 translate= D3DXVECTOR2(flip?x+width*scale:x,y); 
-	D3DXVECTOR2 scaling= D3DXVECTOR2((flip) ? -sc : sc, sc);
-	float angle=0;
+	D3DXVECTOR2 scaling= D3DXVECTOR2((flip) ? -scale : scale, scale);
+
 	SetRenderData(center, translate, scaling);
 	RECT r;
 	r.left = left;
@@ -139,7 +139,7 @@ void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture,
 	r.bottom = bottom;
 	D3DXMATRIX matrix;
 	
-
+	DebugOut(L"[INFO] angle %f -- left: %d -- right: %d\n", angle, left, right);
 	D3DXMatrixTransformation2D(
 		&matrix,
 		NULL,
@@ -154,7 +154,7 @@ void CGame::DrawWithTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture,
 	spriteHandler->Draw(texture, &r, NULL, NULL, D3DCOLOR_ARGB(alpha, 255,255,255));
 
 }
-void CGame::DrawWithoutTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float sc)
+void CGame::DrawWithoutTransformation(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha, bool flip, float scale, float angle)
 {
 	RECT r;
 	r.left = left;

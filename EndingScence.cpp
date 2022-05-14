@@ -313,7 +313,7 @@ void CEndingScence::Render()
 	{
 		isAniFive = true;
 		CAnimationSets::GetInstance()->Get(0)->at(4)->Render(20, 0);
-		CAnimationSets::GetInstance()->Get(0)->at(5)->Render(140, -220);
+		CAnimationSets::GetInstance()->Get(0)->at(5)->Render(140, -22);
 	}
 	if (isEndMoveY) {
 		CAnimationSets::GetInstance()->Get(0)->at(4)->Render(20, 0);
