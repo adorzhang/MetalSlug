@@ -22,9 +22,11 @@ CBrick::CBrick(float l, float t, float r, float b, float angle,int type)
 
 void CBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
+	CGameObject::Update(dt);
 	if (isEnable)
 	{
-
+		x += dx;
+		y += dy;
 	}
 }
 void CBrick::Render()

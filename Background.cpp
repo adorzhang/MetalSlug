@@ -10,14 +10,16 @@ CBackground::CBackground(float x, float y)
 	isEnable = true;
 
 	SetState(BACKGROUND_ANI_NORMAL);
+	vx = 0.01;
 }
 
 void CBackground::Update(DWORD dt)
 {
 	if (isEnable)
 	{
-		
+		//this->x -= this->x * 0.01;
 	}
+	//x -= 0.15;
 }
 void CBackground::Render()
 {

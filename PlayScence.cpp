@@ -701,17 +701,25 @@ void CPlayScene::Update(DWORD dt)
 	{
 		if (background) background->Update(dt);
 		if (foreground) foreground->Update(dt);
+	
 
 		//map_objects = CGrid::GetInstance()->GetList();
 		if(map_objects.size() == 0) map_objects = CGrid::GetInstance()->GetList();
 		vector<LPGAMEOBJECT> coObjects;
 		if (map_objects.size() > 0)
 		{
+			
+			float vx, vy;
+			player->GetSpeed(vx, vy);
+			foreground->SetSpeed(-vx, 0);
 			for (auto object : map_objects)
 				coObjects.push_back(object.second);
 			
-			for (auto object : map_objects)
+			for (auto object : map_objects) {
 				object.second->Update(dt, &coObjects);
+				object.second->SetSpeed(-vx, 0);
+			}
+				
 			
 		}
 		if (player == NULL) return;

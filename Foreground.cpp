@@ -14,9 +14,11 @@ CForeground::CForeground(float x, float y)
 
 void CForeground::Update(DWORD dt)
 {
+	CGameObject::Update(dt);
 	if (isEnable)
 	{
-
+		x += dx;
+		y += dy;
 	}
 }
 void CForeground::Render()
@@ -25,7 +27,7 @@ void CForeground::Render()
 	if (isEnable)
 	{
 		
-		animation_set->at(0)->Render(x*-0.001, y);
+		animation_set->at(0)->Render(x, y);
 		animation_set->at(1)->Render(x+ 1611-235, y-7);
 		animation_set->at(2)->Render(x + 1611 - 250, y-135);
 		RenderBoundingBox();
