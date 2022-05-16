@@ -146,7 +146,7 @@ void CChowmein::Render()
 			ani = CHOWMEIN_ANI_IDLE;
 			animation_set->at(ani)->isRepeat = true;
 			animation_set->at(ani)->isFinish = false;
-			animation_set->at(ani)->Render(x, y, flip);
+			animation_set->at(ani)->Render(x, y, 255, flip, 1, 0);
 			currentAni = ani;
 
 		}break;
@@ -154,7 +154,7 @@ void CChowmein::Render()
 			ani = CHOWMEIN_ANI_JUMP;
 			animation_set->at(ani)->isRepeat = true;
 			animation_set->at(ani)->isFinish = false;
-			animation_set->at(ani)->Render(x, y, flip);
+			animation_set->at(ani)->Render(x, y, 255, flip, 1, 0);
 			currentAni = ani;
 		}break;
 		case CHOWMEIN_STATE_WALKING: {
@@ -165,7 +165,7 @@ void CChowmein::Render()
 
 			animation_set->at(ani)->isRepeat = true;
 			animation_set->at(ani)->isFinish = false;
-			animation_set->at(ani)->Render(x, y, flip);
+			animation_set->at(ani)->Render(x, y, 255,flip, 1, 0);
 			currentAni = ani;
 		}break;
 		case STATE_ITEM:
@@ -182,7 +182,7 @@ void CChowmein::Render()
 			animation_set->at(ani)->isRepeat = true;
 			animation_set->at(ani)->isFinish = false;
 
-			animation_set->at(ani)->Render(x, y, flip);
+			animation_set->at(ani)->Render(x, y, 255, flip, 1, 0);
 
 			currentAni = ani;
 
